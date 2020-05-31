@@ -1,0 +1,794 @@
+<!--
+
+ - - - - - - - - Anything above this line was added by Tumblr - - - - - - - - -
+
+                                                                             -->
+<!--
+ __                      .__          __
+|  | __________________  |  | _____ _/  |_  _______  __   ____  ____   _____
+|  |/ /  _ \_  __ \__  \ |  | \__  \\   __\/  _ \  \/ / _/ ___\/  _ \ /     \
+|    <  <_> )  | \// __ \|  |__/ __ \|  | (  <_> )   /  \  \__(  <_> )  Y Y  \
+|__|_ \____/|__|  (____  /____(____  /__|  \____/ \_/ /\ \___  >____/|__|_|  /
+     \/                \/          \/                 \/     \/            \/
+                KORALATOV.COM is a blog first published in 2007.
+               It's powered by Tumblr, using the "Klanger" theme.
+        You can read about the blog at https://koralatov.com/colophon
+        You can read about its author at https://koralatov.com/about
+                                                                             -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+    <title>
+        {Title}
+            {block:PostTitle}
+                 – {PostTitle}
+            {/block:PostTitle}
+    </title>
+
+    <link href    = "{Favicon}"
+          rel     = "icon">
+
+    <link href    = "{RSS}"
+          rel     = "alternate"
+          title   = "RSS"
+          type    = "application/rss+xml">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    </style>
+
+<!-- Goatcounter analytics script. -->
+    <script data-goatcounter="https://koralatov.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js">
+    </script>
+
+    <meta content = "width=775"
+          name    = "viewport"><!-- iPhone -->
+
+<!--
+
+ ██ ▄█▀ ██▓    ▄▄▄      ███▄    █  ▄████ ▓█████  ██▀███       ▄▄▄▄ ▓██   ██▓
+ ██▄█▒ ▓██▒   ▒████▄    ██ ▀█   █ ██▒ ▀█▒▓█   ▀ ▓██ ▒ ██▒    ▓█████▄▒██  ██▒
+▓███▄░ ▒██░   ▒██  ▀█▄ ▓██  ▀█ ██▒██░▄▄▄░▒███   ▓██ ░▄█ ▒    ▒██▒ ▄██▒██ ██░
+▓██ █▄ ▒██░   ░██▄▄▄▄██▓██▒  ▐▌██▒▓█  ██▓▒▓█  ▄ ▒██▀▀█▄      ▒██░█▀  ░ ▐██▓░
+▒██▒ █▄░██████▒▓█   ▓██▒██░   ▓██░▒▓███▀▒░▒████▒░██▓ ▒██▒    ░▓█  ▀█▓░ ██▒▓░
+▒ ▒▒ ▓▒░ ▒░▓  ░▒▒   ▓▒█░ ▒░   ▒ ▒ ░▒   ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░    ░▒▓███▀▒ ██▒▒▒
+░ ░▒ ▒░░ ░ ▒  ░ ▒   ▒▒ ░ ░░   ░ ▒░ ░   ░  ░ ░  ░  ░▒ ░ ▒░    ▒░▒   ░▓██ ░▒░
+░ ░░ ░   ░ ░    ░   ▒     ░   ░ ░ ░░   ░    ░     ░░   ░      ░    ░▒ ▒ ░░
+░██░▄█▀ ▒█████░  ██▀███░ ▄▄▄    ░ ██▓  ░ ▄▄▄░  ░ ▄▄▄█████▓ ▒█████   ██▒   █▓
+ ██▄█▒ ▒██▒  ██▒▓██ ▒ ██▒████▄   ▓██▒   ▒████▄   ▓  ██▒ ▓▒▒██▒  ██▒▓██░   █▒
+▓███▄░ ▒██░  ██▒▓██ ░▄█ ▒██  ▀█▄ ▒██░   ▒██  ▀█▄ ▒ ▓██░ ▒░▒██░  ██▒ ▓██  █▒░
+▓██ █▄ ▒██   ██░▒██▀▀█▄ ░██▄▄▄▄██▒██░   ░██▄▄▄▄██░ ▓██▓ ░ ▒██   ██░  ▒██ █░░
+▒██▒ █▄░ ████▓▒░░██▓ ▒██▒▓█   ▓██▒██████▒▓█   ▓██▒ ▒██▒ ░ ░ ████▓▒░   ▒▀█░
+▒ ▒▒ ▓▒░ ▒░▒░▒░ ░ ▒▓ ░▒▓░▒▒   ▓▒█░░▒░▓  ░▒▒   ▓▒█░ ▒ ░░   ░ ▒░▒░▒░    ░ ▐░
+░ ░▒ ▒░  ░ ▒ ▒░   ░▒ ░ ▒░ ▒   ▒▒ ░░░ ▒  ░ ▒   ▒▒ ░   ░      ░ ▒ ▒░    ░ ░░
+░ ░░ ░ ░ ░ ░ ▒    ░░   ░  ░   ▒    ░ ░    ░   ▒    ░      ░ ░ ░ ▒       ░░
+░  ░       ░ ░     ░          ░  ░   ░  ░     ░  ░            ░ ░        ░
+                                                                        ░
+
+                                                                             -->
+
+    <style type="text/css"
+           xml:space="preserve">
+/*
+                 ▄▄·       ▄▄▌        ▄• ▄▌▄▄▄  .▄▄ ·
+                ▐█ ▌▪▪     ██•  ▪     █▪██▌▀▄ █·▐█ ▀.
+                ██ ▄▄ ▄█▀▄ ██▪   ▄█▀▄ █▌▐█▌▐▀▀▄ ▄▀▀▀█▄
+                ▐███▌▐█▌.▐▌▐█▌▐▌▐█▌.▐▌▐█▄█▌▐█•█▌▐█▄▪▐█
+                ·▀▀▀  ▀█▄▀▪.▀▀▀  ▀█▄▀▪ ▀▀▀ .▀  ▀ ▀▀▀▀
+                         "Koralatov Key Lime"
+                Created August 2007 + Updated May 2020
+
+       Background: #EEFFF0     "Honeydew"
+       Text:       #1A281F     "Dark Jungle Green"
+       Links:      #BFFF00     "Koralatov Key Lime"
+       Hover:      #FFE74C     "Minion Yellow"
+       Highlight:  #F79F79     "Light Salmon"
+       Subheds:    #5B6960     "Feldgrau"
+
+       Swatch:
+           https://coolors.co/eefff0-1a281f-bfff00-ffe74c-f79f79-5b6960
+
+       This colour scheme is built on the original "Koralatov Key Lime"
+       shade (#BFFF00) first used in 2007, when that handle was chosen.
+*/
+
+   :root {
+           color-scheme: light dark;
+           }
+       body, html {
+               background: #eefff0;
+               margin: 0px;
+               padding: 0px;
+               border: 0px;
+               font-family: 'Merriweather',
+                            "Georgia",
+                            "Times New Roman",
+                            "Times",
+                             serif;
+               font-size: 16px;
+               font-weight: 400;
+               line-height: 150%;
+               color: #1a281f;
+           }
+       pre {
+               font-family: 'Fira Mono',
+                             monospace;
+               font-weight: 400;
+           }
+       code {
+               font-family: 'Fira Mono',
+                             monospace;
+               font-weight: 400;
+           }
+       a {
+               color: #1a281f;
+               text-decoration: none;
+               padding-top: 1px;
+               padding-bottom: 1px;
+               padding-left: 2px;
+               padding-right: 2px;
+               background: #bfff00;
+           }
+       a:hover {
+               color: #1a281f;
+               background: #ffe74c;
+           }
+       h1, h2, h3, h4 {
+               color: #5b6960;
+               font-weight: normal;
+               margin-bottom: 0px;
+           }
+       img {
+               text-decoration: none !important;
+               background: none !important;
+               margin: 0px;
+               border: 0px;
+               padding: 0px;
+           }
+       img a {
+               text-decoration: none !important;
+               background: none !important;
+               margin: 0px;
+               border: 0px;
+               padding: 0px;
+           }
+       input {
+               border: 1px solid #5b6960;
+           }
+       .photo a {
+               text-decoration: none !important;
+               background: none !important;
+               margin: 0px;
+               border: 0px;
+               padding: 0px;
+           }
+       .header {
+               margin-bottom: 20px;
+           }
+       .wrapper {
+               width: 520px;
+               margin: auto;
+           }
+       .main {
+               margin: 50px 0px;
+           }
+       .datetime {
+               font-size: 12px;
+               line-height: 150%;
+               color: #5b6960;
+               position: relative;
+               float: left;
+               margin-left: -250px;
+               padding-right: 25px;
+               border-right: 1px solid #5b6960;
+               width: 200px;
+               text-align: right;
+               clear: both;
+           }
+       .navleft {
+               font-size: 16px;
+               position: relative;
+               float: left;
+           }
+       .navright {
+               font-size: 16px;
+               position: relative;
+               float: right;
+           }
+       .navcenter {
+               font-size: 12px;
+               text-align: center;
+               width: 500px;
+           }
+       .datetime a {
+               color: #5b6960;
+           }
+       .post {
+               padding-bottom: 30px;
+           }
+       .short_quote {
+               margin: 0px;
+               padding: 0px;
+               font-size: 62px;
+               line-height: 110%;
+               color: #5b6960;
+           }
+       .medium_quote {
+               margin: 0px;
+               padding: 0px;
+               font-size: 36px;
+               line-height: 115%;
+               color: #5b6960;
+           }
+       .long_quote {
+               margin: 0px;
+               padding: 0px;
+               font-size: 24px;
+               line-height: 130%;
+               color: #5b6960;
+           }
+       a .notes {
+               text-decoration: none !important;
+               background: none;
+               font-family: 'Fira Mono',
+                             monospace;
+               padding-left: 5px;
+               padding-right: 2px;
+           }
+       .notes a {
+               text-decoration: none !important;
+               background: none;
+               font-family: 'Fira Mono',
+                             monospace;
+               padding-left: 5px;
+               padding-right: 2px;
+           }
+       img .notes {
+               margin: 0px;
+               padding: 3px;
+               border: 1px solid #5b6960;
+           }
+       .notes img {
+               margin: 0px;
+               padding: 3px;
+               border: 1px solid #5b6960;
+           }
+       .regular_post_body img {
+               max-width: 100%;
+           }
+       .search_query {
+               font-style: italic;
+           }
+
+/* Styling some standard HTML tags in Light Mode.                   */
+   abbr {
+           border-bottom: 1px dotted #5b6960;   /* "Feldgrau" */
+       }
+
+   del {
+           color: #5b6960;                     /* "Feldgrau" */
+       }
+
+   ins {
+           color: #5b6960;                     /* "Feldgrau" */
+           text-decoration: none;              /* Remove underlining. */
+       }
+
+/* Code for Tag Cloud on /tags/ page */
+
+    .tag_cloud {
+            text-align: center;
+            line-height: 220%;
+        }
+
+    .tag_cloud a {
+            margin-right: 10pt;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-left: 6px;
+            padding-right: 6px;
+            font-family: 'Fira Mono',
+                          monospace;
+            font-weight: 400;
+        }
+
+/* Change text-selection colour to "Light Salmon" from colour scheme.
+   This probably doesn't work in Internet Explorer, but that's okay.
+   The text selection colour is the same in Light and Dark Modes.
+   Source: https: //www.w3schools.com/cssref/sel_selection.asp        */
+    ::selection {
+            background: #f79f79;
+        }
+    ::-moz-selection {
+            background: #f79f79;             /* Firefox compatibility */
+        }
+
+/*
+        ·▄▄▄▄   ▄▄▄· ▄▄▄  ▄ •▄     • ▌ ▄ ·.       ·▄▄▄▄ ▄▄▄ .
+        ██▪ ██ ▐█ ▀█ ▀▄ █·█▌▄▌▪    ·██ ▐███▪▪     ██▪ ██ ▀▄.▀·
+        ▐█· ▐█▌▄█▀▀█ ▐▀▀▄ ▐▀▀▄·    ▐█ ▌▐▌▐█· ▄█▀▄ ▐█· ▐█▌▐▀▀▪▄
+        ██. ██ ▐█ ▪▐▌▐█•█▌▐█.█▌    ██ ██▌▐█▌▐█▌.▐▌██. ██ ▐█▄▄▌
+        ▀▀▀▀▀•  ▀  ▀ .▀  ▀·▀  ▀    ▀▀  █▪▀▀▀ ▀█▄▀▪▀▀▀▀▀• ▀▀▀
+                           "Midnight Lime"
+                Created April 2020 + Updated May 2020
+
+       Background: #1A281F  "Dark Jungle Green"
+       Text:       #EEFFF0  "Honeydew"
+       Links:      #BFFF00  "Koralatov Key Lime"
+       Hover:      #FFE74C  "Minion Yellow"
+       Highlight:  #F79F79  "Light Salmon"
+       Subheads:   #A7B4A8  "Ash Gray"
+
+       Swatch:
+           https: //coolors.co/1a281f-eefff0-bfff00-ffe74c-f79f79-a7b4a8
+
+       The following Dark Mode CSS intentionally specifies the bare
+       minimum.  The sizing and other elements of the code have been
+       taken out because these don't change in Dark Mode -- only the
+       colours change.
+*/
+
+    @media (prefers-color-scheme: dark) {
+        body, html {
+                background: #1a281f;
+                color: #eefff0;
+            }
+        a {
+                color: #1a281f;
+                background: #bfff00;
+            }
+        a:hover {
+                color: #1a281f;
+                background: #ffe74c;
+            }
+        h1, h2, h3, h4 {
+                color: #a7b4a8;
+            }
+        input {
+                border: 1px solid #a7b4a8;
+            }
+        .datetime {
+                color: #a7b4a8;
+                border-right: 1px solid #a7b4a8;
+            }
+        .datetime a {
+                color: #1a281f;
+            }
+        .short_quote {
+                color: #a7b4a8;
+            }
+        .medium_quote {
+                color: #a7b4a8;
+            }
+        .long_quote {
+                color: #a7b4a8;
+            }
+        a .notes {
+                text-decoration: none !important;
+                background: none;
+                color: #a7b4a8;
+            }
+        .notes a {
+                text-decoration: none !important;
+                background: none;
+                color: #a7b4a8;
+            }
+        img .notes {
+                border: 1px solid #a7b4a8;
+            }
+        .notes img {
+                border: 1px solid #a7b4a8;
+            }
+
+/* Styling some standard HTML tags in Dark Mode.                   */
+        abbr {
+                border-bottom: 1px dotted #a7b4a8;   /* "Ash Gray" */
+            }
+
+        del {
+                color: #a7b4a8;                     /* "Ash Gray" */
+                text-decoation: none;               /* Remove underlining. */
+            }
+
+        ins {
+                color: #a7b4a8;                     /* "Ash Gray" */
+            }
+        }
+
+    </style>
+
+
+  <style type="text/css">
+  div.c3 {text-transform:lowercase;}
+  p.c2 {regular_post_body}
+  p.c1 {display: none; {block:HasPages}display: block;{/block:HasPages}{block:AskEnabled}display: block;{/block:AskEnabled}{block:SubmissionsEnabled}display: block;{/block:SubmissionsEnabled}}
+  </style>
+
+
+
+</head>
+<body>
+
+    {block:Description}
+         <meta content = "{MetaDescription}"
+               name    = "description">
+    {/block:Description}
+
+    <div class="wrapper">
+
+    <div class="header">
+
+         <h1>
+             <a href="/">
+                 {Title}
+             </a>
+         </h1>
+
+        <p>
+            <a href  = "/archive"
+               title = "Archive of this site’s posts">Archive</a>
+
+                &nbsp;&nbsp;&nbsp;
+
+            <a href  = "/about"
+               title = "About this site and its author">About</a>
+
+                &nbsp;&nbsp;&nbsp;
+
+            <a href  = "/tags"
+               title = "Commonly used tags">Tags</a>
+
+                &nbsp;&nbsp;&nbsp;
+
+            <a href  = "mailto:hello@koralatov.com"
+               title = "Contact me by email">Email</a>
+        </p>
+
+    </div>
+
+    <div class="main">
+      {block:SearchPage}
+      <div class="post">
+        <div class="datetime">
+          {lang:SearchResultCount results}
+        </div>
+        {lang:Search results for SearchQuery 2}
+      </div>
+      {/block:SearchPage} {block:Posts}
+      <div class="post">
+
+    <div class="datetime">
+        {block:Date}
+            {block:NewDayDate}
+                {Month}&nbsp;{DayOfMonth},&nbsp;{Year}
+            {/block:NewDayDate}
+
+                  <br>
+              {/block:Date}
+
+
+        {block:Pagination}
+            <a href="{Permalink}">
+                {NoteCountWithLabel}
+            </a>
+
+                  <br>
+              {/block:Pagination}
+
+
+        {block:SearchPage}
+            <a href="{Permalink}">
+                {NoteCountWithLabel}
+            </a>
+
+                 <br>
+             {/block:SearchPage}
+
+
+        {block:PermalinkPage}
+            <a href="/">
+                {lang:Home}
+            </a>
+
+                  <br>
+        {/block:PermalinkPage}
+
+        {block:RebloggedFrom}
+            {lang:Reblogged from ReblogRootName 2}
+
+          <br>
+              {/block:RebloggedFrom}
+
+    </div>
+
+
+        {block:Regular} {block:Title}
+        <h2>{Title}</h2>
+        {/block:Title}
+        <p class="c2">{Body}</p>
+        {/block:Regular}
+
+
+    {block:Photo}
+<!--
+       ___  __        __         ___          __
+      / _ \/ /  ___  / /____    / _ \___  ___/ /_
+     / ___/ _ \/ _ \/ __/ _ \  / ___/ _ \(_-< __/
+    /_/  /_//_/\___/\__/\___/ /_/   \___/___|__/
+                                                                             -->
+         <span class="photo">
+             {LinkOpenTag}
+                <img alt   = "{PhotoAlt}"
+                     src   = "{PhotoURL-500}"
+                     title = "{PhotoAlt}">
+             {LinkCloseTag}
+         </span>
+
+            <p>
+                {Caption}
+            </p>
+        {/block:Photo}
+
+
+        {block:Quote}
+<!--
+      ____           __        ___          __
+     / __ \__ _____ / /____   / _ \___  ___/ /_
+    / /_/ / // / _ / __/ -_) / ___/ _ \(_-/ __/
+    \___\_\_,_/\___\__/\__/ /_/   \___/___\__/
+                                                                             -->
+
+        <p>
+            <span class="{Length}_quote">
+                {Quote}
+            </span>
+        </p>
+
+        {block:Source}
+            <p>
+                —&nbsp;{Source}
+            </p>
+        {/block:Source}
+
+    {/block:Quote}
+
+
+    {block:Video}
+<!--
+     _   ___    __           ___          __
+    | | / (_)__/ /__ ___    / _ \___  ___/ /_
+    | |/ / / _  / -_) _ \  / ___/ _ \(_-< __/
+    |___/_/\_,_/\__/\___/ /_/   \___/___|__/
+                                                                             -->
+        {Video-500}
+            <p>
+                {Caption}
+            </p>
+    {/block:Video}
+
+
+    {block:Audio}
+<!--
+       ___          ___        ___          __
+      / _ |__ _____/ (_)__    / _ \___  ___/ /_
+     / __ / // / _  / / _ \  / ___/ _ \(_-< __/
+    /_/ |_\_,_/\_,_/_/\___/ /_/   \___/___|__/
+                                                                             -->
+        {AudioPlayerGrey}
+            <p>
+                {Caption}
+            </p>
+    {/block:Audio}
+
+
+    {block:Link}
+<!--
+       __   _      __     ___          __
+      / /  (_)__  / /__  / _ \___  ___/ /_
+     / /__/ / _ \/  '_/ / ___/ _ \(_-< __/
+    /____/_/_//_/_/\_\ /_/   \___/___|__/
+                                                                             -->
+
+        <h2>
+            <a href="{URL}">{Name}</a>&nbsp;→
+        </h2>
+
+        {block:Description}
+            <p>
+                {Description}
+            </p>
+        {/block:Description}
+    {/block:Link}
+
+
+    {block:Conversation}
+<!--
+      _______        __    ___          __
+     / ___/ /  ___ _/ /_  / _ \___  ___/ /_
+    / /__/ _ \/ _ `/ __/ / ___/ _ \(_-< __/
+    \___/_//_/\_,_/\__/ /_/   \___/___|__/
+                                                                             -->
+        {block:Title}
+            <h2>
+                {Title}
+            </h2>
+        {/block:Title}
+
+            <p>
+                {block:Lines}
+                    {block:Label}
+                        <strong>{Label}</strong>
+                    {/block:Label}
+
+                        {Line} <br/>
+                {/block:Lines}
+            </p>
+        {/block:Conversation}
+
+      </div>
+      {/block:Posts}
+
+
+    {block:PermalinkPage}
+        {block:PostNotes}
+            <div class="post">
+                <h3>{lang:Notes}</h3>
+
+                <p>
+                    {PostNotes}
+                </p>
+            </div>
+        {/block:PostNotes}
+    {/block:PermalinkPage}
+
+
+    {block:Pagination}
+<!--
+       ___                  _  __          _           __  _
+      / _ \___ ____ ____   / |/ /__ __  __(_)__ ____ _/ /_(_)__  ___
+     / ___/ _ `/ _ `/ -_) /    / _ `/ |/ / / _ `/ _ `/ __/ / _ \/ _ \
+    /_/   \_,_/\_, /\__/ /_/|_/\_,_/|___/_/\_, /\_,_/\__/_/\___/_//_/
+              /___/                       /___/
+                                                                             -->
+        {block:NextPage}
+            <div class="navleft"
+                 style="text-transform:lowercase;">
+
+                &larr;&nbsp;
+                    <a href="{NextPage}">{lang:Older Posts}</a>
+
+            </div>
+        {/block:NextPage}
+
+        {block:PreviousPage}
+            <div class="navright"
+                 style="text-transform:lowercase;">
+                    <a href="{PreviousPage}">{lang:Newer Posts}</a>
+                &nbsp;&rarr;
+            </div>
+        {/block:PreviousPage}
+
+            <div class="navcenter">
+                <span class="long_quote">
+                    {CurrentPage}.
+                </span>
+            </div>
+
+    {/block:Pagination}
+
+    {block:PermalinkPagination}
+
+        {block:NextPost}
+            <div class="navleft"
+                 style="text-transform:lowercase;">
+                &larr;&nbsp;
+                    <a href="{NextPost}">{lang:Next post}</a>
+            </div>
+        {/block:NextPost}
+
+        {block:PreviousPost}
+            <div class="navright"
+                 style="text-transform:lowercase;">
+                    <a href="{PreviousPost}">{lang:Previous post}</a>
+                &nbsp;&rarr;
+            </div>
+        {/block:PreviousPost}
+
+    {/block:PermalinkPagination}
+
+    </div>
+
+
+    <div class="post navcenter">
+<!--
+       ___                  ____          __
+      / _ \___ ____ ____   / __/__  ___  / /____ ____
+     / ___/ _ `/ _ `/ -_) / _// _ \/ _ \/ __/ -_) __/
+    /_/   \_,_/\_, /\__/ /_/  \___/\___/\__/\__/_/
+              /___/
+                                                                             -->
+        <a href  = "/"
+           title = "Return to this site’s home page">{lang:Home}</a>
+
+            &nbsp;&nbsp;&nbsp;
+
+    <!--
+        <a href  = "/archive"
+           title = "This site’s archive of posts">Archive</a>
+
+            &nbsp;&nbsp;&nbsp;
+    -->
+
+        <a href  = "/colophon"
+           title = "This site’s colophon">Colophon</a>
+
+            &nbsp;&nbsp;&nbsp;
+
+        <a href  = "mailto:hello@koralatov.com"
+           title = "Contact me by email">Contact</a>
+
+            &nbsp;&nbsp;&nbsp;
+
+        <a href="{RSS}"
+           title="Subscribe to this site by RSS">{lang:RSS}</a>
+
+            &nbsp;&nbsp;&nbsp;
+
+        <a href  = "https://koralatov.com/copyright"
+           title = "This site’s copyright information page"
+           class = "shy_link">
+    <!-- Non-breaking space so that "(c) 20XX" doesn’t break up. -->
+                &copy;&nbsp;<script>
+                                document.write(new Date().getFullYear())
+                            </script></a>
+
+<!--
+         This script retrieves the current year automatically so that
+         the copyright notice is always up to date.
+
+         I've been using this script for at least 15 years but I can't
+         remember where I got it from.  I didn't write it.  In lieu of
+         crediting the person I stole it from, I'll credit this post on
+         StackOverflow: https://stackoverflow.com/a/4562604
+
+         Thanks, T. J. Crowder!
+                                                                     -->
+
+        <form action  = "/search"
+              method  = "get">
+
+            &nbsp;&nbsp;&nbsp;
+
+            <input name  = "q" type="text"
+                   value = "{SearchQuery}">&nbsp;&nbsp;
+            <input type  = "submit"
+                   value = "{lang:Search}">
+        </form>
+
+    </div>
+
+  </div>
+
+<!--
+        Here are all three of my pets, reproduced in glorious ASCII.
+
+                                       .-"-.
+             ^...^        |\./|       /|^ ^|\
+            (=^I^=) ))   =(^,^)=))   {/(_0_)\}
+             / " \ ((      | | ((     _/ ^ \_))
+            ( |"| )))     (|||)))    (/ /'\ \)
+            ==m m==       =m'm=       ""' '""
+             BEAU         SAFFY        RUBY
+                                                                             -->
+
+<!--
+
+ - - - - - - - - Anything below this line was added by Tumblr - - - - - - - - -
+
+                                                                             -->
+</body>
+</html>
