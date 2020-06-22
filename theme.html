@@ -264,6 +264,21 @@
                font-style: italic;
            }
 
+/* Styling 'shy' links -- still links, but less obviously so.       */
+       .shy_link a {
+               text-decoration: none;
+               padding-top: 1px;
+               padding-bottom: 1px;
+               padding-left: 2px;
+               padding-right: 2px;
+               border-bottom: 1px solid #bfff00;
+            }
+
+       .shy_link a:hover {
+               color: #1a281f;
+               border-bottom: 1px solid #ffe74c;
+            }
+
 /* Styling some standard HTML tags in Light Mode.                   */
    abbr {
            border-bottom: 1px dotted #5b6960;   /* "Feldgrau" */
@@ -724,23 +739,26 @@
     -->
 
         <a href  = "/colophon"
+           class = "footer_link"
            title = "This site’s colophon">Colophon</a>
 
             &nbsp;&nbsp;&nbsp;
 
         <a href  = "mailto:hello@koralatov.com"
+           class = "footer_link"
            title = "Contact me by email">Contact</a>
 
             &nbsp;&nbsp;&nbsp;
 
-        <a href="{RSS}"
-           title="Subscribe to this site by RSS">{lang:RSS}</a>
+        <a href  = "{RSS}"
+           class = "footer_link"
+           title = "Subscribe to this site by RSS">{lang:RSS}</a>
 
             &nbsp;&nbsp;&nbsp;
 
         <a href  = "https://koralatov.com/copyright"
-           title = "This site’s copyright information page"
-           class = "shy_link">
+           class = "shy_link"
+           title = "This site’s copyright information page">
     <!-- Non-breaking space so that "(c) 20XX" doesn’t break up. -->
                 &copy;&nbsp;<script>
                                 document.write(new Date().getFullYear())
