@@ -73,34 +73,35 @@
 
     <style type="text/css"
            xml:space="preserve">
+
 /*
-                 ▄▄·       ▄▄▌        ▄• ▄▌▄▄▄  .▄▄ ·
-                ▐█ ▌▪▪     ██•  ▪     █▪██▌▀▄ █·▐█ ▀.
-                ██ ▄▄ ▄█▀▄ ██▪   ▄█▀▄ █▌▐█▌▐▀▀▄ ▄▀▀▀█▄
-                ▐███▌▐█▌.▐▌▐█▌▐▌▐█▌.▐▌▐█▄█▌▐█•█▌▐█▄▪▐█
-                ·▀▀▀  ▀█▄▀▪.▀▀▀  ▀█▄▀▪ ▀▀▀ .▀  ▀ ▀▀▀▀
-                         "Koralatov Key Lime"
-                Created August 2007 + Updated May 2020
-
-       Background: #EEFFF0     "Honeydew"
-       Text:       #1A281F     "Dark Jungle Green"
-       Links:      #BFFF00     "Koralatov Key Lime"
-       Hover:      #FFE74C     "Minion Yellow"
-       Highlight:  #F79F79     "Light Salmon"
-       Subheds:    #5B6960     "Feldgrau"
-
-       Swatch:
-           https://coolors.co/eefff0-1a281f-bfff00-ffe74c-f79f79-5b6960
-
-       This colour scheme is built on the original "Koralatov Key Lime"
-       shade (#BFFF00) first used in 2007, when that handle was chosen.
-*/
+ *               ▄▄·       ▄▄▌        ▄• ▄▌▄▄▄  .▄▄ ·
+ *              ▐█ ▌▪▪     ██•  ▪     █▪██▌▀▄ █·▐█ ▀.
+ *              ██ ▄▄ ▄█▀▄ ██▪   ▄█▀▄ █▌▐█▌▐▀▀▄ ▄▀▀▀█▄
+ *              ▐███▌▐█▌.▐▌▐█▌▐▌▐█▌.▐▌▐█▄█▌▐█•█▌▐█▄▪▐█
+ *              ·▀▀▀  ▀█▄▀▪.▀▀▀  ▀█▄▀▪ ▀▀▀ .▀  ▀ ▀▀▀▀
+ *                       "Koralatov Key Lime"
+ *              Created August 2007 + Updated May 2020
+ */
+        --Honeydew:             #EEFFF0     /* Background. */
+        --Dark-Jungle-Green:    #1A281F     /* Text. */
+        --Koralatov-Key-Lime:   #BFFF00     /* Links. */
+        --Minion-Yellow:        #FFE74C     /* Hover. */
+        --Light-Salmon:         #F79F79     /* Highlight. */
+        --Feldgrau:             #5B6960     /* Subheds. */
+/*
+ *     Swatch:
+ *         https://coolors.co/eefff0-1a281f-bfff00-ffe74c-f79f79-5b6960
+ *
+ *     This colour scheme is built on the original "Koralatov Key Lime"
+ *     shade (#BFFF00) first used in 2007, when that handle was chosen.
+ */
 
    :root {
            color-scheme: light dark;
            }
        body, html {
-               background: #eefff0;
+               background: var(--Honeydew);
                margin: 0px;
                padding: 0px;
                border: 0px;
@@ -112,7 +113,7 @@
                font-size: 16px;
                font-weight: 400;
                line-height: 150%;
-               color: #1a281f;
+               color: var(--Dark-Jungle-Green);
            }
        pre {
                font-family: 'Fira Mono',
@@ -125,20 +126,20 @@
                font-weight: 400;
            }
        a {
-               color: #1a281f;
+               color: var(--Dark-Jungle-Green);
                text-decoration: none;
                padding-top: 1px;
                padding-bottom: 1px;
                padding-left: 2px;
                padding-right: 2px;
-               background: #bfff00;
+               background: var(--Koralatov-Key-Lime);
            }
        a:hover {
-               color: #1a281f;
-               background: #ffe74c;
+               color: var(--Dark-Jungle-Green);
+               background: var(--Minion-Yellow);
            }
        h1, h2, h3, h4 {
-               color: #5b6960;
+               color: var(--Feldgrau);
                font-weight: normal;
                margin-bottom: 0px;
            }
@@ -157,7 +158,7 @@
                padding: 0px;
            }
        input {
-               border: 1px solid #5b6960;
+               border: 1px solid var(--Feldgrau);
            }
        .photo a {
                text-decoration: none !important;
@@ -179,12 +180,12 @@
        .datetime {
                font-size: 12px;
                line-height: 150%;
-               color: #5b6960;
+               color: var(--Feldgrau);
                position: relative;
                float: left;
                margin-left: -250px;
                padding-right: 25px;
-               border-right: 1px solid #5b6960;
+               border-right: 1px solid var(--Feldgrau);
                width: 200px;
                text-align: right;
                clear: both;
@@ -205,7 +206,7 @@
                width: 500px;
            }
        .datetime a {
-               color: #5b6960;
+               color: var(--Feldgrau);
            }
        .post {
                padding-bottom: 30px;
@@ -215,21 +216,21 @@
                padding: 0px;
                font-size: 62px;
                line-height: 110%;
-               color: #5b6960;
+               color: var(--Feldgrau);
            }
        .medium_quote {
                margin: 0px;
                padding: 0px;
                font-size: 36px;
                line-height: 115%;
-               color: #5b6960;
+               color: var(--Feldgrau);
            }
        .long_quote {
                margin: 0px;
                padding: 0px;
                font-size: 24px;
                line-height: 130%;
-               color: #5b6960;
+               color: var(--Feldgrau);
            }
        a .notes {
                text-decoration: none !important;
@@ -250,12 +251,12 @@
        img .notes {
                margin: 0px;
                padding: 3px;
-               border: 1px solid #5b6960;
+               border: 1px solid var(--Feldgrau);
            }
        .notes img {
                margin: 0px;
                padding: 3px;
-               border: 1px solid #5b6960;
+               border: 1px solid var(--Feldgrau);
            }
        .regular_post_body img {
                max-width: 100%;
@@ -271,25 +272,25 @@
                padding-bottom: 1px;
                padding-left: 2px;
                padding-right: 2px;
-               border-bottom: 1px solid #bfff00;
+               border-bottom: 1px solid var(--Koralatov-Key-Lime);
             }
 
        .shy_link a:hover {
-               color: #1a281f;
-               border-bottom: 1px solid #ffe74c;
+               color: var(--Dark-Jungle-Green);
+               border-bottom: 1px solid var(--Minion-Yellow);
             }
 
 /* Styling some standard HTML tags in Light Mode.                   */
    abbr {
-           border-bottom: 1px dotted #5b6960;   /* "Feldgrau" */
+           border-bottom: 1px dotted var(--Feldgrau);
        }
 
    del {
-           color: #5b6960;                     /* "Feldgrau" */
+           color: var(--Feldgrau);
        }
 
    ins {
-           color: #5b6960;                     /* "Feldgrau" */
+           color: var(--Feldgrau);
            text-decoration: none;              /* Remove underlining. */
        }
 
@@ -316,101 +317,102 @@
    The text selection colour is the same in Light and Dark Modes.
    Source: https: //www.w3schools.com/cssref/sel_selection.asp        */
     ::selection {
-            background: #f79f79;
-        }
+        background: var(--Light-Salmon);
+    }
+
     ::-moz-selection {
-            background: #f79f79;             /* Firefox compatibility */
-        }
+        background: var(--Light-Salmon);     /* Firefox compatibility */
+    }
 
 /*
-        ·▄▄▄▄   ▄▄▄· ▄▄▄  ▄ •▄     • ▌ ▄ ·.       ·▄▄▄▄ ▄▄▄ .
-        ██▪ ██ ▐█ ▀█ ▀▄ █·█▌▄▌▪    ·██ ▐███▪▪     ██▪ ██ ▀▄.▀·
-        ▐█· ▐█▌▄█▀▀█ ▐▀▀▄ ▐▀▀▄·    ▐█ ▌▐▌▐█· ▄█▀▄ ▐█· ▐█▌▐▀▀▪▄
-        ██. ██ ▐█ ▪▐▌▐█•█▌▐█.█▌    ██ ██▌▐█▌▐█▌.▐▌██. ██ ▐█▄▄▌
-        ▀▀▀▀▀•  ▀  ▀ .▀  ▀·▀  ▀    ▀▀  █▪▀▀▀ ▀█▄▀▪▀▀▀▀▀• ▀▀▀
-                           "Midnight Lime"
-                Created April 2020 + Updated May 2020
-
-       Background: #1A281F  "Dark Jungle Green"
-       Text:       #EEFFF0  "Honeydew"
-       Links:      #BFFF00  "Koralatov Key Lime"
-       Hover:      #FFE74C  "Minion Yellow"
-       Highlight:  #F79F79  "Light Salmon"
-       Subheads:   #A7B4A8  "Ash Gray"
-
-       Swatch:
-           https: //coolors.co/1a281f-eefff0-bfff00-ffe74c-f79f79-a7b4a8
-
-       The following Dark Mode CSS intentionally specifies the bare
-       minimum.  The sizing and other elements of the code have been
-       taken out because these don't change in Dark Mode -- only the
-       colours change.
-*/
+ *      ·▄▄▄▄   ▄▄▄· ▄▄▄  ▄ •▄     • ▌ ▄ ·.       ·▄▄▄▄  ▄▄▄ .
+ *      ██▪ ██ ▐█ ▀█ ▀▄ █·█▌▄▌▪    ·██ ▐███▪▪     ██▪ ██ ▀▄.▀·
+ *      ▐█· ▐█▌▄█▀▀█ ▐▀▀▄ ▐▀▀▄·    ▐█ ▌▐▌▐█· ▄█▀▄ ▐█· ▐█▌▐▀▀▪▄
+ *      ██. ██ ▐█ ▪▐▌▐█•█▌▐█.█▌    ██ ██▌▐█▌▐█▌.▐▌██. ██ ▐█▄▄▌
+ *      ▀▀▀▀▀•  ▀  ▀ .▀  ▀·▀  ▀    ▀▀  █▪▀▀▀ ▀█▄▀▪▀▀▀▀▀•  ▀▀▀
+ *                         "Midnight Lime"
+ *              Created April 2020 + Updated May 2020
+ */
+        --Dark-Jungle-Green:    #1A281F     /* Background. */
+        --Honeydew:             #EEFFF0     /* Text. */
+        --Koralatov-Key-Lime:   #BFFF00     /* Links. */
+        --Minion-Yellow:        #FFE74C     /* Hover. */
+        --Light-Salmon:         #F79F79     /* Highlight. */
+        --Feldgrau:             #5A7B4A     /* Subheds. */
+/*
+ *     Swatch:
+ *         https://coolors.co/1a281f-eefff0-bfff00-ffe74c-f79f79-a7b4a8
+ *
+ *     The following Dark Mode CSS intentionally specifies the bare
+ *     minimum.  The sizing and other elements of the code have been
+ *     taken out because these don't change in Dark Mode -- only the
+ *     colours change.
+ */
 
     @media (prefers-color-scheme: dark) {
         body, html {
-                background: #1a281f;
-                color: #eefff0;
+                background: var(--Dark-Jungle-Green);
+                color: var(--Honeydew);
             }
         a {
-                color: #1a281f;
-                background: #bfff00;
+                color: var(--Dark-Jungle-Green);
+                background: var(--Koralatov-Key-Lime);
             }
         a:hover {
-                color: #1a281f;
-                background: #ffe74c;
+                color: var(--Dark-Jungle-Green);
+                background: var(--Minion-Yellow);
             }
         h1, h2, h3, h4 {
-                color: #a7b4a8;
+                color: var(--Ash-Gray);
             }
         input {
-                border: 1px solid #a7b4a8;
+                border: 1px solid var(--Ash-Gray);
             }
         .datetime {
-                color: #a7b4a8;
-                border-right: 1px solid #a7b4a8;
+                color: var(--Ash-Gray);
+                border-right: 1px solid var(--Ash-Gray);
             }
         .datetime a {
-                color: #1a281f;
+                color: var(--Dark-Jungle-Green);
             }
         .short_quote {
-                color: #a7b4a8;
+                color: var(--Ash-Gray);
             }
         .medium_quote {
-                color: #a7b4a8;
+                color: var(--Ash-Gray);
             }
         .long_quote {
-                color: #a7b4a8;
+                color: var(--Ash-Gray);
             }
         a .notes {
                 text-decoration: none !important;
                 background: none;
-                color: #a7b4a8;
+                color: var(--Ash-Gray);
             }
         .notes a {
                 text-decoration: none !important;
                 background: none;
-                color: #a7b4a8;
+                color: var(--Ash-Gray);
             }
         img .notes {
-                border: 1px solid #a7b4a8;
+                border: 1px solid var(--Ash-Gray);
             }
         .notes img {
-                border: 1px solid #a7b4a8;
+                border: 1px solid var(--Ash-Gray);
             }
 
 /* Styling some standard HTML tags in Dark Mode.                   */
         abbr {
-                border-bottom: 1px dotted #a7b4a8;   /* "Ash Gray" */
+                border-bottom: 1px dotted var(--Ash-Gray);
             }
 
         del {
-                color: #a7b4a8;                     /* "Ash Gray" */
+                color: var(--Ash-Gray);
                 text-decoation: none;               /* Remove underlining. */
             }
 
         ins {
-                color: #a7b4a8;                     /* "Ash Gray" */
+                color: var(--Ash-Gray);
             }
         }
 
