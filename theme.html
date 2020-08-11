@@ -28,8 +28,14 @@
             {/block:PostTitle}
     </title>
 
-    <link href    = "{Favicon}"
-          rel     = "icon">
+<!--
+    Using a Base64 encoded favico instead of an image removes an HTTP
+    request.  I stole the idea from this comment on Hacker News:
+    https://news.ycombinator.com/item?id=24111105
+    and I used this site to convert the image: www.base64-image.de
+-->
+    <link rel="icon"
+          href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA1BMVEXA/wCl8VboAAAAC0lEQVQI12MgEQAAADAAAWV61nwAAAAASUVORK5CYII=">
 
     <link href    = "{RSS}"
           rel     = "alternate"
