@@ -95,12 +95,11 @@
  *                       "Koralatov Key Lime"
  *             Created August 2007 + Updated March 2021
  */
-    :root { --Honeydew:             #f5f5f5;    /* Background. */
-            --Dark-Jungle-Green:    #232323;    /* Text. */
-            --Koralatov-Key-Lime:   #bfff00;    /* Links. */
-            --Minion-Yellow:        #ffe74c;    /* Hover. */
-            --Light-Salmon:         #f79f79;    /* Highlight. */
-            --Gray-Web:             #666666;    /* Subheds. */
+    :root {
+            --off-white:  #f5f5f5;
+            --near-black: #232323;
+            --key-lime:   #bfff00;
+            --grey:       #666666;
           }
 /*
  *     Swatch:
@@ -114,7 +113,7 @@
            color-scheme: light dark;
            }
        body, html {
-               background: var(--Honeydew);
+               background: var(--off-white);
                margin: 0px;
                padding: 0px;
                border: 0px;
@@ -126,7 +125,7 @@
                font-size: 16px;
                font-weight: 400;
                line-height: 150%;
-               color: var(--Dark-Jungle-Green);
+               color: var(--near-black);
            }
        pre {
                font-family: 'Go Mono',
@@ -139,20 +138,20 @@
                font-weight: 400;
            }
        a {
-               color: var(--Dark-Jungle-Green);
+               color: var(--near-black);
                text-decoration: none;
                padding-top: 1px;
                padding-bottom: 1px;
                padding-left: 2px;
                padding-right: 2px;
-               background: var(--Koralatov-Key-Lime);
+               background: var(--key-lime);
            }
        a:hover {
-               color: var(--Dark-Jungle-Green);
-               background: var(--Minion-Yellow);
+               color: var(--grey);
+               background: none;
            }
        h1, h2, h3, h4 {
-               color: var(--Gray-Web);
+               color: var(--grey);
                font-weight: normal;
                margin-bottom: 0px;
            }
@@ -171,7 +170,7 @@
                padding: 0px;
            }
        input {
-               border: 1px solid var(--Gray-Web);
+               border: 1px solid var(--grey);
            }
        .photo a {
                text-decoration: none !important;
@@ -193,12 +192,12 @@
        .datetime {
                font-size: 12px;
                line-height: 150%;
-               color: var(--Gray-Web);
+               color: var(--grey);
                position: relative;
                float: left;
                margin-left: -250px;
                padding-right: 25px;
-               border-right: 1px solid var(--Gray-Web);
+               border-right: 1px solid var(--grey);
                width: 200px;
                text-align: right;
                clear: both;
@@ -219,7 +218,7 @@
                width: 500px;
            }
        .datetime a {
-               color: var(--Gray-Web);
+               color: var(--grey);
            }
        .post {
                padding-bottom: 30px;
@@ -229,21 +228,21 @@
                padding: 0px;
                font-size: 62px;
                line-height: 110%;
-               color: var(--Gray-Web);
+               color: var(--grey);
            }
        .medium_quote {
                margin: 0px;
                padding: 0px;
                font-size: 36px;
                line-height: 115%;
-               color: var(--Gray-Web);
+               color: var(--grey);
            }
        .long_quote {
                margin: 0px;
                padding: 0px;
                font-size: 24px;
                line-height: 130%;
-               color: var(--Gray-Web);
+               color: var(--grey);
            }
        a .notes {
                text-decoration: none !important;
@@ -264,12 +263,12 @@
        img .notes {
                margin: 0px;
                padding: 3px;
-               border: 1px solid var(--Gray-Web);
+               border: 1px solid var(--grey);
            }
        .notes img {
                margin: 0px;
                padding: 3px;
-               border: 1px solid var(--Gray-Web);
+               border: 1px solid var(--grey);
            }
        .regular_post_body img {
                max-width: 100%;
@@ -285,25 +284,25 @@
                padding-bottom: 1px;
                padding-left: 2px;
                padding-right: 2px;
-               border-bottom: 1px solid var(--Koralatov-Key-Lime);
+               border-bottom: 1px solid var(--key-lime);
             }
 
        .shy_link a:hover {
-               color: var(--Dark-Jungle-Green);
+               color: var(--near-black);
                border-bottom: 1px solid var(--Minion-Yellow);
             }
 
 /* Styling some standard HTML tags in Light Mode.                   */
    abbr {
-           border-bottom: 1px dotted var(--Gray-Web);
+           border-bottom: 1px dotted var(--grey);
        }
 
    del {
-           color: var(--Gray-Web);
+           color: var(--grey);
        }
 
    ins {
-           color: var(--Gray-Web);
+           color: var(--grey);
            text-decoration: none;              /* Remove underlining. */
        }
 
@@ -347,12 +346,9 @@
  *                         "Midnight Lime"
  *              Created April 2020 + Updated May 2020
  */
-:root { --Dark-Jungle-Green:    #1A281F;    /* Background. */
-        --Honeydew:             #EEFFF0;    /* Text. */
-        --Koralatov-Key-Lime:   #BFFF00;    /* Links. */
-        --Minion-Yellow:        #FFE74C;    /* Hover. */
-        --Light-Salmon:         #F79F79;    /* Highlight. */
-        --Quick-Silver:         #A0A3A7;    /* Subheds. */              }
+    :root {
+           --paler-grey: #a0a3a7;
+    }
 /*
  *     Swatch:
  *         https://coolors.co/1a281f-eefff0-bfff00-ffe74c-f79f79-a7b4a8
@@ -365,68 +361,68 @@
 
     @media (prefers-color-scheme: dark) {
         body, html {
-                background: var(--Dark-Jungle-Green);
-                color: var(--Honeydew);
+                background: var(--near-black);
+                color: var(--off-white);
             }
         a {
-                color: var(--Dark-Jungle-Green);
-                background: var(--Koralatov-Key-Lime);
+                color: var(--near-black);
+                background: var(--key-lime);
             }
         a:hover {
-                color: var(--Dark-Jungle-Green);
-                background: var(--Minion-Yellow);
+                color: var(--paler-grey);
+                background: none;
             }
         h1, h2, h3, h4 {
-                color: var(--Quick-Silver);
+                color: var(--paler-grey);
             }
         input {
-                border: 1px solid var(--Quick-Silver);
+                border: 1px solid var(--paler-grey);
             }
         .datetime {
-                color: var(--Quick-Silver);
-                border-right: 1px solid var(--Quick-Silver);
+                color: var(--paler-grey);
+                border-right: 1px solid var(--paler-grey);
             }
         .datetime a {
-                color: var(--Dark-Jungle-Green);
+                color: var(--near-black);
             }
         .short_quote {
-                color: var(--Quick-Silver);
+                color: var(--paler-grey);
             }
         .medium_quote {
-                color: var(--Quick-Silver);
+                color: var(--paler-grey);
             }
         .long_quote {
-                color: var(--Quick-Silver);
+                color: var(--paler-grey);
             }
         a .notes {
                 text-decoration: none !important;
                 background: none;
-                color: var(--Quick-Silver);
+                color: var(--paler-grey);
             }
         .notes a {
                 text-decoration: none !important;
                 background: none;
-                color: var(--Quick-Silver);
+                color: var(--paler-grey);
             }
         img .notes {
-                border: 1px solid var(--Quick-Silver);
+                border: 1px solid var(--paler-grey);
             }
         .notes img {
-                border: 1px solid var(--Quick-Silver);
+                border: 1px solid var(--paler-grey);
             }
 
 /* Styling some standard HTML tags in Dark Mode.                   */
         abbr {
-                border-bottom: 1px dotted var(--Quick-Silver);
+                border-bottom: 1px dotted var(--paler-grey);
             }
 
         del {
-                color: var(--Quick-Silver);
+                color: var(--paler-grey);
                 text-decoration: none;         /* Remove underlining. */
             }
 
         ins {
-                color: var(--Quick-Silver);
+                color: var(--paler-grey);
             }
         }
 
