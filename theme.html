@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
 <!--
 
  - - - - - - - - Anything above this line was added by Tumblr - - - - - - - - -
@@ -15,11 +20,6 @@
         You can read about the blog at https://koralatov.com/colophon
         You can read about its author at https://koralatov.com/about
                                                                              -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
 
     <title>
         {Title}
@@ -44,14 +44,22 @@
           title = "RSS"
           type  = "application/rss+xml">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-    </style>
+<!--
+    Google Fonts to supply Merriweather, because I haven't been able to
+    host in successfully yet.  The 2.0 version with proper small-caps
+    doesn't convert cleanly or render properly.
+-->
+    <link rel     = "preconnect"
+          href    = "https://fonts.gstatic.com">
+
+    <link href    = "https://fonts.googleapis.com/css2?family=
+                     Merriweather:ital,wght@0,400;0,700;1,400;
+                     1,700&display=swap"
+          rel     = "stylesheet">
 
     <meta content = "width=775"
           name    = "viewport">
 
-    <!-- iPhone -->
 
 <!--
 
@@ -85,14 +93,15 @@
  *              ▐███▌▐█▌.▐▌▐█▌▐▌▐█▌.▐▌▐█▄█▌▐█•█▌▐█▄▪▐█
  *              ·▀▀▀  ▀█▄▀▪.▀▀▀  ▀█▄▀▪ ▀▀▀ .▀  ▀ ▀▀▀▀
  *                       "Koralatov Key Lime"
- *              Created August 2007 + Updated May 2020
+ *             Created August 2007 + Updated March 2021
  */
-:root { --Honeydew:             #EEFFF0;    /* Background. */
-        --Dark-Jungle-Green:    #1A281F;    /* Text. */
-        --Koralatov-Key-Lime:   #BFFF00;    /* Links. */
-        --Minion-Yellow:        #FFE74C;    /* Hover. */
-        --Light-Salmon:         #F79F79;    /* Highlight. */
-        --Gray-Web:             #7E8287;    /* Subheds. */              }
+    :root { --Honeydew:             #f5f5f5;    /* Background. */
+            --Dark-Jungle-Green:    #232323;    /* Text. */
+            --Koralatov-Key-Lime:   #bfff00;    /* Links. */
+            --Minion-Yellow:        #ffe74c;    /* Hover. */
+            --Light-Salmon:         #f79f79;    /* Highlight. */
+            --Gray-Web:             #666666;    /* Subheds. */
+          }
 /*
  *     Swatch:
  *         https://coolors.co/eefff0-1a281f-bfff00-ffe74c-f79f79-5b6960
@@ -120,12 +129,12 @@
                color: var(--Dark-Jungle-Green);
            }
        pre {
-               font-family: 'Fira Mono',
+               font-family: 'Go Mono',
                              monospace;
                font-weight: 400;
            }
        code {
-               font-family: 'Fira Mono',
+               font-family: 'Go Mono',
                              monospace;
                font-weight: 400;
            }
@@ -239,7 +248,7 @@
        a .notes {
                text-decoration: none !important;
                background: none;
-               font-family: 'Fira Mono',
+               font-family: 'Go Mono',
                              monospace;
                padding-left: 5px;
                padding-right: 2px;
@@ -247,7 +256,7 @@
        .notes a {
                text-decoration: none !important;
                background: none;
-               font-family: 'Fira Mono',
+               font-family: 'Go Mono',
                              monospace;
                padding-left: 5px;
                padding-right: 2px;
@@ -311,7 +320,7 @@
             padding-bottom: 4px;
             padding-left: 6px;
             padding-right: 6px;
-            font-family: 'Fira Mono',
+            font-family: 'Go Mono',
                           monospace;
             font-weight: 400;
         }
@@ -421,16 +430,25 @@
             }
         }
 
+/* Import for Go Mono font, which is hosted on Gitlab Pages. */
+@font-face {
+    font-family: 'Go Mono';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: local('Go Mono'), local('GoMono'),
+         url(https://files.koralatov.com/fonts/go-mono.woff2) format('woff2'),
+         url(https://files.koralatov.com/fonts/go-mono.woff)  format('woff');
+}
     </style>
 
 
+<!-- TODO: Find out what the fuck this code does!! -->
   <style type="text/css">
   div.c3 {text-transform:lowercase;}
   p.c2 {regular_post_body}
   p.c1 {display: none; {block:HasPages}display: block;{/block:HasPages}{block:AskEnabled}display: block;{/block:AskEnabled}{block:SubmissionsEnabled}display: block;{/block:SubmissionsEnabled}}
   </style>
-
-
 
 </head>
 <body>
