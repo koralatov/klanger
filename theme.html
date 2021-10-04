@@ -28,6 +28,26 @@
             {/block:PostTitle}
     </title>
 
+    <meta content = "width=775"
+          name    = "viewport">
+
+<!-- Dark mode theme.  Annoyingly, the dark move version needs to be
+     *before* the light mode/default version or it doesn't work. -->
+    <meta name    = "theme-color"
+          media   = "(prefers-color-scheme: dark)"
+          content = "#93c304">
+
+<!-- This changes the status bar and overscroll areas to Key Lime. -->
+    <meta name    = "theme-color"
+          content = "#bfff00">
+
+<!-- The following meta declaration is an attempt to prevent Google from
+     using Federated Learning of Cohorts (FLoC) tracking on visitors to
+     this site.  Its effectiveness cannot be guaranteed: it depends if
+     you trust Google to respect this. I don't. -->
+    <meta http-equiv = "Permissions-Policy"
+          content    = "interest-cohort=()">
+
 <!--
     Using a Base64 encoded favico instead of an image removes an HTTP
     request.  I stole the idea from this comment on Hacker News:
@@ -49,33 +69,16 @@
     host in successfully yet.  The 2.0 version with proper small-caps
     doesn't convert cleanly or render properly.
 -->
+
     <link rel     = "preconnect"
-          href    = "https://fonts.gstatic.com">
+          href    = "https://fonts.googleapis.com">
 
-    <link href    = "https://fonts.googleapis.com/css2?family=
-                     Merriweather:ital,wght@0,400;0,700;1,400;
-                     1,700&display=swap"
+    <link rel     = "preconnect"
+          href    = "https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href    = "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap"
           rel     = "stylesheet">
-
-    <meta content = "width=775"
-          name    = "viewport">
-
-<!-- Dark mode theme.  Annoyingly, the dark move version needs to be
-     *before* the light mode/default version or it doesn't work. -->
-    <meta name    = "theme-color"
-          media   = "(prefers-color-scheme: dark)"
-          content = "#93c304">
-
-<!-- This changes the status bar and overscroll areas to Key Lime. -->
-    <meta name    = "theme-color"
-          content = "#bfff00">
-
-<!-- The following meta declaration is an attempt to prevent Google from
-     using Federated Learning of Cohorts (FLoC) tracking on visitors to
-     this site.  Its effectiveness cannot be guaranteed: it depends if
-     you trust Google to respect this. I don't. -->
-    <meta http-equiv = "Permissions-Policy"
-          content    = "interest-cohort=()">
 
 <!--
 
