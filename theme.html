@@ -94,21 +94,29 @@
  *              ·▀▀▀  ▀█▄▀▪.▀▀▀  ▀█▄▀▪ ▀▀▀ .▀  ▀ ▀▀▀▀
  *                       "Koralatov Key Lime"
  *             Created August 2007 + Updated March 2021
- */
-    :root {
-            --off-white:  #fcfcfc;
-            --near-black: #0f0f0f;
-            --key-lime:   #bfff00;
-            --grey:       #666666;
-            --highlight:  #ebffad;
-          }
-/*
- *     Swatch:
- *         https://coolors.co/eefff0-1a281f-bfff00-ffe74c-f79f79-5b6960
+ *  Swatch:
+ *       https://coolors.co/bfff00-fcfcfc-0f0f0f-666666-ebffad
  *
- *     This colour scheme is built on the original "Koralatov Key Lime"
- *     shade (#BFFF00) first used in 2007, when that handle was chosen.
+ *  This colour scheme is built on the original "Koralatov Key Lime"
+ *  shade (#BFFF00) first used in 2007, when that handle was chosen.
  */
+:root {
+    --off-white:  #fcfcfc;
+    --near-black: #0f0f0f;
+    --key-lime:   #bfff00;
+    --grey:       #666666;
+    --highlight:  #ebffad;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --off-white:  #0f0f0f;
+        --near-black: #e2e2e2;
+        --key-lime:   #93c304;
+        --grey:       #8d8d8d;  /* Lighter grey for better contrast. */
+        --highlight:  #d5f083;
+    }
+}
 
    :root {
            color-scheme: light dark;
