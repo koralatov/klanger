@@ -137,239 +137,313 @@
     }
 }
 
-   :root {
-           color-scheme: light dark;
-           }
-       body, html {
-               background: var(--off-white);
-               margin: 0px;
-               padding: 0px;
-               border: 0px;
-               font-family: 'Merriweather',
-                            "Georgia",
-                            "Times New Roman",
-                            "Times",
-                             serif;
-               font-size: 16px;
-               font-weight: 400;
-               line-height: 150%;
-               color: var(--near-black);
-           }
-       pre {
-               font-family: 'Go Mono',
-                             monospace;
-               font-weight: 400;
-           }
-       code {
-               font-family: 'Go Mono',
-                             monospace;
-               font-weight: 400;
-           }
-       a {
-               color: var(--near-black);
-               text-decoration: none;
-               padding-top: 1px;
-               padding-bottom: 1px;
-               padding-left: 2px;
-               padding-right: 2px;
-               background: var(--key-lime);
-           }
-            a.beau {
-                text-decoration: none;
-                background: #ee9b00;
-                color: #f3eace;
-            }
+:root {
+    color-scheme: light dark;
+}
 
-       a:hover {
-               color: var(--grey);
-               background: none;
-           }
-       h1, h2, h3, h4 {
-               color: var(--grey);
-               font-weight: normal;
-               margin-bottom: 0px;
-           }
-       img {
-               text-decoration: none !important;
-               background: none !important;
-               margin: 0px;
-               border: 0px;
-               padding: 0px;
-           }
-       img a {
-               text-decoration: none !important;
-               background: none !important;
-               margin: 0px;
-               border: 0px;
-               padding: 0px;
-           }
-       input {
-               border: 1px solid var(--grey);
-           }
-       .photo a {
-               text-decoration: none !important;
-               background: none !important;
-               margin: 0px;
-               border: 0px;
-               padding: 0px;
-           }
-       .header {
-               margin-bottom: 20px;
-           }
-       .wrapper {
-               width: 520px;
-               margin: auto;
-           }
-       .main {
-               margin: 50px 0px;
-           }
-       .datetime {
-               font-size: 12px;
-               line-height: 150%;
-               color: var(--grey);
-               position: relative;
-               float: left;
-               margin-left: -250px;
-               padding-right: 25px;
-               border-right: 1px solid var(--grey);
-               width: 200px;
-               text-align: right;
-               clear: both;
-           }
-       .navleft {
-               font-size: 16px;
-               position: relative;
-               float: left;
-           }
-       .navright {
-               font-size: 16px;
-               position: relative;
-               float: right;
-           }
-       .navcenter {
-               font-size: 12px;
-               text-align: center;
-               width: 500px;
-           }
-       .datetime a {
-               color: var(--grey);
-           }
-       .post {
-               padding-bottom: 30px;
-           }
-       .short_quote {
-               margin: 0px;
-               padding: 0px;
-               font-size: 62px;
-               line-height: 110%;
-               color: var(--grey);
-           }
-       .medium_quote {
-               margin: 0px;
-               padding: 0px;
-               font-size: 36px;
-               line-height: 115%;
-               color: var(--grey);
-           }
-       .long_quote {
-               margin: 0px;
-               padding: 0px;
-               font-size: 24px;
-               line-height: 130%;
-               color: var(--grey);
-           }
-       a .notes {
-               text-decoration: none !important;
-               background: none;
-               font-family: 'Go Mono',
-                             monospace;
-               padding-left: 5px;
-               padding-right: 2px;
-           }
-       .notes a {
-               text-decoration: none !important;
-               background: none;
-               font-family: 'Go Mono',
-                             monospace;
-               padding-left: 5px;
-               padding-right: 2px;
-           }
-       img .notes {
-               margin: 0px;
-               padding: 3px;
-               border: 1px solid var(--grey);
-           }
-       .notes img {
-               margin: 0px;
-               padding: 3px;
-               border: 1px solid var(--grey);
-           }
-       .regular_post_body img {
-               max-width: 100%;
-           }
-       .search_query {
-               font-style: italic;
-           }
+body, html {
+    background:  var(--off-white);
+    color:       var(--near-black);
+    margin:      0px;
+    padding:     0px;
+    border:      0px;
+    font-family: 'Merriweather',
+                 "Georgia",
+                 "Times New Roman",
+                 serif;
+    font-size:   16px;
+    font-weight: 400;
+    line-height: 150%;
+}
 
-/* Styling 'shy' links -- still links, but less obviously so.       */
-       .shy_link a {
-               text-decoration: none;
-               padding-top: 1px;
-               padding-bottom: 1px;
-               padding-left: 2px;
-               padding-right: 2px;
-               border-bottom: 1px solid var(--key-lime);
-            }
+pre {
+    font-family: 'Go Mono',
+                 "Courier"
+                 monospace;
+    font-weight: 400;
+}
 
-       .shy_link a:hover {
-               color: var(--near-black);
-               border-bottom: 1px solid var(--Minion-Yellow);
-            }
+code {
+    font-family: 'Go Mono',
+                 "Courier"
+                  monospace;
+    font-weight: 400;
+}
 
-/* Styling some standard HTML tags in Light Mode.                   */
-   abbr {
-           border-bottom: 1px dotted var(--grey);
-       }
+a {
+    background:      var(--key-lime);
+    color:           var(--near-black);
+    padding-top:     1px;
+    padding-bottom:  1px;
+    padding-left:    2px;
+    padding-right:   2px;
+    text-decoration: none;
+}
+    @media (prefers-color-scheme: dark) {
+        a {
+            color: var(--off-white);
+        }
+    }
+    a:hover {
+        color:      var(--grey);
+        background: none;
+    }
 
-   del {
-           color: var(--grey);
-       }
+a.beau {
+    background: #ee9b00;
+    color:      #f3eace;
+    text-decoration: none;
+}
+    a.beau:hover {
+        background:  #f3eace;
+        color:       #ee9b00;
+    }
+a.ruby {
+    background: #f72585;
+    color:      #fed8e9;
+    text-decoration: none;
+}
+    a.ruby:hover {
+        background: #fed8e9;
+        color:      #f72585;
+    }
+a.saffy {
+    background: var(--near-black);
+    color:      var(--key-lime);
+    text-decoration: none;
+}
+    a.saffy:hover {
+        background: none;
+        color:      var(--near-black);
+    }
 
-   ins {
-           color: var(--grey);
-           text-decoration: none;              /* Remove underlining. */
-       }
+/* Styling 'shy' links -- still links, but less obviously so.*/
+a.shy {
+    border-bottom:   4px solid var(--key-lime);
+    text-decoration: none;
+    background:      none;
+    padding-top:     1px;
+    padding-bottom:  1px;
+    padding-left:    2px;
+    padding-right:   2px;
+}
+    a.shy:hover {
+        color:         var(--grey);
+        border-bottom: none;
+    }
+
+h1, h2, h3, h4 {
+    color:         var(--grey);
+    font-weight:   normal;
+    margin-bottom: 0px;
+}
+
+img {
+    text-decoration: none !important;
+    background:      none !important;
+    margin:          0px;
+    border:          0px;
+    padding:         0px;
+}
+
+    img a {
+        text-decoration: none !important;
+        background:      none !important;
+        margin:          0px;
+        border:          0px;
+        padding:         0px;
+    }
+input[type=text] {
+    background-color: var(--off-white);
+    border: 1px solid var(--grey);
+    color: var(--near-black);
+    font-family: 'Go Mono',
+                 "Courier",
+                  monospace;
+    font-weight: 400;
+    padding: 4px;
+    margin-top: 15px;
+    }
+
+.photo a {
+    text-decoration: none !important;
+    background:      none !important;
+    margin:          0px;
+    border:          0px;
+    padding:         0px;
+}
+
+.header {
+    margin-bottom:   20px;
+}
+
+.wrapper {
+    width:           520px;
+    margin:          auto;
+}
+
+.main {
+    margin:          50px 0px;
+}
+
+.datetime {
+    font-size:       12px;
+    line-height:     150%;
+    color:           var(--grey);
+    position:        relative;
+    float:           left;
+    margin-left:     -250px;
+    padding-right:   25px;
+    border-right:    1px solid var(--grey);
+    width:           200px;
+    text-align:      right;
+    clear:           both;
+}
+
+.navleft {
+    font-size:       16px;
+    position:        relative;
+    float:           left;
+}
+
+.navright {
+    font-size:       16px;
+    position:        relative;
+    float:           right;
+}
+
+.navcenter {
+    font-size:       12px;
+    text-align:      center;
+    width:           500px;
+}
+
+.datetime a {
+    color:           var(--grey);
+}
+    @media (prefers-color-scheme: dark) {
+        .datetime a {
+            color: var(--off-white);
+        }
+        .datetime a:hover {
+            color: var(--grey);
+        }
+    }
+
+.post {
+    padding-bottom:  30px;
+}
+
+.short_quote {
+    margin:          0px;
+    padding:         0px;
+    font-size:       62px;
+    line-height:     110%;
+    color:           var(--grey);
+}
+
+.medium_quote {
+    margin:          0px;
+    padding:         0px;
+    font-size:       36px;
+    line-height:     115%;
+    color:           var(--grey);
+}
+
+.long_quote {
+    margin:          0px;
+    padding:         0px;
+    font-size:       24px;
+    line-height:     130%;
+    color:           var(--grey);
+}
+
+a .notes {
+    text-decoration: none !important;
+    background:      none;
+    font-family:     'Go Mono',
+                     monospace;
+    padding-left:    5px;
+    padding-right:   2px;
+}
+
+.notes a {
+    text-decoration: none !important;
+    background:      none;
+    font-family:     'Go Mono',
+                     monospace;
+    padding-left:    5px;
+    padding-right:   2px;
+}
+
+img .notes {
+    margin:          0px;
+    padding:         3px;
+    border:          1px solid var(--grey);
+}
+.notes img {
+    margin:          0px;
+    padding:         3px;
+    border:          1px solid var(--grey);
+}
+.regular_post_body img {
+    max-width:       100%;
+}
+.search_query {
+    font-style:      italic;
+}
+
+/* Styling some standard HTML tags in Light Mode.     */
+abbr {
+ /* Remove the underlining -- it looks cluttered.. */
+    text-decoration: none;
+}
+
+del {
+    color:           var(--grey);
+}
+
+ins {
+    color:           var(--grey);
+ /* Remove the underlining -- it looks cluttered.. */
+    text-decoration: none;
+}
 
 /* Code for Tag Cloud on /tags/ page */
 
-    .tag_cloud {
-            text-align: center;
-            line-height: 220%;
-        }
+.tag_cloud {
+    text-align:      center;
+    line-height:     220%;
+}
 
-    .tag_cloud a {
-            margin-right: 10pt;
-            padding-top: 4px;
-            padding-bottom: 4px;
-            padding-left: 6px;
-            padding-right: 6px;
-            font-family: 'Go Mono',
-                          monospace;
-            font-weight: 400;
-        }
+.tag_cloud a {
+    margin-right:    10pt;
+    padding-top:     4px;
+    padding-bottom:  4px;
+    padding-left:    6px;
+    padding-right:   6px;
+    font-family:     'Go Mono',
+                     monospace;
+    font-weight:     400;
+}
 
-/*  Change text-selection colour to "Light Salmon" from colour scheme.
- *  This probably doesn't work in Internet Explorer, but that's okay.
- *  The text selection colour is the same in Light and Dark Modes.
- *  Source: https://www.w3schools.com/cssref/sel_selection.asp
- */
-    ::selection {
-        background: var(--highlight);
-    }
-
-    ::-moz-selection {
-        background: var(--highlight);     /* Firefox compatibility */
-    }
+::selection {
+/*  Change text-selection colour to "Key Lime".  Strictly speaking, this
+ *  doesn't break my "three colours" rule so much as bend it -- this
+ *  colour is a lighter shade of Koralatov Key Lime.  This works in
+ *  pretty much every browser since 2011 or so, except Firefox, which
+ *  used a vendor prefixed version until 2018.  I removed the Firefox
+ *  compatibility from this, even though that's a more recent change
+ *  than my standard "four years' compatibility" rule of thumb.
+ *  Source: https://www.w3schools.com/cssref/sel_selection.asp */
+    background: var(--highlight);
+}
+    ::selection a {
+        background: none;
+        color: var(--near-black);
+        text-decoration: underline;
+        border-bottom: 2px solid #000000;
+}
 
 /*
  *      ·▄▄▄▄   ▄▄▄· ▄▄▄  ▄ •▄     • ▌ ▄ ·.       ·▄▄▄▄  ▄▄▄ .
@@ -379,11 +453,7 @@
  *      ▀▀▀▀▀•  ▀  ▀ .▀  ▀·▀  ▀    ▀▀  █▪▀▀▀ ▀█▄▀▪▀▀▀▀▀•  ▀▀▀
  *                         "Midnight Lime"
  *              Created April 2020 + Updated May 2020
- */
-    :root {
-           --paler-grey: #a0a3a7;
-    }
-/*
+ *
  *     Swatch:
  *         https://coolors.co/1a281f-eefff0-bfff00-ffe74c-f79f79-a7b4a8
  *
@@ -393,85 +463,18 @@
  *     colours change.
  */
 
-    @media (prefers-color-scheme: dark) {
-        body, html {
-                background: var(--near-black);
-                color: var(--off-white);
-            }
-        a {
-                color: var(--near-black);
-                background: var(--key-lime);
-            }
-        a:hover {
-                color: var(--paler-grey);
-                background: none;
-            }
-        h1, h2, h3, h4 {
-                color: var(--paler-grey);
-            }
-        input {
-                border: 1px solid var(--paler-grey);
-            }
-        .datetime {
-                color: var(--paler-grey);
-                border-right: 1px solid var(--paler-grey);
-            }
-        .datetime a {
-                color: var(--near-black);
-            }
-        .short_quote {
-                color: var(--paler-grey);
-            }
-        .medium_quote {
-                color: var(--paler-grey);
-            }
-        .long_quote {
-                color: var(--paler-grey);
-            }
-        a .notes {
-                text-decoration: none !important;
-                background: none;
-                color: var(--paler-grey);
-            }
-        .notes a {
-                text-decoration: none !important;
-                background: none;
-                color: var(--paler-grey);
-            }
-        img .notes {
-                border: 1px solid var(--paler-grey);
-            }
-        .notes img {
-                border: 1px solid var(--paler-grey);
-            }
-
-/* Styling some standard HTML tags in Dark Mode.                   */
-        abbr {
-                border-bottom: 1px dotted var(--paler-grey);
-            }
-
-        del {
-                color: var(--paler-grey);
-                text-decoration: none;         /* Remove underlining. */
-            }
-
-        ins {
-                color: var(--paler-grey);
-            }
-        }
 
 /* Import for Go Mono font, which is hosted on Gitlab Pages. */
 @font-face {
-    font-family: 'Go Mono';
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-    src: local('Go Mono'), local('GoMono'),
-         url(https://files.koralatov.com/fonts/go-mono.woff2) format('woff2'),
-         url(https://files.koralatov.com/fonts/go-mono.woff)  format('woff');
+      font-family: 'Go Mono';
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+      src: local('Go Mono'), local('GoMono'),
+    url(https://files.koralatov.com/fonts/go-mono.woff2) format('woff2'),
+    url(https://files.koralatov.com/fonts/go-mono.woff)  format('woff');
 }
-    </style>
-
+</style>
 
 <!-- TODO: Find out what the fuck this code does!! -->
   <style type="text/css">
@@ -818,7 +821,6 @@
             &nbsp;&nbsp;&nbsp;
 
         <a href  = "https://koralatov.com/copyright"
-           class = "shy_link"
            title = "This site’s copyright information page">
     <!-- Non-breaking space so that "(c) 20XX" doesn’t break up. -->
                 &copy;&nbsp;<script>
@@ -842,12 +844,61 @@
 
             &nbsp;&nbsp;&nbsp;
 
-            <input name  = "q" type="text"
-                   value = "{SearchQuery}">&nbsp;&nbsp;
+            <input name  = "q"
+                   type  = "text"
+                   value = "{SearchQuery}">
+
+                   &nbsp;&nbsp;
+
             <input type  = "submit"
                    value = "{lang:Search}">
         </form>
 
+<br>
+        <script>
+    function Quote()
+        {
+            var quotes = [
+                '“Live Free or Die”',
+                '“Nothing Good Comes Easy”',
+                '“Everyone With a Heart Votes Love”',
+                '<abbr title="Listen, watch, be still">“Aude, Vide, \
+                    Sile”</abbr>',
+                '<abbr title="Always the same">“Semper Idem”</abbr>',
+                '<abbr title="They lived">“Vixere”</abbr>',
+                '<abbr title="The die is cast">“Alea Jacta Est”</abbr>',
+                '“Nothing Good Comes Easy”',
+                '<abbr title="Where are we marching?">“Quo \
+                    Vadimus?”</abbr>',
+                '“Forty-two,” said Deep Thought, with infinite majesty \
+                    and calm.',
+                '“Short Words in Simple Sentences”',
+                '“Show Your Bones”',
+            ];
+
+            return quotes[Math.floor(Math.random()
+                                     * quotes.length)];
+        }
+
+    document.write(
+        Quote()
+    );
+</script>
+<!--
+    As with all Javascript, this was stolen from elsewhere.  I don't
+    know JavaScript.  I probably never will know JavaScript.
+
+    This script is a modification of the one posted by MrCode on
+    StackOverflow here: https://stackoverflow.com/a/14962542
+
+    It's a great piece of code.  Very simple, very easy to follow,
+    and very easy to modify for my needs.  I changed the function
+    and variable names and updated the list from which the string is
+    drawn, but it's otherwise MrCode's code.
+
+    Thanks so much, MrCode!
+                                                                     -->
+<br>
     </div>
 
   </div>
