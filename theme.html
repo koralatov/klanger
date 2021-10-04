@@ -60,6 +60,22 @@
     <meta content = "width=775"
           name    = "viewport">
 
+<!-- Dark mode theme.  Annoyingly, the dark move version needs to be
+     *before* the light mode/default version or it doesn't work. -->
+    <meta name    = "theme-color"
+          media   = "(prefers-color-scheme: dark)"
+          content = "#93c304">
+
+<!-- This changes the status bar and overscroll areas to Key Lime. -->
+    <meta name    = "theme-color"
+          content = "#bfff00">
+
+<!-- The following meta declaration is an attempt to prevent Google from
+     using Federated Learning of Cohorts (FLoC) tracking on visitors to
+     this site.  Its effectiveness cannot be guaranteed: it depends if
+     you trust Google to respect this. I don't. -->
+    <meta http-equiv = "Permissions-Policy"
+          content    = "interest-cohort=()">
 
 <!--
 
