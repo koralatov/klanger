@@ -28,32 +28,13 @@
             {/block:PostTitle}
     </title>
 
-    <meta content = "width=775"
-          name    = "viewport">
-
-<!-- Dark mode theme.  Annoyingly, the dark move version needs to be
-     *before* the light mode/default version or it doesn't work. -->
-    <meta name    = "theme-color"
-          media   = "(prefers-color-scheme: dark)"
-          content = "#93c304">
-
-<!-- This changes the status bar and overscroll areas to Key Lime. -->
-    <meta name    = "theme-color"
-          content = "#bfff00">
-
-<!-- The following meta declaration is an attempt to prevent Google from
-     using Federated Learning of Cohorts (FLoC) tracking on visitors to
-     this site.  Its effectiveness cannot be guaranteed: it depends if
-     you trust Google to respect this. I don't. -->
-    <meta http-equiv = "Permissions-Policy"
-          content    = "interest-cohort=()">
-
 <!--
     Using a Base64 encoded favico instead of an image removes an HTTP
     request.  I stole the idea from this comment on Hacker News:
     https://news.ycombinator.com/item?id=24111105
     and I used this site to convert the image: www.base64-image.de
 -->
+
     <link rel   ="icon"
           href  ="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQ
                   AQMAAAAlPW0iAAAAA1BMVEXA/wCl8VboAAAAC0lEQVQI12MgEQAAAD
@@ -80,6 +61,27 @@
     <link href    = "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap"
           rel     = "stylesheet">
 
+    <meta content = "width=775"
+          name    = "viewport">
+
+<!-- Dark mode theme: "Spring Onion".
+     Annoyingly, the dark move version needs to be *before* the light
+     mode/default version or it doesn't work. -->
+    <meta name    = "theme-color"
+          media   = "(prefers-color-scheme: dark)"
+          content = "#93c304">
+
+<!-- This changes the status bar and overscroll areas to Key Lime. -->
+    <meta name    = "theme-color"
+          content = "#bfff00">
+
+<!-- The following meta declaration is an attempt to prevent Google from
+     using Federated Learning of Cohorts (FLoC) tracking on visitors to
+     this site.  Its effectiveness cannot be guaranteed: it depends if
+     you trust Google to respect this. I don't. -->
+    <meta http-equiv = "Permissions-Policy"
+          content    = "interest-cohort=()">
+
 <!--
 
   ██ ▄██ ██▓    ▄▄▄      ███▄    █  ▄████ ▓█████  ██▀███       ▄▄▄▄ ▓██   ██▓
@@ -102,9 +104,8 @@
                                                                        ░
                                                                              -->
 
-    <style type="text/css"
-           xml:space="preserve">
-
+<style type      = "text/css"
+       xml:space = "preserve">
 /*
  *               ▄▄·       ▄▄▌        ▄• ▄▌▄▄▄  .▄▄ ·
  *              ▐█ ▌▪▪     ██•  ▪     █▪██▌▀▄ █·▐█ ▀.
@@ -113,18 +114,13 @@
  *              ·▀▀▀  ▀█▄▀▪.▀▀▀  ▀█▄▀▪ ▀▀▀ .▀  ▀ ▀▀▀▀
  *                       "Koralatov Key Lime"
  *             Created August 2007 + Updated March 2021
- *  Swatch:
- *       https://coolors.co/bfff00-fcfcfc-0f0f0f-868686-ebffad
- *
- *  This colour scheme is built on the original "Koralatov Key Lime"
- *  shade (#BFFF00) first used in 2007, when that handle was chosen.
  */
 :root {
     --off-white:  #fcfcfc;
     --near-black: #0f0f0f;
     --key-lime:   #bfff00;
-    --grey:       #868686;
-    --highlight:  #ebffad;
+    --grey:       #838383;
+    --highlight:  #defe7e;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -135,6 +131,14 @@
         --highlight:  #d5f083;
     }
 }
+
+/*
+ *     Swatch:
+ *         https://coolors.co/eefff0-1a281f-bfff00-ffe74c-f79f79-5b6960
+ *
+ *     This colour scheme is built on the original "Koralatov Key Lime"
+ *     shade (#BFFF00) first used in 2007, when that handle was chosen.
+ */
 
 :root {
     color-scheme: light dark;
@@ -234,7 +238,7 @@ a.shy {
 h1, h2, h3, h4 {
     color:         var(--grey);
     font-weight:   normal;
-    margin-bottom: 0px;
+    line-height:   140%;
 }
 
 img {
@@ -403,8 +407,6 @@ del {
 }
 
 ins {
-    color:           var(--grey);
- /* Remove the underlining -- it looks cluttered.. */
     text-decoration: none;
 }
 
@@ -844,6 +846,7 @@ ins {
             &nbsp;&nbsp;&nbsp;
 
             <input name  = "q"
+                   style = "search-box"
                    type  = "text"
                    value = "{SearchQuery}">
 
