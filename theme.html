@@ -58,7 +58,7 @@
           href    = "https://fonts.gstatic.com"
           crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap" 
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@0;1&family=Merriweather:ital,wght@0,400;0,700;1,700&display=swap"" 
           rel     = "stylesheet">
 
     <meta content = "width=775"
@@ -113,32 +113,27 @@
  *              ▐███▌▐█▌.▐▌▐█▌▐▌▐█▌.▐▌▐█▄█▌▐█•█▌▐█▄▪▐█
  *              ·▀▀▀  ▀█▄▀▪.▀▀▀  ▀█▄▀▪ ▀▀▀ .▀  ▀ ▀▀▀▀
  *                       "Koralatov Key Lime"
- *             Created August 2007 + Updated March 2021
+ *              Created August 2007 + Updated March 2022
+ *                    Web-safe colours since 2022!
+ *     Swatch:
+ *        https://coolors.co/ffffff-000000-ccff00-666666-ccff99
  */
+
 :root {
-    --off-white:  #fcfcfc;
-    --near-black: #0f0f0f;
-    --key-lime:   #bfff00;
-    --grey:       #838383;
-    --highlight:  #defe7e;
+    --off-white:  #ffffff;
+    --near-black: #000000;
+    --key-lime:   #ccff00;
+    --grey:       #666666;
+    --highlight:  #ccff99;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --off-white:  #0f0f0f;
-        --near-black: #e2e2e2;
-        --key-lime:   #93c304;
-        --highlight:  #d5f083;
+        --off-white:  #000000;
+        --near-black: #cccccc;
+        --grey:       #999999;
     }
 }
-
-/*
- *     Swatch:
- *         https://coolors.co/eefff0-1a281f-bfff00-ffe74c-f79f79-5b6960
- *
- *     This colour scheme is built on the original "Koralatov Key Lime"
- *     shade (#BFFF00) first used in 2007, when that handle was chosen.
- */
 
 :root {
     color-scheme: light dark;
@@ -161,14 +156,14 @@ body, html {
 
 pre {
     font-family: 'JetBrains Mono',
-                 "Courier"
+                 "Courier",
                  monospace;
     font-weight: 400;
 }
 
 code {
     font-family: 'JetBrains Mono',
-                 "Courier"
+                 "Courier",
                   monospace;
     font-weight: 400;
 }
