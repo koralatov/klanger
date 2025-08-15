@@ -15,7 +15,7 @@
 
 <head>
 
-<!-- 
+<!--
 ========================================================================
   ESSENTIALS, THEME, AND BROWSER SETUP
 ========================================================================
@@ -42,14 +42,14 @@
           name    = "theme-color">
 
 
-<!-- 
+<!--
 ========================================================================
   CORE PAGE INFORMATION AND SEARCH ENGINE OPTIMISATION (SEO)
 ========================================================================
   There’s no <meta name="title"> tag, so the page/post title is
  *always* derived from the <title> tag.  I’ve placed it here in
   the head to give the page a logical structure, even though
-  it’s mixed in amongst the various <meta> tags.                 
+  it’s mixed in amongst the various <meta> tags.
 -->
 
     <title>
@@ -93,7 +93,7 @@
           content = "strict-origin-when-cross-origin">
 
 
-<!-- 
+<!--
 ========================================================================
   FEEDS, FAVICONS, AND VERIFICATION
 ========================================================================
@@ -137,7 +137,7 @@
           rel     = "me">
 
 
-<!-- 
+<!--
 ========================================================================
   SOCIAL MEDIA SHARING: OPEN GRAPH AND TWITTER
 ========================================================================
@@ -228,7 +228,7 @@
           content  = "en_GB">
 
 
-<!-- 
+<!--
 ========================================================================
   ADDITIONAL STRUCTURED DATA (JSON-LD)
 ========================================================================
@@ -266,9 +266,9 @@
 </script
 
 
-<!-- 
+<!--
 ========================================================================
-  SECURITY POLICIES 
+  SECURITY POLICIES
 ========================================================================
   These Content-Security-Policy and Permissions-Policy tags are
   designed to eliminate as many possible privacy and security issues
@@ -341,7 +341,7 @@
                         xr-spatial-tracking=()">
 
 
-<!-- 
+<!--
 ========================================================================
   WEBFONTS, SERVED BY GOOGLE FONTS
 ========================================================================
@@ -361,7 +361,7 @@
           rel     = "stylesheet">
 
 
-<!-- 
+<!--
 ========================================================================
   CSS STYLESHEET, INLINE AS TUMBLR REQUIRES
 ========================================================================
@@ -450,7 +450,7 @@
  *  a consistent and predictable way when used and look how I want.
  **********************************************************************/
 
-    abbr,  ins    {  text-decoration: none;                 } 
+    abbr,  ins    {  text-decoration: none;                 }
 
     b,    strong  {  font-weight: var(--font-weight-bold);  }
 
@@ -702,14 +702,14 @@ a {
         .link-shy:hover  {  color: var(--colour-active);  }
 
     .link-source-url  {  font-family: var(--font-monospaced);  }
-    
+
     .link-nobreak,
     .link-post-permalink,
     .link-page-permalink,
     .link-reblog-source,
     .link-source-url       {  white-space: nowrap;  }
-    
-    
+
+
     a.beau {
         background: #ee9b00;
         color:      #f3eace;
@@ -718,7 +718,7 @@ a {
             background:  #f3eace;
             color:       #ee9b00;
         }
-        
+
     a.ruby {
         background: #f72585;
         color:      #fed8e9;
@@ -727,7 +727,7 @@ a {
             background: #fed8e9;
             color:      #f72585;
         }
-        
+
     a.saffy {
         background: var(--colour-text);
         color:      var(--colour-lime);
@@ -829,7 +829,7 @@ p + p {
             .notes blockquote a:hover  {  color: var(--colour-active); }
 
         .answer_content  {  font-style: italic;  }
-        
+
         .avatar  {  border: 1px solid var(--colour-grey);  }
 
 /* Classes I'm not using...
@@ -866,6 +866,8 @@ p + p {
     h3  {  font-size:   1.428rem;  }               /* 20pt equivalent */
     h4  {  font-size:   1.126rem;  }               /* 16pt equivalent */
 
+    h3.search-results-count  {  margin-top: -1em;  }
+
 
 
 /* STYLING FOR MISCELLANEOUS ELEMENTS */
@@ -900,9 +902,9 @@ hr {
     .read_more_container  {  ;  }
 
     .read_more::after  {  content: " →";  }
-    
-    
-    
+
+
+
 /* Code for Tag Cloud on /tags/ page */
 
 .tag_cloud {
@@ -963,7 +965,7 @@ hr {
 <article>
 
 {block:SearchPage}
-<!-- 
+<!--
 ========================================================================
   SEARCH PAGE BLOCK
   This exists solely to create a header on search results pages.  It
@@ -975,7 +977,7 @@ hr {
 
         <h1>Results for “{SearchQuery}”</h1>
 
-        <h3>{SearchResultCount} posts found:</h3>
+        <h3 class="search-results-count">{SearchResultCount} posts found:</h3>
 
     </section>
 
@@ -983,7 +985,7 @@ hr {
 
 
 {block:TagPage}
-<!-- 
+<!--
 ========================================================================
   TAG PAGE BLOCK
   This exists solely to create a header on tag pages.  It comes before
@@ -1045,7 +1047,7 @@ hr {
       ▐█▪·•▐█▌▐▀▐█▌.▐▌▐█▌·█▌.▐▌ SET   ▐█▪·•▐█▌.▐▌▐█▄.▐▌ ▐█▌·
       .▀   ▀▀▀ · ▀█▄▀▪▀▀▀ ▀█▄▀▪       .▀    ▀█▄▀▪ ▀▀▀▀  ▀▀▀
                                                                              -->
-                                                                             
+
     {Photoset}
 
     {block:Caption}
@@ -1159,7 +1161,7 @@ hr {
 
 
 {block:Date}
-<!-- 
+<!--
 ========================================================================
   POST METADATA BLOCK
   This appears at the bottom of every post, but is dynamically built
@@ -1173,7 +1175,7 @@ hr {
 <ul class="navigation-links">
 
 {block:RebloggedFrom}
-<!-- 
+<!--
 ========================================================================
   REBLOG BLOCK
   This is only populated if the post is a reblog.
@@ -1205,7 +1207,7 @@ hr {
 
 
 {block:ContentSource}
-<!-- 
+<!--
 ========================================================================
   SOURCE BLOCK
   This is only populated if the post has a source URL.
@@ -1378,7 +1380,7 @@ hr {
         If you’re reading this,<br/>
         JavaScript is turned off.
     </span>
-    
+
  </section>
 
 </footer>
@@ -1446,7 +1448,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     a { color: var(--colour-background); }
                     a:active { color: var(--colour-background); }
                     a svg { margin-top: 1rem; }
-                    @media (prefers-color-scheme: dark) { 
+                    @media (prefers-color-scheme: dark) {
                         a { color: var(--colour-text); }
                     }
                 `,
@@ -1535,7 +1537,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (copyrightLink) {
         copyrightLink.innerHTML = `© ${today.getFullYear()}`;
     }
-    
+
     // --- Logic for Quote ---
     const quoteElement = document.getElementById('random-quote');
     if (quoteElement) {
