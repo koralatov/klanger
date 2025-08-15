@@ -1,0 +1,1577 @@
+<!doctype html>
+<html lang="en">
+<!--
+         __                      .__          __
+        |  | __________________  |  | _____ _/  |_  _______  __
+        |  |/ /  _ \_  __ \__  \ |  | \__  \\   __\/  _ \  \/ /
+        |    <  <_> )  | \// __ \|  |__/ __ \|  | (  <_> )   /
+        |__|_ \____/|__|  (____  /____(____  /__|  \____/ \_/
+             \/                \/          \/
+            KORALATOV.COM is a blog first published in 2007.
+        It’s powered by Tumblr, using the custom “klaxon” theme.
+   You can read about the blog at https://www.koralatov.com/colophon
+    You can read about its author at https://www.koralatov.com/about
+                                                                     -->
+
+<head>
+
+<!-- 
+========================================================================
+  ESSENTIALS, THEME, AND BROWSER SETUP
+========================================================================
+-->
+
+    <meta charset = "utf-8">
+
+    <meta name    = "viewport"
+          content = "initial-scale = 1,
+                     width         = device-width">
+
+<!-- This tells the browser that a dark mode exists even before it
+     has loaded the stylesheet, so it will render its UI elements
+     in dark mode immediately if the system is in dark mode.         -->
+    <meta name    = "color-scheme"
+          content = "light dark">
+
+    <meta content = "#ffffff"
+          media   = "(prefers-color-scheme: light)"
+          name    = "theme-color">
+
+    <meta content = "#000000"
+          media   = "(prefers-color-scheme: dark)"
+          name    = "theme-color">
+
+
+<!-- 
+========================================================================
+  CORE PAGE INFORMATION AND SEARCH ENGINE OPTIMISATION (SEO)
+========================================================================
+  There’s no <meta name="title"> tag, so the page/post title is
+ *always* derived from the <title> tag.  I’ve placed it here in
+  the head to give the page a logical structure, even though
+  it’s mixed in amongst the various <meta> tags.                 
+-->
+
+    <title>
+        {block:HomePage}{Title}, a blog first published in 2007 and sporadically since.{/block:HomePage}
+        {block:PermalinkPage}{block:PostSummary}“{PostSummary}” • {/block:PostSummary}{Title}{/block:PermalinkPage}
+        {block:SearchPage}Search results for “{SearchQuery}” • {Title}{/block:SearchPage}
+        {block:TagPage}Posts tagged “{Tag}” • {Title}{/block:TagPage}
+    </title>
+
+    <link rel     = "canonical"
+          href    = "{Permalink}">
+
+
+<!-- This should be a description of the *post* or *page*, not a
+     generic description of the site for Google’s listing.           -->
+    <meta name    = "description"
+          content = "{block:IndexPage}The personal blog of Koralatov, sporadically writing about computers, cats, games, design, TV, and ‘Fallout 3’ since 2007.{/block:IndexPage}{block:PermalinkPage}{PostSummary}{/block:PermalinkPage}">
+
+<!-- This is the most approriate content rating given that I don’t
+     post anything specifically explicit, but I do swear.            -->
+    <meta name    = "rating"
+          content = "mature">
+
+    <meta name    = "generator"
+          content = "Tumblr (3.0; @koralatov)">
+
+<!-- This tells crawlers that they *can* index the site and follow
+     internal links when doing so.  The value -1 means “no limit”.   -->
+    <meta name    = "robots"
+          content = "follow,
+                     index,
+                     max-image-preview:large,
+                     max-snippet:-1,
+                     max-video-preview:-1">
+
+<!-- I *do* want destination sites to know I referred the visitor
+     to them, but I don’t want to give the specific page they were
+     viewing before clickthrough.  This will also withhold the
+     referrer information on an HTTPS-to-HTTP journey.              -->
+    <meta name    = "referrer"
+          content = "strict-origin-when-cross-origin">
+
+
+<!-- 
+========================================================================
+  FEEDS, FAVICONS, AND VERIFICATION
+========================================================================
+-->
+
+<!-- Auto-discovery link for the site’s RSS feed.                    -->
+    <link href    = "{RSS}"
+          title   = "Koralatov RSS Feed"
+          type    = "application/rss+xml"
+          rel     = "alternate">
+
+<!-- The various favicons used by the site.                          -->
+    <link rel     = "icon"
+          href    = "{Favicon}"
+          sizes   = "any">
+
+    <link rel     = "icon"
+          href    = "{PortraitURL-48}"
+          sizes   = "48x48"
+          type    = "image/png">
+
+    <link rel     = "icon"
+          href    = "{PortraitURL-128}"
+          sizes   = "128x128"
+          type    = "image/png">
+
+    <link rel     = "icon"
+          href    = "{PortraitURL-512} "
+          sizes   = "512x512"
+          type    = "image/png">
+
+    <link rel     = "apple-touch-icon"
+          href    = "{AppleTouchIcon}">
+
+<!-- Profile ‘verification’ for the few other sites I sometimes
+     actually use.                                                   -->
+    <link href    = "https://github.com/koralatov"
+          rel     = "me">
+
+    <link href    = "https://twitter.com/koralatov"
+          rel     = "me">
+
+
+<!-- 
+========================================================================
+  SOCIAL MEDIA SHARING: OPEN GRAPH AND TWITTER
+========================================================================
+-->
+
+<!-- Share sheet settings for Twitter.                               -->
+    <meta name    = "twitter:site"
+          content = "@koralatov">
+
+    <meta name    = "twitter:creator"
+          content = "@koralatov">
+
+    <!-- This tells Twitter to present the link as a large image.    -->
+    <meta name    = "twitter:card"
+          content = "summary_large_image">
+
+    <!-- The title of the post itself.                               -->
+    <meta name    = "twitter:title"
+          content = "{PostTitle}">
+
+    <!-- This is the post description on the Twitter share sheet.    -->
+    <meta name    = "twitter:description"
+          content = "{MetaDescription}">
+
+{block:Photo}
+    <!-- This is the splash image on the Twitter share sheet.        -->
+    <meta name    = "twitter:image"
+          content = "{PhotoURL-1280}">
+
+        <!-- Description of the splash image used                    -->
+        <meta name    = "twitter:image:alt"
+              content = "{PostSummary}">
+{/block:Photo}
+
+<!-- Share sheet settings for sites and services that use the
+     Open Graph protocol: Facebook, iMessage, WhatsApp, etc.         -->
+    <meta property = "og:site_name"
+          content  = "Koralatov">
+
+    <!-- The title of the post itself.                               -->
+    <meta property = "og:title"
+          content  = "{Title}">
+
+    <meta property = "og:url"
+          content  = "{Permalink}">
+
+    <!-- This is the description on the Open Graph share sheet.      -->
+    <meta property = "og:description"
+          content  = "{MetaDescription}">
+
+{block:Photo}
+    <!-- This is the splash image on the Open Graph share sheet.     -->
+    <meta property = "og:image"
+          content  = "{PhotoURL-1280}">
+    <meta property = "og:image:alt"
+          content  = "{PhotoAlt}">
+{/block:Photo}
+
+{block:Video}
+    <meta property = "og:image"
+          content  = "{VideoThumbnailURL}">
+    <meta property = "og:image:alt"
+          content  = "{VideoCaption}">
+{/block:Video}
+
+    <meta property = "og:type"
+          content  = "article">
+
+        <meta property = "article:author"
+              content  = "Koralatov">
+
+{block:Date}
+    <meta property = "article:published_time"
+          content  = "{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24Hour}:{Minutes}:00Z">
+{/block:Date}
+
+    <!--  This is one of the tags applied to the post.  There
+          needs to be one of these for each tag; there can’t
+          be multiple tags per ‘article:tag’ property.           -->
+{block:Tags}
+    {block:Tag}
+    <meta property = "article:tag"
+          content  = "{Tag}">
+    {/block:Tag}
+{/block:Tags}
+
+    <meta property = "og:locale"
+          content  = "en_GB">
+
+
+<!-- 
+========================================================================
+  ADDITIONAL STRUCTURED DATA (JSON-LD)
+========================================================================
+  Tumblr creates its own JSON-LD based on the contents of the post,
+  but doesn’t incldue the metadata below.  This block will feed the
+  extra informtion to search engines so they can properly structure
+  and display search results.
+-->
+
+<script type="application/ld+json">
+{
+    "publisher": {
+        "@type": "Organization",
+        "name": "Koralatov",
+        "url": "https://www.koralatov.com/",
+        "description": "The personal blog of Koralatov, sporadically writing about computers, cats, games, design, TV, and ‘Fallout 3’ since 2007.",
+        "foundingDate": "2007-08-17",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "hello@koralatov.com",
+            "contactType": "General Enquiry"
+        },
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://static.tumblr.com/zqkenay/X9st0jux3/koralatov-logo.png",
+            "width": 600,
+            "height": 60
+        },
+        "sameAs": [
+            "https://github.com/koralatov",
+            "https://twitter.com/koralatov"
+        ]
+    }
+}
+</script
+
+
+<!-- 
+========================================================================
+  SECURITY POLICIES 
+========================================================================
+  These Content-Security-Policy and Permissions-Policy tags are
+  designed to eliminate as many possible privacy and security issues
+  as possible while keeping a functioning multimedia site.
+-->
+   <meta http-equiv = "Content-Security-Policy"
+          content    = "default-src 'none';
+                        base-uri    'self';
+                        object-src  'none';
+                        form-action 'self';
+                        connect-src  https://*.tumblr.com
+                                     https://pixel.wp.com
+                                     https://px.srvcs.tumblr.com;
+                        font-src    'self'
+                                     https://assets.tumblr.com
+                                     https://fonts.gstatic.com;
+                        frame-src   'self'
+                                     https://assets.tumblr.com
+                                     https://youtube.com
+                                     https://*.youtube.com
+                                     https://youtube-nocookie.com
+                                     https://*.youtube-nocookie.com
+                                     https://vimeo.com
+                                     https://*.vimeo.com;
+                        img-src     'self'
+                                     data:
+                                     https://64.media.tumblr.com
+                                     https://assets.tumblr.com
+                                     https://px.srvcs.tumblr.com;
+                        script-src  'self'
+                                    'unsafe-inline'
+                                     https://assets.tumblr.com
+                                     https://s0.wp.com;
+                        style-src   'self'
+                                    'unsafe-inline'
+                                     https://assets.tumblr.com
+                                     https://fonts.googleapis.com;">
+
+    <meta http-equiv = "Permissions-Policy"
+          content    = "accelerometer=(),
+                        ambient-light-sensor=(),
+                        autoplay=(self
+                                  https://soundcloud.com
+                                  https://*.soundcloud.com),
+                        camera=(),
+                        display-capture=(),
+                        document-domain=(),
+                        encrypted-media=(),
+                        fullscreen=(self
+                                    https://tumblr.com
+                                    https://*.tumblr.com
+                                    https://youtube.com
+                                    https://*.youtube.com
+                                    https://youtube-nocookie.com
+                                    https://*.youtube-nocookie.com
+                                    https://vimeo.com
+                                    https://*.vimeo.com),
+                        geolocation=(),
+                        gyroscope=(),
+                        magnetometer=(),
+                        microphone=(),
+                        midi=(),
+                        payment=(),
+                        picture-in-picture=(),
+                        publickey-credentials-get=(),
+                        screen-wake-lock=(),
+                        sync-xhr=(),
+                        usb=(),
+                        web-share=(),
+                        xr-spatial-tracking=()">
+
+
+<!-- 
+========================================================================
+  WEBFONTS, SERVED BY GOOGLE FONTS
+========================================================================
+  These are included *before* the CSS stylesheet since it directly
+  references them.  I want to minimise the chance of a flash of
+  unstyled text.
+-->
+
+    <link rel     = "preconnect"
+          href    = "https://fonts.googleapis.com">
+
+    <link rel     = "preconnect"
+          href    = "https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href    = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@0;1&family=Merriweather:ital,wght@0,400;0,800;1,400;1,800&display=swap"
+          rel     = "stylesheet">
+
+
+<!-- 
+========================================================================
+  CSS STYLESHEET, INLINE AS TUMBLR REQUIRES
+========================================================================
+-->
+<!--
+
+  ██ ▄██ ██▓    ▄▄▄      ███▄    █  ▄████ ▓█████  ██▀███       ▄▄▄▄ ▓██   ██▓
+  ██▄█▒ ▓██▒   ▒████▄    ██ ▀█   █ ██▒ ▀█▒▓█   ▀ ▓██ ▒ ██▒    ▓█████▄▒██  ██▒
+ ▓███▄░ ▒██░   ▒██  ▀█▄ ▓██  ▀█ ██▒██░▄▄▄░▒███   ▓██ ░▄█ ▒    ▒██▒ ▄██▒██ ██░
+ ▓██░█▄ ▒██░   ░██▄▄▄▄██▒██▒  ▐▌██▒▓█  ██▓▒▓█  ▄ ▒██▀▀█▄      ▒██░█▀  ░ ▐██▓░
+ ▒██░ █▄░██████▒▓█   ▓██▒██░   ▓██░▒▓███▀▒░▒████▒░██▓ ▒██▒    ░▓█  ▀█▓░ ██▒▓░
+ ▒ ▒▒ ▓▒░ ▒░▓  ░▒▒   ▓▒█░ ▒░   ▒ ▒ ░▒   ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░    ░▒▓███▀▒ ██▒▒▒
+ ░ ░▒ ▒░░ ░ ▒  ░ ▒   ▒▒ ░ ░░   ░ ▒░ ░   ░  ░ ░  ░  ░▒ ░ ▒░    ▒░▒   ░▓██ ░▒░
+ ░ ░░ ░   ░ ░    ░   ▒     ░   ░ ░ ░░   ░    ░     ░░   ░      ░    ░▒▒  ░░
+ ░██░▄█▀ ▒█████░  ██▀███░ ▄▄▄    ░ ██▓  ░ ▄▄▄░ ░ ▄▄▄█████▓ ▒█████   ██▒   █▓
+  ██▄█▒ ▒██▒  ██▒▓██ ▒ ██▒████▄   ▓██▒   ▒███▄   ▓▀ ██▒ ▓▒▒██▒  ██▒▓██░   █▒
+ ▓███▄░ ▒██░  ██▒▓██ ░▄█ ▒██  ▀█▄ ▒██░   ▒██ ▀█▄ ▒ ▓██░ ▒░▒██░  ██▒ ▓██  █▒░
+ ▓██ █▄ ▒██   ██░▒██▀▀█▄ ░██▄▄▄▄██▒██░   ░██▄▄▄██░ ▓██▓ ░ ▒██   ██░  ▒██ █░░
+ ▒██▒ █▄░ ████▓▒░░██▓ ▒██▒▓█   ▓██▒██████▒▓█   ▓█▒▒ ▒██▒ ░ ░▀███▓▒░   ▒▀█░
+ ▒ ▒▒ ▓▒░ ▒░▒░▒░ ░ ▒▓ ░▒▓░▒▒   ▓▒█░░▒░▓  ░▒▒   ▀█▒░ ▒ ░░   ░ ▒░▒░▒░   ░ ▐░
+ ░ ░▒ ▒░  ░ ▒ ▒░   ░▒ ░ ▒░ ▒   ▒▒ ░░░ ▒  ░ ▒   ▒░ ░   ░      ░ ▒ ▒░   ░ ░░
+ ░ ░░ ░ ░ ░ ░ ▒    ░░   ░  ░   ▒    ░ ░    ░   ▒    ░      ░ ░ ░ ▒      ░░
+ ░  ░       ░ ░     ░          ░  ░   ░  ░     ░  ░            ░ ░       ░
+                                                                       ░
+                                                                             -->
+
+<style>
+:root {
+/*  This :root font-size sets the base size for all rem sizes.
+ *  When calculating point to pixel sizes, 1pt is about 1.33px.       */
+    font-size:   19px;      /* 19px is roughly equivalent to 14.25pt. */
+    font-weight: var(--font-weight-body);
+
+/*
+ *               ▄▄·       ▄▄▌        ▄• ▄▌▄▄▄  .▄▄ ·
+ *              ▐█ ▌▪▪     ██•  ▪     █▪██▌▀▄ █·▐█ ▀.
+ *              ██ ▄▄ ▄█▀▄ ██▪   ▄█▀▄ █▌▐█▌▐▀▀▄ ▄▀▀▀█▄
+ *              ▐███▌▐█▌.▐▌▐█▌▐▌▐█▌.▐▌▐█▄█▌▐█•█▌▐█▄▪▐█
+ *              ·▀▀▀  ▀█▄▀▪.▀▀▀  ▀█▄▀▪ ▀▀▀ .▀  ▀ ▀▀▀▀
+ *                       “Koralatov Key Lime”
+ *              Created August 2007 • Updated June 2025
+ *     Swatch: https://coolors.co/ffffff-000000-ccff00-7a7a7a-e6ff80
+ */
+
+    --colour-black:         #000000;
+    --colour-grey:          #7a7a7a;
+    --colour-lime:          #ccff00;
+    --colour-white:         #ffffff;
+
+        --colour-active:     var(--colour-grey);
+        --colour-background: var(--colour-white);
+        --colour-headings:   var(--colour-grey);
+        --colour-links:      var(--colour-lime);
+        --colour-quote:      var(--colour-grey);
+        --colour-text:       var(--colour-black);
+
+    --font-body:            "Merriweather",   "Georgia", serif;
+    --font-monospaced:      "JetBrains Mono", "Courier", monospace;
+    --font-weight-body:      400;
+    --font-weight-bold:      800;
+
+    --font-size-9pt:         0.632rem;      /*  9pt equivalent */
+    --font-size-10pt:        0.71rem;       /* 10pt equivalent */
+    --font-size-12pt:        0.86rem;       /* 12pt equivalent */
+    --font-size-14pt:        1rem;          /* 14pt equivalent */
+    --font-size-16pt:        1.125rem;      /* 16pt equivalent */
+
+}
+    @media (prefers-color-scheme: dark) {
+        :root {
+        /*  The light theme uses a pure white background with pure
+         *  black text, but I’ve used off-white for the text on the
+         *  dark theme to reduce contrast a little.  It still
+         *  passes Web ContentAccessibility Guidelines (WCAG) 2.2
+         *  testing, but isn’t as stark when reading.                 */
+            --colour-black: #e0e0e0;    /* Off-white, for text        */
+            --colour-grey:  #999999;    /* Light Grey, for headings   */
+            --colour-white: #000000;    /* Black, for background      */
+        }
+    }
+
+
+
+/***********************************************************************
+ *  HTML TAG ‘RESETS’: resetting default tags so that they behave in
+ *  a consistent and predictable way when used and look how I want.
+ **********************************************************************/
+
+    abbr,  ins    {  text-decoration: none;                 } 
+
+    b,    strong  {  font-weight: var(--font-weight-bold);  }
+
+    del           {  color: var(--colour-grey);             }
+
+    code, pre     {  font-family: var(--font-monospaced);   }
+
+    em,   i       {  font-style: italic;                    }
+
+
+
+/***********************************************************************
+ *  MODULAR/UTILITY STYLING CLASSES
+ ***********************************************************************
+ *  In the past, I’ve over-specified my CSS classes and elements
+ *  to include *everything* I want each element to do.  This leads
+ *  to a lot of duplicated CSS.  It makes maintaining it harder
+ *  because I have to update multiple elements to stay consistent.
+ *
+ *  To avoid this in klaxon, I’m making classes modular: they do
+ *  one thing, and they can be stacked to get the desired result.
+ *
+ *  CSS classes *can’t* start with a number, so I’ve given these
+ *  a descriptive (“semantic”!) prefix.  Since I did it for size,
+ *  I did it for the other styles too.  It’s slightly more typing
+ *  on the rare occasions I’ll actually type them.                    */
+
+    .align-centre        {  text-align: center;  }
+    .align-right         {  text-align: right;   }
+    .align-left          {  text-align: left;    }
+
+    .colour-black        {  color: var(--colour-black);  }
+    .colour-grey         {  color: var(--colour-grey);   }
+    .colour-lime         {  color: var(--colour-lime);   }
+    .colour-white        {  color: var(--colour-white);  }
+
+    .margin-bottom-1rem  {  margin-bottom: 1rem;  }
+    .margin-top-1rem     {  margin-top:    1rem;  }
+    .margin-bottom-2rem  {  margin-bottom: 2rem;  }
+    .margin-top-2rem     {  margin-top:    2rem;  }
+
+    .margin-bottom-1em   {  margin-bottom: 1em;  }
+    .margin-top-1em      {  margin-top:    1em;  }
+    .margin-bottom-2em   {  margin-bottom: 2em;  }
+    .margin-top-2em      {  margin-top:    2em;  }
+
+    .size-9pt            {  font-size: var(--font-size-9pt);   }
+    .size-10pt           {  font-size: var(--font-size-10pt);  }
+    .size-12pt           {  font-size: var(--font-size-12pt);  }
+    .size-14pt           {  font-size: var(--font-size-14pt);  }
+    .size-16pt           {  font-size: var(--font-size-16pt);  }
+
+    .style-bold          {  font-weight: var(--font-weight-bold);  }
+    .style-italic        {  font-style: italic;                    }
+/*  For bold italics, use both .style-bold and .style-italic!         */
+    .style-mono          {  font-family: var(--font-monospaced);   }
+
+
+
+/***********************************************************************
+ *  SEMANTIC HTML ELEMENTS, and subcomponents
+ **********************************************************************/
+
+html {
+    margin:                 0;
+
+    padding-bottom:         3rem;
+    padding-left:           1rem;
+    padding-right:          1rem;
+
+    min-height:             100%;
+
+    background-color:       var(--colour-background);
+    color:                  var(--colour-text);
+
+    font-family:            var(--font-body);
+    line-height:            1.6;
+
+    font-kerning:           normal;
+    font-variant-ligatures: common-ligatures;
+    font-variant-numeric:   oldstyle-nums proportional-nums;
+    hanging-punctuation:    first;
+    text-wrap:              pretty;
+}
+
+body {
+/*  The following two lines centre the main content area inside
+ *  the <body>.  ‘max-width’ sets a readable line length, and
+ *  the auto horizontal margins push the content into the middle.     */
+        margin-left:   auto;
+        margin-right:  auto;
+
+        max-width:     48ch;
+}
+
+
+/***********************************************************************
+ *  HEADER: Styling for <header> and subcomponents
+ **********************************************************************/
+
+    header  {
+        margin-top:    1rem;
+        margin-bottom: 2rem;
+    }
+
+        .site-title-text {
+            font-size:     2.5rem;      /* This is the old ‘h1’ size. */
+            margin-bottom: 5rem;
+        }
+
+        .navigation-links-header  {  margin-top: 1.5rem;  }
+
+
+/***********************************************************************
+ *  NAVIGATION: Styling for <nav> and other navigation elements
+ **********************************************************************/
+
+   .navigation-links {
+       list-style: none;          /* Remove bullets from list items. */
+       margin:     0;
+       padding:    0;
+   }
+
+       .navigation-links li {
+           display:      inline;    /* Arrange links horizontally. */
+           margin-right: 1.5em;    /* Add space between each link. */
+       }
+           .navigation-links li:last-child  {  margin-right: 0;  }
+
+
+    .navigation-arrows {
+    /* ‘space-between’ takes all the unused horizontal space inside
+     *  the flex container and divides it up equally between the
+     *  items inside the container.                                   */
+        align-items:     center;
+        display:         flex;
+        justify-content: space-between;
+        list-style:      none;
+        padding:         0;
+        margin:          0;
+        margin-bottom: 2rem;
+    }
+
+
+
+/***********************************************************************
+ *  ARTICLE: Styling for <article> and elements inside it
+ **********************************************************************/
+
+article  {  /* margin-bottom: 3rem; */ }
+
+    article img,
+    article iframe,
+    article video   {   width: 100%;  }
+
+
+
+/***********************************************************************
+ *  POST METADATA: styling for the post metadata blocks
+ **********************************************************************/
+
+    .post-metadata-block {
+        color:         var(--colour-grey);
+        font-size:     var(--font-size-12pt);
+        text-align:    center;
+        margin-top:    1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .post-metadata-list  {  list-style: none;  }
+
+        .post-metadata-list li {
+            display:      inline;      /* Arrange links horizontally. */
+            margin-right: 1.5rem;     /* Add space between each link. */
+        }
+
+            .post-metadata-list li:last-child  {  margin-right: 0;  }
+
+
+
+/***********************************************************************
+ *  FOOTER: Styling for <footer> and subcomponents
+ **********************************************************************/
+
+    footer {
+        font-size:  var(--font-size-12pt);
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+        .navigation-links-footer  {  font-size: var(--font-size-12pt); }
+
+             .navigation-links-footer ul  {  margin-bottom: 1em;  }
+
+        .footer-random-quote  {  margin-top: 2rem;  }
+
+        .footer-search-form   {  margin-top: 2rem;  }
+
+
+
+/***********************************************************************
+ *  LINKS
+ **********************************************************************/
+
+a {
+    background-color: var(--colour-links);
+    color:            var(--colour-text);
+
+    padding-top:      1px;
+    padding-bottom:   1px;
+    padding-left:     2px;
+    padding-right:    2px;
+
+    text-decoration:  none;
+}
+
+    a:active  {
+        background-color: var(--colour-text);
+        color:            var(--colour-links);
+    }
+
+    a:hover {
+        background-color: transparent;    /* ‘none’ is not valid CSS! */
+        color:            var(--colour-active);
+    }
+
+    @media (prefers-color-scheme: dark) {
+    /*  This replaces the link text with black instead of the
+     *  default off-white to increase readability.                    */
+        a  {  color:   var(--colour-background);  }
+
+            a:active  {
+            /*  Lime green on white is very low contrast, so I’ve
+             *  changed this instead to black text on a white
+             *  to reflect the :active state in dark-mode.            */
+                background-color: var(--colour-text);
+                color:            var(--colour-background);
+            }
+    }
+
+
+    .link-post-title {
+        background-color: transparent;
+        color:            var(--colour-heading);
+    }
+
+    .link-shy {
+        background-color: transparent;
+        color:            var(--colour-text);
+    }
+        .link-shy:hover  {  color: var(--colour-active);  }
+
+    .link-source-url  {  font-family: var(--font-monospaced);  }
+    
+    .link-nobreak,
+    .link-post-permalink,
+    .link-page-permalink,
+    .link-reblog-source,
+    .link-source-url       {  white-space: nowrap;  }
+    
+    
+    a.beau {
+        background: #ee9b00;
+        color:      #f3eace;
+    }
+        a.beau:hover {
+            background:  #f3eace;
+            color:       #ee9b00;
+        }
+        
+    a.ruby {
+        background: #f72585;
+        color:      #fed8e9;
+    }
+        a.ruby:hover {
+            background: #fed8e9;
+            color:      #f72585;
+        }
+        
+    a.saffy {
+        background: var(--colour-text);
+        color:      var(--colour-lime);
+    }
+        a.saffy:hover  {  color: var(--near-black);  }
+
+
+
+/***********************************************************************
+ *  PARAGRAPHS: standardise, indent, remove excess space above
+ **********************************************************************/
+
+p  {  margin-bottom: 0;  }          /* Needed to remove excess space. */
+
+p + p {
+    margin:      0;           /* Zero all margins on new paragraph... */
+    margin-top:  0.25em;      /*  ...then re-add 0.5em to top margin. */
+    text-indent: 2em;         /* Relative the text block’s font size. */
+}
+
+/* Remove the first-line indent on a paragraph in these combinations: */
+    audio + p, blockquote + p,
+    code  + p, details    + p,
+    div   + p, figure     + p,
+    form  + p,
+    h1    + p, h2         + p,
+    h3    + p, h4         + p,
+    h5    + p, h6         + p,
+    hr    + p, img        + p,
+    li    + p, ol         + p,
+    ul    + p, table      + p,
+    pre   + p, video      + p   {  text-indent: 0;  }
+
+
+
+/***********************************************************************
+ *  QUOTE POSTS: these are based on the original (k)langer styles.
+ *   I’ve regularised the text sizes and line-heights, but they’re
+ *   otherwise very similar.
+ **********************************************************************/
+
+    .quote-post  {
+        color:        var(--colour-grey);
+        margin-left:  0;
+        margin-right: 0;
+    }
+
+        .quote-short {
+            font-size:   2.25rem;   /* 32pt text equivalent. */
+            line-height: 1.1;
+        }
+
+        .quote-medium {
+            font-size:   1.685rem;  /* 24pt text equivalent. */
+            line-height: 1.2;
+        }
+
+        .quote-long {
+            font-size:   var(--font-size-16pt);
+            line-height: 1.4;
+        }
+
+/*   .quote-post-source  {  margin-top:   1rem;  }  */
+
+
+
+/***********************************************************************
+ *  CHAT POSTS: chat posts are a <ul> list.
+ **********************************************************************/
+
+    .chat-post {
+        list-style:   none;
+        padding-left: 1.5em;
+        text-indent: -1.5em;
+    }
+
+        .chat-post li  {  margin-bottom: 0.5em;  }
+
+            .chat-post li:last-child  {  margin-bottom: 0;  }
+
+
+
+/***********************************************************************
+ *  NOTES: post notes are generated by Tumblr and I have no control
+ *   over classes or layout beyond applying styling to what Tumblr
+ *   generates.  The ‘.notes’ class applies to an <ol> list.
+ **********************************************************************/
+
+    .notes  {  margin-bottom: 3rem; }
+
+        .notes blockquote a {
+        /*  This is the styling for the quoted portion on a reblog.
+         *  It’s always a link, so this styling removes the link
+         *  colouring and renders it as italic, grey text.            */
+            color:      var(--colour-text);
+            background: transparent;
+            font-style: italic;
+        }
+            .notes blockquote a:hover  {  color: var(--colour-active); }
+
+        .answer_content  {  font-style: italic;  }
+        
+        .avatar  {  border: 1px solid var(--colour-grey);  }
+
+/* Classes I'm not using...
+
+    .avatar           - the image within the note
+    .avatar_frame     - the link wrapped around the little image
+    .tumblelog        - the name of the person interacting
+    .source_tumblelog - the source of a reblog (also a name)
+
+*/
+
+
+
+/***********************************************************************
+ *  HEADINGS: klaxon doesn’t use a standard size hierarchy.  Its
+ *   type hierarchy was chosen ‘by eye’ based on how it looks when
+ *   using Merriweather with a base font-size of ~14pt equivalent.
+ *   All text sizes are defined in rem (Root EM) for simplicity and
+ *   predictability.  I haven’t gone beyond H4 since I don’t plan
+ *   to use H5 and H6.
+ **********************************************************************/
+
+    h1, h2, h3, h4 {
+        color:       var(--colour-headings);
+        font-weight: var(--font-weight-body);
+    }
+
+/*  Tighter line-heights for heading sizes:                           */
+    h1, h2  {  line-height: 1.3;  }
+    h3, h4  {  line-height: 1.4;  }
+
+    h1  {  font-size:   2rem;      }               /* 28pt equivalent */
+    h2  {  font-size:   1.714rem;  }               /* 24pt equivalent */
+    h3  {  font-size:   1.428rem;  }               /* 20pt equivalent */
+    h4  {  font-size:   1.126rem;  }               /* 16pt equivalent */
+
+
+
+/* STYLING FOR MISCELLANEOUS ELEMENTS */
+
+/*  This style is applied to control size and placement of icons
+ *  when they appear.  This vertically centres the icon and adds
+ *  a 0.3em spacer between it and the accompanying text.              */
+    .with-icon {
+        display:     inline-flex;
+        align-items: center;     /* Vertically centres text and icon. */
+        gap:         0.3em;         /* Adds a small gap between both. */
+    }
+
+        .with-icon svg {
+            width:  1em;     /* Makes the icon the same size as text. */
+            height: 1em;     /* Makes the icon the same size as text. */
+        }
+
+    .text-nobreak  {  white-space: nowrap;  }
+
+
+
+hr {
+    background: var(--colour-grey);
+    border:     0;
+    color:      var(--colour-grey);
+    height:     1px;
+}
+
+
+
+    .read_more_container  {  ;  }
+
+    .read_more::after  {  content: " →";  }
+    
+    
+    
+/* Code for Tag Cloud on /tags/ page */
+
+.tag_cloud {
+    text-align:      center;
+    line-height:     220%;
+}
+
+.tag_cloud a {
+    margin-right:    10pt;
+    padding-top:     4px;
+    padding-bottom:  4px;
+    padding-left:    6px;
+    padding-right:   6px;
+    font-family:     'JetBrains Mono',
+                     monospace;
+    font-weight:     400;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+    <a href  = "https://koralatov.com/"
+       class = "default-site-title site-title-text"
+       id    = "site-title">Koralatov</a>
+
+    <nav aria-label = "Main navigation" class="navigation-links-header">
+
+        <ul class = "navigation-links">
+            <li>
+                <a href  = "https://koralatov.com/archive">Archive</a>
+            </li>
+
+            <li>
+                <a href  = "https://koralatov.com/about">About</a>
+            </li>
+
+            <li>
+                <a href  = "https://koralatov.com/tags">Tags</a>
+            </li>
+
+            <li>
+                <a href  = "mailto:hello@koralatov.com">Email</a>
+            </li>
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+<article>
+
+{block:SearchPage}
+<!-- 
+========================================================================
+  SEARCH PAGE BLOCK
+  This exists solely to create a header on search results pages.  It
+  comes before the posts themselves.
+========================================================================
+-->
+
+    <section class="page_title">
+
+        <h1>Results for “{SearchQuery}”</h1>
+
+        <h3>{SearchResultCount} posts found:</h3>
+
+    </section>
+
+{/block:SearchPage}
+
+
+{block:TagPage}
+<!-- 
+========================================================================
+  TAG PAGE BLOCK
+  This exists solely to create a header on tag pages.  It comes before
+  the posts themselves.
+========================================================================
+-->
+
+    <section class="page_title">
+
+        <h1>All posts tagged “{Tag}”</h1>
+
+    </section class="page_title">
+
+{/block:TagPage}
+
+
+
+{block:Posts}
+
+{block:Text}
+
+    {block:Title}
+    <h1><a href="{Permalink}" class="link-post-title">{Title}</a></h1>
+    {/block:Title}
+
+    {Body}
+
+{/block:Text}
+
+
+{block:Photo}
+
+<!--
+       ▄▄▄· ▄ .▄    ▄▄█▄▄▄          ▄▄▄·      .▄▄ ·▄▄▄▄▄▄
+      ▐█ ▄█▐█ ▐█▪     ██           ▐█ ▄█▪     ▐█ ▀. •██.
+       ██▀·▐█▀▐█ ▄█▀▄ ▐█.▪▄█▀▄      ██▀· ▄█▀▄  ▀▀▀█▄ ▐█
+      ▐█▪·•▐█▌▐▀▐█▌.▐▌▐█▌·█▌.▐▌    ▐█▪·•▐█▌.▐▌▐█▄.▐▌ ▐█▌·
+      .▀   ▀▀▀ · ▀█▄▀▪▀▀▀ ▀█▄▀▪    .▀    ▀█▄▀▪ ▀▀▀▀  ▀▀▀
+                                                                             -->
+    {LinkOpenTag}
+            <img alt   = "{PhotoAlt}"
+                 src   = "{PhotoURL-HighRes}"
+                 width = "100%">
+    {LinkCloseTag}
+
+    {block:Caption}
+        {Caption}
+    {/block:Caption}
+
+{/block:Photo}
+
+
+{block:Photoset}
+
+<!--
+       ▄▄▄· ▄ .▄    ▄▄█▄▄▄             ▄▄▄·      .▄▄ ·▄▄▄▄▄▄
+      ▐█ ▄█▐█ ▐█▪     ██              ▐█ ▄█▪     ▐█ ▀. •██.
+       ██▀·▐█▀▐█ ▄█▀▄ ▐█.▪▄█▀▄         ██▀· ▄█▀▄  ▀▀▀█▄ ▐█
+      ▐█▪·•▐█▌▐▀▐█▌.▐▌▐█▌·█▌.▐▌ SET   ▐█▪·•▐█▌.▐▌▐█▄.▐▌ ▐█▌·
+      .▀   ▀▀▀ · ▀█▄▀▪▀▀▀ ▀█▄▀▪       .▀    ▀█▄▀▪ ▀▀▀▀  ▀▀▀
+                                                                             -->
+                                                                             
+    {Photoset}
+
+    {block:Caption}
+        {Caption}
+    {/block:Caption}
+
+{/block:Photoset}
+
+
+{block:Quote}
+
+<!--
+      .▄▄▄  ▄• ▄▌   ▄▄█▄▄ ▄▄▄ .     ▄▄▄·     .▄▄ ·▄▄▄▄▄▄
+      ▐▀•▀█ █▪██▌     ██  ▀▄.▀·    ▐█ ▄█▪    ▐█ ▀. •██
+      █▌·.█▌█▌▐█▌▄█▀▄ ▐█.▪▐▀▀ ▄     ██▀ ▄█▀▄  ▀▀▀█▄ ▐█.
+      ▐█▪▄█·▐█▄█▌█▌.▐▌▐█▌·▐█▄▄▌    ▐█▪•▐█▌.▐▌▐█▪ ▐█ ▐█▌·
+      ·▀▀█.  ▀▀▀ ▀█▄▀.▀▀▀  ▀▀▀     .▀   ▀█▄▀  ▀▀▀▀  ▀▀▀
+                                                                             -->
+
+    <blockquote class="quote-post quote-{Length}">
+        {Quote}
+    </blockquote>
+
+    {block:Source}
+            —&nbsp;{Source}
+    {/block:Source}
+
+{/block:Quote}
+
+
+{block:Video}
+
+<!--
+       ▌ ▐·▪  ·▄▄▄▄  ▄▄▄ .           ▄▄▄·     .▄▄ ·▄▄▄█▄▄
+      ▪█·█▌██ ██▪ ██ ▀▄.▀·          ▐█ ▄█▪    ▐█ ▀.  ██▪
+      ▐█▐█•▐█·▐█· ▐█▌▐▀▀▪▄ ▄█▀▄      ██▀·▄█▀▄  ▀▀▀█▄ ▐█.
+       ███ ▐█▌██. ██ ▐█▄▄▌▐█▌.▐▌    ▐█▪·▐█▌ ▐▌▐█▄.▐█ ▐█▌·
+      . ▀  ▀▀▀▀▀▀▀▀•  ▀▀▀  ▀█▄▀▪    .▀   ▀█▄▀▪ ▀▀▀▀  ▀▀▀
+                                                                             -->
+
+    {Video-700}
+
+    {Caption}
+
+{/block:Video}
+
+
+{block:Audio}
+
+<!--
+       ▄▄▄· ▄• ▄▌·▄▄▄▄  ▪             ▄▄▄·      .▄▄   ▄▄▄▄▄.
+      ▐█ ▀█ █▪██▌██▪ ██ ██           ▐█ ▄█▪     ▐█ ▀. •██
+      ▄█▀▀█ █▌▐█▌▐█· ▐█▌▐█· ▄█▀▄      ██▀· ▄█▀▄  ▀▀▀█▄ ▐█.▪
+      ▐█ ▪▐▌▐█▄█▌██. ██ ▐█▌▐█▌.▐▌    ▐█▪·•▐█▌.▐▌▐█▄▪▐█ ▐█▌·
+       ▀  ▀  ▀▀▀ ▀▀▀▀▀• ▀▀▀ ▀█▄▀▪    .▀    ▀█▄▀▪ ▀▀▀▀  ▀▀▀
+                                                                             -->
+    {AudioPlayerGrey}
+
+    {Caption}
+
+{/block:Audio}
+
+
+{block:Link}
+
+<!--
+      ▄▄▌  ▪   ▐ ▄ ▄ •▄      ▄▄▄·    .▄▄ ·▄▄▄▄▄▄
+      ██•  ██ •█▌▐▌█▌▄▌▪    ▐█ ▄█▪    █ ▀. •█▌
+      ██▪  ▐█·▐█▐▐▌▐▀▀▄·     ██▀·▄█▀▄ ▀▀▀█▄ ▐█.
+      ▐█▌▐▌▐█▌██▐█▌▐█.█▌    ▐█▪·•█▌.▐▌█▄▪▐█ ▐█▌·
+      .▀▀▀ ▀▀ ▀▀ █▪·▀  ▀    .▀   ▀█▄▀ ▀▀▀▀  ▀▀▀
+                                                                             -->
+
+    <h2><a href="{URL}">{Name}</a>&nbsp;<span aria-hidden="true">&rarr;</span></h2>
+
+    {block:Description}
+        {Description}
+    {/block:Description}
+
+{/block:Link}
+
+
+{block:Conversation}
+
+<!--
+       ▄▄▄· ▄ .▄ ▄▄▄· ▄▄▄▄▄     ▄▄▄·      .▄▄ ·▄▄█▄▄▄
+      ▐█ █ ▐█▪▐█▐█ ▀█ •██      ▐█ ▄█▪     ▐█ ▀. •██
+      ██ ▄▄▐█▀▐█▄█▀▀█  ▐█.▪     ██▀· ▄█▀▄ ▄▀▀▀█▄ ▐█.▪
+      ▐███▌▐█ ▐▀▐█ ▪▐▌ ▐█▌·    ▐█▪·•▐█▌.▐▌▐█▄▪▐█ ▐█▌·
+      ·▀▀▀ ▐▀  · ▀  ▀  ▀▀▀     .▀    ▀█▄▀▪ ▀▀▀▀  ▀▀▀
+                                                                             -->
+
+    {block:Title}
+    <h1><a href="{Permalink}" class="link-post-title">{Title}</a></h1>
+    {/block:Title}
+
+    <ul class="chat-post">
+
+        {block:Lines}
+        <li>
+            {block:Label}<strong>{Label}</strong>{/block:Label}
+
+            {Line}
+        </li>
+        {/block:Lines}
+
+    </ul>
+
+{/block:Conversation}
+
+
+
+{block:Date}
+<!-- 
+========================================================================
+  POST METADATA BLOCK
+  This appears at the bottom of every post, but is dynamically built
+  depending on each post: the reblog block and note count only appear
+  if those are present in the post.
+========================================================================
+-->
+
+<section class = "post-metadata-block">
+
+<ul class="navigation-links">
+
+{block:RebloggedFrom}
+<!-- 
+========================================================================
+  REBLOG BLOCK
+  This is only populated if the post is a reblog.
+========================================================================
+-->
+
+    <ul>
+    <!-- This Reblog icon is one of the Subway Icon Set:
+         https://icon-sets.iconify.design/subway/random/ -->
+        <li class = "with-icon">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0
+512 512"><path fill="currentColor" d="M341.3 28.3v85.3H128c-70.7 0-128
+57.3-128 128c0 21.5 5.8 41.4 15.2 59.2L68
+263.2c-2.4-6.8-4-13.9-4-21.5c0-35.4 28.7-64 64-64h213.3V263L512
+156.3V135zM444 262.8c2.4 6.8 4 13.9 4 21.5c0 35.4-28.6 64-64
+64H170.7V263L0 369.7V391l170.7 106.7v-85.3H384c70.7 0 128-57.3
+128-128c0-21.5-5.8-41.4-15.2-59.2z"/>
+            </svg>
+
+            <span class="text-nobreak">
+            <!-- This <span> is needed to make sure that the
+                 flexbox class ‘with-icon’ see the text and
+                 link as a single ‘item’ to make it group
+                 correctly with the SVG icon.                       -->
+                Reblogged from <a href="{ReblogRootURL}" class="link-reblog-source">{ReblogRootName}</a></span>
+        </li>
+    </ul>
+{/block:RebloggedFrom}
+
+
+{block:ContentSource}
+<!-- 
+========================================================================
+  SOURCE BLOCK
+  This is only populated if the post has a source URL.
+========================================================================
+-->
+
+    <ul class="navigation-links">
+        <li>Source: <a href ="{SourceURL}" class="link-source-url">{SourceTitle}</a></li>
+    </ul>
+{/block:ContentSource}
+
+    <ul class="navigation-links">
+        <li>Posted on <time datetime="{Year}-{Month}-{DayOfMonth}">{DayOfMonth}{DayOfMonthSuffix} {Month}, {Year}</time></li>
+    </ul>
+
+    <ul class="navigation-links">
+    {block:NoteCount}
+    <!-- This only appears if the post has one or more notes.    -->
+        <li class="text-nobreak">{NoteCountWithLabel}</li>
+    {/block:NoteCount}
+
+        <li><a href="{Permalink}" class="link-post-permalink"><span aria-hidden="true">∞</span> Permalink</a></li>
+    </ul>
+</ul>
+</section>
+{/block:Date}
+
+</article>
+{/block:Posts}
+
+
+
+{block:PermalinkPage}
+    {block:PostNotes}
+    <section>
+
+        <h3>{lang:Notes}</h3>
+
+        {PostNotes}
+
+    </section>
+    {/block:PostNotes}
+{/block:PermalinkPage}
+
+
+{block:PermalinkPagination}
+<!-- =============================================================== -->
+<!--  NEXT POST/PREVIOUS POST BLOCK                                  -->
+<!--  This is displayed at the bottom of each post.                  -->
+<!-- =============================================================== -->
+
+    <nav aria-label = "Previous and next page navigation">
+
+        <ul class="navigation-arrows">
+
+        {block:PreviousPost}
+            <li>
+                <span aria-hidden="true">&larr;</span>&nbsp;<a href="{PreviousPost}">previous post</a>
+            </li>
+        {/block:PreviousPost}
+
+        {block:NextPost}
+            <li>
+                <a href="{NextPost}">next post</a>&nbsp;<span aria-hidden="true">&rarr;</span>
+            </li>
+        {/block:NextPost}
+
+        </ul>
+
+    </nav>
+
+{/block:PermalinkPagination}
+
+
+{block:Pagination}
+<!-- =============================================================== -->
+<!--  PAGE NAVIGATION BLOCK                                          -->
+<!--  This is displayed at the bottom of each index page.  It’s      -->
+<!--  dynamic: the links only appear if required.                    -->
+<!-- =============================================================== -->
+
+    <nav aria-label = "Previous and next page navigation">
+
+        <ul class="navigation-arrows">
+
+            <li>
+        {block:PreviousPage}
+                <span aria-hidden="true">&larr;</span>&nbsp;<a href="{PreviousPage}">newer posts</a>
+        {/block:PreviousPage}
+            </li>
+
+            <li class="colour-grey
+                       size-16pt">
+                {CurrentPage}
+            </li>
+
+            <li>
+        {block:NextPage}
+                <a href="{NextPage}">older posts</a>&nbsp;<span aria-hidden="true">&rarr;</span>
+        {/block:NextPage}
+            </li>
+
+        </ul>
+
+    </nav>
+
+{/block:Pagination}
+
+</main>
+
+
+<!--
+       ▄▄▄· ▄▄▄·  ▄▄ • ▄▄▄ .    ·▄▄▄▄         ▄▄▄▄▄▄▄▄▄ .▄▄▄
+      ▐█ ▄█▐█ ▀█ ▐█ ▀ ▪▀▄.▀·    ▐▄▄·      ▪    •██  ▀▄.▀·▀▄ █·
+       ██▀·▄█▀▀█ ▄█ ▀█▄▐▀▀▪▄    ██▪  ▄█▀▄  ▄█▀▄ ▐█.▪▐▀▀▪▄▐▀▀▄
+      ▐█▪·•▐█ ▪▐▌▐█▄▪▐█▐█▄▄▌    ██▌.▐█▌.▐▌▐█▌.▐▌▐█▌·▐█▄▄▌▐█•█▌
+      .▀    ▀  ▀ ·▀▀▀▀  ▀▀▀     ▀▀▀  ▀█▄▀▪ ▀█▄▀ ▀▀▀  ▀▀▀ .▀  ▀
+                                                                             -->
+<footer>
+<nav aria-label="Footer navigation"
+     class="navigation-links-footer">
+
+    <ul class="navigation-links">
+
+        <li><a href="/" class="with-icon">Home</a></li>
+
+   <!-- <li><a href="/archive">Archive</a> -->
+
+   <!-- The Shuffle icon is one of the Material Design Icons:
+        https://icon-sets.iconify.design/mdi/shuffle-variant/   -->
+         <li><a href="/random" class="with-icon">Random Post <svg aria-hidden="true" xmlns= "http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path fill="currentColor" d= "m17 3l5.25 4.5L17 12l5.25 4.5L17 21v-3h-2.74l-2.82-2.82l2.12-2.12L15.5 15H17V9h-1.5l-9 9H2v-3h3.26l9-9H17V3M2 6h4.5l2.82 2.82l-2.12 2.12L5.26 9H2V6Z"/></svg></a></li>
+
+        <li><a href="/colophon" class="with-icon">Colophon</a></li>
+
+    </ul>
+
+    <ul class="navigation-links
+               footer-navigation-links">
+
+        <li><a href="mailto:hello@koralatov.com"
+               class="with-icon">Contact</a></li>
+
+    <!-- The RSS Feed icon is one of the Material Design Icons:
+         https://icon-sets.iconify.design/mdi/rss/               -->
+        <li><a href="{RSS}" class="with-icon"><abbr title="Really Simple Syndication Feed">RSS Feed</abbr> <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"/></svg></a></li>
+
+        <li><a href="/copyright"
+               class="link-shy with-icon"
+               id="copyright-link">© 2025</a></li>
+    </ul>
+
+</nav>
+
+
+<section class="footer-search-form">
+
+    <form action="/search" method="get">
+         <input autocorrect="off" autocapitalize="off"
+                id="footer-search" name="q" type="search"
+                spellcheck="false" placeholder="Search this site..."
+                value="{SearchQuery}">
+    </form>
+
+</section>
+
+
+<section class="footer-random-quote">
+
+    <span id = "random-quote">
+        If you’re reading this,<br/>
+        JavaScript is turned off.
+    </span>
+    
+ </section>
+
+</footer>
+
+
+<script>
+//  Script:   easter-eggs.js
+//  Version:  1.3
+//  Dated:    2025-08-12
+//  Replaces: special-dates.js, copyright-link.js, random-quote.js
+//  Function: Handles all dynamic style and content enhancements.
+//
+//  This script performs three main functions:
+//  1. It checks the current date and, if it matches a special
+//     occasion, it can override the site’s logo, link color, inject
+//     custom CSS, or display a specific quote.
+//  2. It updates the copyright year in the footer to the current year.
+//  3. If no specific quote is set for the day, it displays a random one.
+
+// This function now only returns a random quote.
+function getRandomQuote() {
+    const quotes = [
+        '<em title="“Always the same”">“Semper Idem”</em>',
+        '<em title="“Listen, watch, be still”">“Aude, Vide, Sile”</em>',
+        '<span title="“Remember you are free”">𝖒𝖊𝖒𝖊𝖓𝖙𝖔 𝖑𝖎𝖇𝖊𝖗</span>',
+        '<span title="“Remember you must die”">𝖒𝖊𝖒𝖊𝖓𝖙𝖔 𝖒𝖔𝖗𝖎</span>',
+        '<em title="“They lived”">“Vixere”</em>',
+        '<em title="“Where are we marching?”">“Quo Vadimus?”</em>',
+        'A Controlled Descent',
+        'I’m Sorry You Can’t Take a Joke',
+        'Live Free or Die',
+        'Not Nice But Kind',
+        '<a class="link-shy" href="https://memory-alpha.fandom.com/wiki/Rules_of_Acquisition">Rule of Acquisition</a> 190: “Hear all, trust nothing”',
+        '“Arrakis teaches the attitude of the knife – chopping off what’s incomplete and saying: ‘Now, it’s complete because it ended here.’&hairsp;”',
+        '“Everyone With a Heart Votes Love”',
+        '“Forty-two,” said Deep Thought, with infinite majesty and calm.',
+        '“HEAL FROM WHAT I SAID OR STAY MAD”',
+        '“Monsters in the Parasol”',
+        '“Nothing Good Comes Easy”',
+        '“Short Words in Simple Sentences”',
+        '“Show Your Bones”',
+        '“State the problem in words as clearly as possible”<br/><em>(A stolen <a class="link-shy" href="https://en.wikipedia.org/wiki/Oblique_Strategies">Oblique Strategy</a>)</em>',
+        '<svg width="1em" height="1em" style="vertical-align:-0.125em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">' +
+        '<path d="m23 12-2.44-2.78 0.34-3.68-3.61-0.82-1.89-3.18-3.4 1.46-3.4-1.46-1.89 3.18-3.61 0.81 0.34 3.68-2.44 2.79 2.44 2.78-0.34 3.69 3.61 0.82 1.89 3.18 3.4-1.47 3.4 1.46 1.89-3.18 3.61-0.82-0.34-3.68zm-13 5-4-4 1.41-1.41 2.59 2.58 6.59-6.59 1.41 1.42z" fill="currentColor"/>' +
+        '</svg>&nbsp;Shitposting since 1997'
+    ];
+    return quotes[Math.floor(Math.random() * quotes.length)];
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    // --- Master Configuration Object (Single Source of Truth) ---
+    const specialDateConfig = {
+        '01-01': { quote: 'Happy New Year' },
+        '01-10': { quote: '<em title="The die is cast">“Alea Jacta Est”</em>' },
+        '03-09': { quote: '<a href="https://www.youtube.com/watch?v=ZyhrYis509A" class="link-shy">“Come on, Barbie, let’s go party”</a>',
+                   customCSS: `
+                    /* On Barbie’s birthday, the link colours is
+                     * changed to ‘Barbie Pink’ and the link style
+                     * is changed to ensure it works: the link is
+                     * white text on Barbie Pink background for
+                     * better contrast and a more ‘Barbie’ look.      */
+                    :root { --colour-lime: #e0218a; }
+                    a { color: var(--colour-background); }
+                    a:active { color: var(--colour-background); }
+                    a svg { margin-top: 1rem; }
+                    @media (prefers-color-scheme: dark) { 
+                        a { color: var(--colour-text); }
+                    }
+                `,
+                titleHTML: `
+                    <a href="https://koralatov.com/">
+                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="198pt" viewBox="0 0 395 99" preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0.000000,99.000000) scale(0.100000,-0.100000)" fill="#e0218a" stroke="none">
+                                <path d="M620 955 c-30 -32 -32 -85 -5 -117 11 -13 -10 5 -46 40 l-66 63 -69 -3 -69 -3 0 -159 0 -159 -87 -23 c-142 -38 -210 -81 -247 -157 -27 -57 -28 -144 -2 -195 24 -45 174 -194 218 -216 66 -33 170 -13 212 40 17 22 27 24 95 24 54 0 76 4 77 13 0 6 0 51 -1 99 l-1 87 82 -84 c88 -91 127 -115 183 -115 41 0 76 28 76 61 0 19 1 19 33 -4 104 -79 231 -85 325 -17 l40 28 33 -34 c31 -32 37 -34 98 -34 l66 0 0 168 c0 161 12 242 35 242 18 0 19 -19 5 -54 -34 -80 -14 -148 71 -237 107 -112 186 -145 272 -116 23 8 45 11 47 6 3 -4 69 -8 145 -8 147 0 144 -1 140 47 -2 23 0 22 49 -12 62 -42 120 -53 178 -33 25 9 45 11 51 5 5 -5 38 -8 73 -6 l64 3 -3 55 -4 55 49 -47 c49 -48 105 -78 145 -78 43 1 107 38 129 75 l21 35 40 -36 c57 -51 101 -67 183 -68 52 0 80 6 111 21 48 25 111 92 120 128 7 28 24 34 24 9 0 -9 30 -47 67 -85 l66 -69 62 0 61 0 46 77 c81 137 128 281 128 399 0 71 -22 109 -106 183 -77 68 -121 75 -171 29 -42 -39 -39 -92 8 -143 17 -19 17 -24 4 -70 -9 -27 -19 -53 -24 -58 -9 -9 -31 44 -31 77 0 13 -26 48 -68 89 -67 67 -68 67 -124 67 -95 0 -104 -11 -66 -77 l23 -38 -55 47 c-97 85 -210 102 -316 48 l-59 -29 -30 29 c-17 17 -36 30 -42 30 -7 0 -14 8 -18 19 -10 32 -133 144 -151 137 -9 -4 -36 -11 -61 -17 -47 -12 -68 -36 -52 -60 5 -7 9 -29 9 -46 0 -26 -4 -33 -20 -33 -11 0 -20 -6 -20 -12 0 -7 -5 -20 -10 -28 -8 -12 -12 -11 -32 7 -13 11 -32 25 -44 31 -33 17 -116 24 -161 14 l-43 -10 0 31 c0 24 -14 44 -69 99 -62 62 -71 68 -93 59 -14 -5 -43 -14 -65 -20 l-40 -11 5 -123 5 -122 -46 42 c-77 71 -187 82 -290 29 l-49 -26 -30 25 c-23 19 -41 25 -78 25 -27 0 -52 -5 -55 -11 -4 -6 -19 -7 -36 -4 -31 7 -129 -20 -141 -38 -4 -6 -2 -19 3 -28 5 -10 9 -28 9 -40 0 -21 -5 -18 -47 23 -64 63 -121 88 -204 88 -50 0 -77 -6 -115 -25 -27 -14 -50 -25 -52 -25 -1 0 0 11 4 25 12 47 -22 107 -100 184 -66 64 -78 71 -113 71 -29 0 -46 -7 -63 -25z m97 -10 c77 -54 30 -209 -96 -315 l-50 -42 43 -52 c23 -28 61 -86 84 -129 40 -72 45 -77 75 -77 40 0 57 -15 57 -50 0 -35 -17 -50 -56 -50 -53 0 -94 38 -164 153 -36 59 -77 119 -92 134 l-28 28 0 -158 0 -157 -50 0 -50 0 0 141 c0 129 -1 140 -17 136 -174 -47 -221 -73 -240 -129 -15 -47 -1 -100 34 -128 32 -25 58 -25 83 0 28 28 25 37 -14 32 -60 -7 -94 47 -61 95 50 71 185 4 185 -92 0 -70 -72 -135 -149 -135 -115 0 -203 123 -171 239 24 89 116 150 283 188 l67 15 0 159 0 159 50 0 50 0 0 -135 c0 -74 4 -135 8 -135 19 0 131 113 150 151 l21 42 -25 19 c-32 25 -31 61 2 87 32 25 43 26 71 6z m1423 -376 l0 -339 -47 0 -48 0 0 330 0 330 40 14 c22 7 43 11 48 9 4 -2 7 -157 7 -344z m588 233 l3 -72 74 0 c41 0 75 -4 75 -9 0 -5 -3 -23 -6 -40 l-6 -31 -69 0 -69 0 0 -170 c0 -180 3 -192 47 -176 12 5 14 9 5 18 -17 17 -15 64 4 82 20 21 63 20 86 -1 28 -25 24 -94 -8 -132 -53 -63 -146 -63 -199 0 -25 30 -25 33 -25 205 l0 174 -30 0 c-32 0 -33 2 -24 49 5 24 12 31 30 31 22 0 24 4 24 48 0 26 -5 53 -11 59 -8 8 1 15 33 26 23 8 48 14 53 13 6 -1 11 -35 13 -74z m1053 -43 c20 -20 21 -29 16 -108 -7 -117 -54 -247 -136 -378 -24 -40 -29 -43 -72 -43 l-46 0 -73 213 c-40 116 -79 224 -87 240 l-14 27 56 0 c45 0 55 -3 55 -17 0 -23 113 -353 121 -353 12 0 89 179 103 238 l14 60 -29 21 c-21 15 -29 30 -29 51 0 62 77 93 121 49z m-2189 -46 c37 -33 11 -103 -39 -103 -13 0 -31 9 -40 20 -27 31 -42 24 -65 -27 -19 -42 -22 -67 -22 -210 l-1 -163 -45 0 -45 0 0 235 0 235 35 10 c49 14 50 14 50 -22 l0 -32 28 31 c15 17 36 36 47 42 25 14 73 6 97 -16z m317 9 c72 -36 75 -49 81 -283 l5 -209 -47 0 c-41 0 -48 3 -48 20 0 19 -1 19 -37 -2 -75 -45 -180 -22 -224 48 -25 41 -25 119 0 157 24 38 46 51 126 82 83 31 135 62 135 80 0 30 -31 46 -84 43 -49 -3 -51 -4 -54 -33 -7 -59 -63 -85 -104 -48 -47 42 -2 128 81 153 48 15 134 11 170 -8z m560 0 c72 -36 75 -49 81 -283 l5 -209 -47 0 c-41 0 -48 3 -48 20 0 19 -1 19 -37 -2 -75 -45 -180 -22 -224 48 -25 41 -25 119 0 157 24 38 46 51 126 82 83 31 135 62 135 80 0 30 -31 46 -84 43 -49 -3 -51 -4 -54 -33 -7 -59 -63 -85 -104 -48 -47 42 -2 128 81 153 48 15 134 11 170 -8z m-1298 -23 c43 -21 83 -67 106 -118 24 -56 21 -168 -6 -224 -63 -130 -220 -173 -339 -93 -132 89 -136 316 -7 418 61 48 170 56 246 17z m2065 6 c160 -66 180 -341 32 -441 -156 -105 -355 2 -360 193 -6 201 152 320 328 248z m-2433 -204 c-3 -21 0 -62 6 -91 6 -29 10 -54 8 -56 -2 -2 -23 24 -47 58 l-43 62 39 33 c21 18 40 33 41 33 0 0 -1 -17 -4 -39z m2074 -43 c-2 -13 -4 -5 -4 17 -1 22 1 32 4 23 2 -10 2 -28 0 -40z"/>
+                                <path d="M1805 464 c-44 -19 -86 -42 -92 -51 -20 -27 -15 -62 13 -90 21 -21 32 -25 66 -20 46 6 75 29 94 74 15 34 19 123 7 122 -5 0 -44 -16 -88 -35z"/>
+                                <path d="M2365 464 c-44 -19 -86 -42 -92 -51 -20 -27 -15 -62 13 -90 21 -21 32 -25 66 -20 46 6 75 29 94 74 15 34 19 123 7 122 -5 0 -44 -16 -88 -35z"/>
+                                <path d="M1001 633 c-57 -30 -75 -64 -79 -146 -2 -55 1 -80 15 -106 53 -100 192 -106 248 -11 26 45 28 160 3 206 -35 64 -123 91 -187 57z m179 -163 c0 -78 -44 -140 -98 -140 -23 0 -24 2 -20 55 5 57 30 98 73 115 38 16 45 11 45 -30z"/>
+                                <path d="M3093 643 c-35 -7 -81 -60 -94 -106 -14 -52 -6 -129 18 -170 37 -65 132 -86 194 -44 47 31 69 79 69 152 0 68 -21 118 -61 148 -26 19 -87 29 -126 20z m160 -186 c-2 -75 -45 -127 -105 -127 -19 0 -20 4 -15 51 8 63 28 96 70 114 45 20 52 14 50 -38z"/>
+                            </g>
+                        </svg>
+                    </a>
+                `
+        },
+        '03-15': { quote: '<em title="“Even you, Brutus?”">“Et tu, Brute?”</em>' },
+        '05-03': { quote: '<a href="https://iainplays.com" class="link-shy">Happy Birthday, Onion Samson</a>',
+                   color: '#ff7b00',
+                   titleHTML: `
+                    <a href="https://koralatov.com/">
+                        <img width="355" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWMAAAAZAQMAAADewt2xAAAABlBMVEUAAAAAAAClZ7nPAAAAAXRSTlMAQObYZgAAAFVJREFUOMtj+MHA38DwHwgeIIgfDECAKcb8YGirBjORCSCASDN+gLCGuGq4h7GGCUI1+wGGGoYhqxrhYXDo4AwTBjv+hiGuGhoS/MihA1eNCJ0hqxoAHQM0UpQ9/hYAAAAASUVORK5CYII=">
+                    </a>
+                `
+                                              },
+        '10-31': { quote: 'Happy Halloween' },
+        '11-20': { customCSS: `
+                    /* On the anniversary of Beau’s death this makes
+                     * the whole site black and white monochrome.
+                     * It also makes images grayscale.                */
+                    a {
+                        background-color: var(--colour-text);
+                        color: var(--colour-background);
+                    }
+                    a:active {
+                        background-color: transparent;
+                        color: var(--colour-text);
+                    }
+                    @media (prefers-color-scheme: dark) {
+                        a {
+                            background-color: var(--colour-text);
+                            color: var(--colour-background);
+                        }
+                    }
+                   img { filter: grayscale(100%); }
+                `
+        },
+        '12-25': { quote: 'Merry Christmas' }
+    };
+
+    // --- Date Calculation (Done Once) ---
+    const today = new Date();
+    const month = today.getMonth() + 1;
+    const day = today.getDate();
+    const dateKey = `${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const todaysConfig = specialDateConfig[dateKey];
+
+    // --- Logic for Special Dates ---
+    if (todaysConfig) {
+        // Apply a simple color override if one is defined.
+        if (todaysConfig.color) {
+            document.documentElement.style.setProperty('--colour-lime', todaysConfig.color);
+        }
+
+        // Inject a block of custom CSS if it's defined.
+        if (todaysConfig.customCSS) {
+            const style = document.createElement('style');
+            style.innerHTML = todaysConfig.customCSS;
+            document.head.appendChild(style);
+        }
+
+        // Apply title override if one is defined for today.
+        if (todaysConfig.titleHTML) {
+            const siteTitleElement = document.getElementById('site-title');
+            if (siteTitleElement) {
+                siteTitleElement.innerHTML = todaysConfig.titleHTML;
+            } else {
+                console.error('Script failed: Target #site-title not found for title override.');
+            }
+        }
+    }
+
+    // --- Logic for Copyright Year (Always Runs) ---
+    const copyrightLink = document.getElementById('copyright-link');
+    if (copyrightLink) {
+        copyrightLink.innerHTML = `© ${today.getFullYear()}`;
+    }
+    
+    // --- Logic for Quote ---
+    const quoteElement = document.getElementById('random-quote');
+    if (quoteElement) {
+        // Use the special quote if it's defined for today, otherwise get a random one.
+        quoteElement.innerHTML = (todaysConfig && todaysConfig.quote) ? todaysConfig.quote : getRandomQuote();
+    }
+});
+</script>
+
+
+</body>
+</html>
+
+<!--
+
+       Here are both of my girls, reproduced in glorious ASCII.
+
+                      .-"-.
+         |\./|       /|^ ^|\
+        =(^,^)=))   {/(_0_)\}
+          | | ((     _/ ^ \_))
+         (|||)))    (/ /'\ \)
+         =m'm=       ""' '""
+         SAFFY        RUBY
+                                                                             -->
+
+<!--
+         ^...^      BEAU SPIRIT CINNAMON McCOMBE came home for the very
+        (=^I^=) ))  first time on 29/08/2008, and spent his first night
+         / " \ ((   sleeping on the toaster.  He came home for the last
+        ( |"| )))   time on 15/11/2020, wrapped in his Winnie the Pooh
+        ==m m==     blanket.  He’d gone to sleep peacefully in my arms.
+                    He didn’t suffer, and he was loved so very, very
+       much for the 12 years he was with us.  He rests now in the
+       garden, wrapped in his blanket.  We’re all under same roof.
+       We’ll always miss you, and we’ll always love you, Baby Boy.
+                                                                             -->
