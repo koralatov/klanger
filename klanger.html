@@ -357,7 +357,7 @@
           href    = "https://fonts.gstatic.com"
           crossorigin>
 
-    <link href    = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@0;1&family=Merriweather:ital,wght@0,400;0,800;1,400;1,800&display=swap"
+    <link href    = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@0;1&family=Merriweather:ital,wght@0,400;0,500;0,800;1,400;1,500;1,800&display=swap"
           rel     = "stylesheet">
 
 
@@ -420,8 +420,9 @@
 
     --font-body:            "Merriweather",   "Georgia", serif;
     --font-monospaced:      "JetBrains Mono", "Courier", monospace;
-    --font-weight-body:      400;
+    --font-weight-body:      500;
     --font-weight-bold:      800;
+    --font-weight-headings:  400;
 
     --font-size-9pt:         0.632rem;      /*  9pt equivalent */
     --font-size-10pt:        0.71rem;       /* 10pt equivalent */
@@ -557,6 +558,7 @@ body {
 
         .site-title-text {
             font-size:     2.5rem;      /* This is the old ‘h1’ size. */
+            font-weight:   var(--font-weight-headings);
             margin-bottom: 5rem;
         }
 
@@ -590,7 +592,7 @@ body {
         list-style:      none;
         padding:         0;
         margin:          0;
-        margin-bottom: 2rem;
+        margin-bottom:   2rem;
     }
 
 
@@ -638,13 +640,15 @@ body {
 
     footer {
         font-size:  var(--font-size-12pt);
-        margin-top: 2rem;
+        margin-top: 3rem;
         text-align: center;
     }
 
-        .navigation-links-footer  {  font-size: var(--font-size-12pt); }
-
-            .navigation-links-footer ul  {  margin-bottom: 1em;  }
+        .navigation-links-footer ul {
+            padding:       0;
+            margin:        0;
+            margin-bottom: 1em;
+        }
 
         .footer-random-quote  {  margin-top: 2rem;  }
 
@@ -861,7 +865,7 @@ p + p {
 
     h1, h2, h3, h4 {
         color:       var(--colour-headings);
-        font-weight: var(--font-weight-body);
+        font-weight: var(--font-weight-headings);
     }
 
 /*  Tighter line-heights for heading sizes:                           */
