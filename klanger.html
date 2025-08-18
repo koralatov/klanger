@@ -160,7 +160,7 @@
 
     <!-- This is the post description on the Twitter share sheet.    -->
     <meta name    = "twitter:description"
-          content = "{MetaDescription}">
+          content = "{PostSummary}">
 
 {block:Photo}
     <!-- This is the splash image on the Twitter share sheet.        -->
@@ -186,7 +186,7 @@
 
     <!-- This is the description on the Open Graph share sheet.      -->
     <meta property = "og:description"
-          content  = "{MetaDescription}">
+          content  = "{PostSummary}">
 
 {block:Photo}
     <!-- This is the splash image on the Open Graph share sheet.     -->
@@ -233,7 +233,7 @@
   ADDITIONAL STRUCTURED DATA (JSON-LD)
 ========================================================================
   Tumblr creates its own JSON-LD based on the contents of the post,
-  but doesn’t incldue the metadata below.  This block will feed the
+  but doesn’t include the metadata below.  This block will feed the
   extra informtion to search engines so they can properly structure
   and display search results.
 -->
@@ -568,18 +568,17 @@ body {
  *  NAVIGATION: Styling for <nav> and other navigation elements
  **********************************************************************/
 
-   .navigation-links {
-       list-style: none;          /* Remove bullets from list items. */
-       margin:     0;
-       padding:    0;
-   }
+    .navigation-links {
+        list-style: none;          /* Remove bullets from list items. */
+        margin:     0;
+        padding:    0;
+    }
 
-       .navigation-links li {
-           display:      inline;    /* Arrange links horizontally. */
-           margin-right: 1.5em;    /* Add space between each link. */
-       }
-           .navigation-links li:last-child  {  margin-right: 0;  }
-
+        .navigation-links li {
+            display:      inline;      /* Arrange links horizontally. */
+            margin-right: 1.5em;      /* Add space between each link. */
+        }
+            .navigation-links li:last-child  {  margin-right: 0;  }
 
     .navigation-arrows {
     /* ‘space-between’ takes all the unused horizontal space inside
@@ -620,14 +619,16 @@ body {
         margin-bottom: 3rem;
     }
 
-    .post-metadata-list  {  list-style: none;  }
-
-        .post-metadata-list li {
+    .post-metadata-block ul {
+        list-style: none;          /* Remove bullets from list items. */
+        margin:     0;
+        padding:    0;
+    }
+        .post-metadata-block li {
             display:      inline;      /* Arrange links horizontally. */
-            margin-right: 1.5rem;     /* Add space between each link. */
+            margin-right: 1.5em;      /* Add space between each link. */
         }
-
-            .post-metadata-list li:last-child  {  margin-right: 0;  }
+            .post-metadata-block li:last-child  {  margin-right: 0;  }
 
 
 
@@ -643,7 +644,7 @@ body {
 
         .navigation-links-footer  {  font-size: var(--font-size-12pt); }
 
-             .navigation-links-footer ul  {  margin-bottom: 1em;  }
+            .navigation-links-footer ul  {  margin-bottom: 1em;  }
 
         .footer-random-quote  {  margin-top: 2rem;  }
 
@@ -1029,7 +1030,6 @@ hr {
 
 
 {block:Photo}
-
 <!--
        ▄▄▄· ▄ .▄    ▄▄█▄▄▄          ▄▄▄·      .▄▄ ·▄▄▄▄▄▄
       ▐█ ▄█▐█ ▐█▪     ██           ▐█ ▄█▪     ▐█ ▀. •██.
@@ -1051,7 +1051,6 @@ hr {
 
 
 {block:Photoset}
-
 <!--
        ▄▄▄· ▄ .▄    ▄▄█▄▄▄             ▄▄▄·      .▄▄ ·▄▄▄▄▄▄
       ▐█ ▄█▐█ ▐█▪     ██              ▐█ ▄█▪     ▐█ ▀. •██.
@@ -1070,7 +1069,6 @@ hr {
 
 
 {block:Quote}
-
 <!--
       .▄▄▄  ▄• ▄▌   ▄▄█▄▄ ▄▄▄ .     ▄▄▄·     .▄▄ ·▄▄▄▄▄▄
       ▐▀•▀█ █▪██▌     ██  ▀▄.▀·    ▐█ ▄█▪    ▐█ ▀. •██
@@ -1080,7 +1078,8 @@ hr {
                                                                              -->
 
 <!-- Tumblr automatically chooses the quote’s length.                -->
-    <blockquote class="quote-post quote-{Length}">
+    <blockquote class="quote-post
+                       quote-{Length}">
         {Quote}
     </blockquote>
 
@@ -1092,7 +1091,6 @@ hr {
 
 
 {block:Video}
-
 <!--
        ▌ ▐·▪  ·▄▄▄▄  ▄▄▄ .           ▄▄▄·     .▄▄ ·▄▄▄█▄▄
       ▪█·█▌██ ██▪ ██ ▀▄.▀·          ▐█ ▄█▪    ▐█ ▀.  ██▪
@@ -1109,7 +1107,6 @@ hr {
 
 
 {block:Audio}
-
 <!--
        ▄▄▄· ▄• ▄▌·▄▄▄▄  ▪             ▄▄▄·      .▄▄   ▄▄▄▄▄.
       ▐█ ▀█ █▪██▌██▪ ██ ██           ▐█ ▄█▪     ▐█ ▀. •██
@@ -1125,7 +1122,6 @@ hr {
 
 
 {block:Link}
-
 <!--
       ▄▄▌  ▪   ▐ ▄ ▄ •▄      ▄▄▄·    .▄▄ ·▄▄▄▄▄▄
       ██•  ██ •█▌▐▌█▌▄▌▪    ▐█ ▄█▪    █ ▀. •█▌
@@ -1144,7 +1140,6 @@ hr {
 
 
 {block:Conversation}
-
 <!--
        ▄▄▄· ▄ .▄ ▄▄▄· ▄▄▄▄▄     ▄▄▄·      .▄▄ ·▄▄█▄▄▄
       ▐█ █ ▐█▪▐█▐█ ▀█ •██      ▐█ ▄█▪     ▐█ ▀. •██
@@ -1185,8 +1180,6 @@ hr {
 
 <section class="post-metadata-block">
 
-<ul class="navigation-links">
-
 {block:RebloggedFrom}
 <!--
 ========================================================================
@@ -1221,24 +1214,24 @@ hr {
 ========================================================================
 -->
 
-    <ul class="navigation-links">
+    <ul>
         <li>Source: <a href ="{SourceURL}" class="link-source-url">{SourceTitle}</a></li>
     </ul>
 {/block:ContentSource}
 
-    <ul class="navigation-links">
+    <ul>
         <li>Posted on <time datetime="{Year}-{Month}-{DayOfMonthWithZero}">{DayOfMonth}{DayOfMonthSuffix} {Month}, {Year}</time></li>
     </ul>
 
-    <ul class="navigation-links">
+    <ul>
     {block:NoteCount}
-    <!-- This only appears if the post has one or more notes.    -->
+    <!-- This only appears if the post has one or more notes.        -->
         <li class="text-nobreak">{NoteCountWithLabel}</li>
     {/block:NoteCount}
 
         <li><a href="{Permalink}" class="link-post-permalink"><span aria-hidden="true">∞</span> Permalink</a></li>
     </ul>
-</ul>
+
 </section>
 {/block:Date}
 
@@ -1336,9 +1329,10 @@ hr {
       .▀    ▀  ▀ ·▀▀▀▀  ▀▀▀     ▀▀▀  ▀█▄▀▪ ▀█▄▀ ▀▀▀  ▀▀▀ .▀  ▀
                                                                              -->
 <footer>
-<nav aria-label="Footer navigation" class="navigation-links-footer">
+<nav aria-label="Footer navigation" class="navigation-links
+                                           navigation-links-footer">
 
-    <ul class="navigation-links">
+    <ul>
 
     <!-- All of these links have the class ‘with-icon’ to
          make sure they’re the same height as the links
@@ -1356,8 +1350,7 @@ hr {
 
     </ul>
 
-    <ul class="navigation-links
-               footer-navigation-links">
+    <ul>
 
         <li><a href="mailto:hello@koralatov.com"
                class="with-icon">Contact</a></li>
