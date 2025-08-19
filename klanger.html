@@ -418,19 +418,6 @@
         --colour-quote:      var(--colour-grey);
         --colour-text:       var(--colour-black);
 
-    --font-body:            "Merriweather",   "Georgia", serif;
-    --font-monospaced:      "JetBrains Mono", "Courier", monospace;
-    --font-weight-body:      500;
-    --font-weight-bold:      800;
-    --font-weight-headings:  400;
-
-    --font-size-9pt:         0.632rem;      /*  9pt equivalent */
-    --font-size-10pt:        0.71rem;       /* 10pt equivalent */
-    --font-size-12pt:        0.86rem;       /* 12pt equivalent */
-    --font-size-14pt:        1rem;          /* 14pt equivalent */
-    --font-size-16pt:        1.125rem;      /* 16pt equivalent */
-
-}
     @media (prefers-color-scheme: dark) {
         :root {
         /*  The light theme uses a pure white background with pure
@@ -443,6 +430,20 @@
             --colour-white: #000000;    /* Black, for background      */
         }
     }
+
+    --font-body:            "Merriweather",   "Georgia", serif;
+    --font-monospaced:      "JetBrains Mono", "Courier", monospace;
+    --font-weight-body:      500;
+    --font-weight-bold:      800;
+    --font-weight-headings:  400;
+
+    --font-size-9pt:         0.65rem;       /*  9pt equivalent */
+    --font-size-10pt:        0.71rem;       /* 10pt equivalent */
+    --font-size-12pt:        0.86rem;       /* 12pt equivalent */
+    --font-size-14pt:        1rem;          /* 14pt equivalent */
+    --font-size-16pt:        1.15rem;       /* 16pt equivalent */
+
+}
 
 
 
@@ -559,10 +560,7 @@ body {
         .site-title-text {
             font-size:     2.5rem;      /* This is the old ‘h1’ size. */
             font-weight:   var(--font-weight-headings);
-            margin-bottom: 5rem;
         }
-
-        .navigation-links-header  {  margin-top: 1.5rem;  }
 
 
 
@@ -581,6 +579,14 @@ body {
             margin-right: 1.5em;      /* Add space between each link. */
         }
             .navigation-links li:last-child  {  margin-right: 0;  }
+
+        .navigation-links-footer ul {
+            padding:       0;
+            margin:        0;
+            margin-bottom: 1em;
+        }
+
+        .navigation-links-header  {  margin-top: 1rem;  }
 
     .navigation-arrows {
     /* ‘space-between’ takes all the unused horizontal space inside
@@ -644,11 +650,6 @@ body {
         text-align: center;
     }
 
-        .navigation-links-footer ul {
-            padding:       0;
-            margin:        0;
-            margin-bottom: 1em;
-        }
 
         .footer-random-quote  {  margin-top: 2rem;  }
 
@@ -696,6 +697,11 @@ a {
             }
     }
 
+    .link-nobreak,
+    .link-post-permalink,
+    .link-page-permalink,
+    .link-reblog-source,
+    .link-source-url       {  white-space: nowrap;  }
 
     .link-post-title {
         background-color: transparent;
@@ -707,12 +713,6 @@ a {
         .link-shy:hover  {  color: var(--colour-active);  }
 
     .link-source-url  {  font-family: var(--font-monospaced);  }
-
-    .link-nobreak,
-    .link-post-permalink,
-    .link-page-permalink,
-    .link-reblog-source,
-    .link-source-url       {  white-space: nowrap;  }
 
 
     .link-beau {
@@ -787,12 +787,14 @@ p + p {
     }
 
         .quote-short {
-            font-size:   2.25rem;   /* 32pt text equivalent. */
+            font-size:   2.29rem;   /* 32pt text equivalent. */
+            font-weight: var(--font-weight-headings);
             line-height: 1.1;
         }
 
         .quote-medium {
-            font-size:   1.685rem;  /* 24pt text equivalent. */
+            font-size:   1.72rem;   /* 24pt text equivalent. */
+            font-weight: var(--font-weight-headings);
             line-height: 1.2;
         }
 
@@ -832,7 +834,7 @@ p + p {
         .notes blockquote a {
         /*  This is the styling for the quoted portion on a reblog.
          *  It’s always a link, so this styling removes the link
-         *  colouring and renders it as italic, grey text.            */
+         *  colouring and renders it as italic text.                  */
             color:      var(--colour-text);
             background: transparent;
             font-style: italic;
@@ -898,7 +900,6 @@ p + p {
         }
 
     .text-nobreak  {  white-space: nowrap;  }
-
 
 
 hr {
@@ -1342,15 +1343,15 @@ hr {
          make sure they’re the same height as the links
          that do have an icon.                                  -->
 
-        <li><a href="/" class="with-icon">Home</a></li>
+        <li><a href="https://koralatov.com/" class="with-icon">Home</a></li>
 
    <!-- <li><a href="/archive">Archive</a> -->
 
    <!-- The Shuffle icon is one of the Material Design Icons:
         https://icon-sets.iconify.design/mdi/shuffle-variant/   -->
-         <li><a href="/random" class="with-icon">Random Post <svg aria-hidden="true" xmlns= "http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path fill="currentColor" d= "m17 3l5.25 4.5L17 12l5.25 4.5L17 21v-3h-2.74l-2.82-2.82l2.12-2.12L15.5 15H17V9h-1.5l-9 9H2v-3h3.26l9-9H17V3M2 6h4.5l2.82 2.82l-2.12 2.12L5.26 9H2V6Z"/></svg></a></li>
+         <li><a href="https://koralatov.com/random" class="with-icon">Random Post <svg aria-hidden="true" xmlns= "http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path fill="currentColor" d= "m17 3l5.25 4.5L17 12l5.25 4.5L17 21v-3h-2.74l-2.82-2.82l2.12-2.12L15.5 15H17V9h-1.5l-9 9H2v-3h3.26l9-9H17V3M2 6h4.5l2.82 2.82l-2.12 2.12L5.26 9H2V6Z"/></svg></a></li>
 
-        <li><a href="/colophon" class="with-icon">Colophon</a></li>
+        <li><a href="https://koralatov.com/colophon" class="with-icon">Colophon</a></li>
 
     </ul>
 
@@ -1363,7 +1364,7 @@ hr {
          https://icon-sets.iconify.design/mdi/rss/               -->
         <li><a href="{RSS}" class="with-icon"><abbr title="Really Simple Syndication Feed">RSS Feed</abbr> <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"/></svg></a></li>
 
-        <li><a href="/copyright"
+        <li><a href="https://koralatov.com/copyright"
                class="link-shy
                       with-icon"
                id="copyright-year-link">© 2025</a></li>
