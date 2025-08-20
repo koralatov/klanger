@@ -418,19 +418,6 @@
         --colour-quote:      var(--colour-grey);
         --colour-text:       var(--colour-black);
 
-    @media (prefers-color-scheme: dark) {
-        :root {
-        /*  The light theme uses a pure white background with pure
-         *  black text, but I’ve used off-white for the text on the
-         *  dark theme to reduce contrast a little.  It still
-         *  passes Web ContentAccessibility Guidelines (WCAG) 2.2
-         *  testing, but isn’t as stark when reading.                 */
-            --colour-black: #e0e0e0;    /* Off-white, for text        */
-            --colour-grey:  #999999;    /* Light Grey, for headings   */
-            --colour-white: #000000;    /* Black, for background      */
-        }
-    }
-
     --font-body:            "Merriweather",   "Georgia", serif;
     --font-monospaced:      "JetBrains Mono", "Courier", monospace;
     --font-weight-body:      500;
@@ -444,6 +431,18 @@
     --font-size-16pt:        1.15rem;       /* 16pt equivalent */
 
 }
+    @media (prefers-color-scheme: dark) {
+        :root {
+        /*  The light theme uses a pure white background with pure
+         *  black text, but I’ve used off-white for the text on the
+         *  dark theme to reduce contrast a little.  It still
+         *  passes Web ContentAccessibility Guidelines (WCAG) 2.2
+         *  testing, but isn’t as stark when reading.                 */
+            --colour-black: #e0e0e0;    /* Off-white, for text        */
+            --colour-grey:  #999999;    /* Light Grey, for headings   */
+            --colour-white: #000000;    /* Black, for background      */
+        }
+    }
 
 
 
@@ -627,11 +626,12 @@ body {
         margin-bottom: 3rem;
     }
 
-    .post-metadata-block ul {
-        list-style: none;          /* Remove bullets from list items. */
-        margin:     0;
-        padding:    0;
-    }
+        .post-metadata-block ul {
+            list-style: none;      /* Remove bullets from list items. */
+             margin:     0;
+             padding:    0;
+        }
+
         .post-metadata-block li {
             display:      inline;      /* Arrange links horizontally. */
             margin-right: 1.5em;      /* Add space between each link. */
@@ -829,7 +829,7 @@ p + p {
  *   generates.  The ‘.notes’ class applies to an <ol> list.
  **********************************************************************/
 
-    .notes  {  margin-bottom: 3rem; }
+    .notes  {  margin-bottom: 3rem;  }
 
         .notes blockquote a {
         /*  This is the styling for the quoted portion on a reblog.
@@ -874,10 +874,10 @@ p + p {
     h1, h2  {  line-height: 1.3;  }
     h3, h4  {  line-height: 1.4;  }
 
-    h1  {  font-size:   2rem;      }               /* 28pt equivalent */
-    h2  {  font-size:   1.714rem;  }               /* 24pt equivalent */
-    h3  {  font-size:   1.428rem;  }               /* 20pt equivalent */
-    h4  {  font-size:   1.126rem;  }               /* 16pt equivalent */
+    h1  {  font-size: 2rem;     }       /* 28pt equivalent */
+    h2  {  font-size: 1.72rem;  }       /* 24pt equivalent */
+    h3  {  font-size: 1.43rem;  }       /* 20pt equivalent */
+    h4  {  font-size: 1.15rem;  }       /* 16pt equivalent */
 
     h3.search-results-count  {  margin-top: -1em;  }
 
