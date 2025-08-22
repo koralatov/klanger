@@ -13,7 +13,7 @@
 function getRandomQuote() {
     const quotes = [
         '<a class="link-shy" href="https://memory-alpha.fandom.com/wiki/Rules_of_Acquisition">Rule of Acquisition</a> 190: “Hear all, trust nothing”',
-        '<a class="link-shy" href="https://www.youtube.com/watch?v=m9joBLOZVEo"><code>10 PRINT CHR$(205.5+RND(1)); : GOTO 10</code></a>',
+        '<a class="link-shy" href="https://koralatov.com/10print"><code>10 PRINT CHR$(205.5+RND(1)); : GOTO 10</code></a>',
         '<em title="“Always the same”">“Semper Idem”</em>',
         '<em title="“Listen, watch, be still”">“Aude, Vide, Sile”</em>',
         '<em title="“They lived”">“Vixere”</em>',

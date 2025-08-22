@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 PRINT CHR$(205.5+RND(1)); : GOTO 10</title>
+
+    <style>
+        /*
+         * Basic reset to remove default browser margins and
+         * paddings for a consistent layout.
+        */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Prevents scrollbars */
+        }
+
+        /*
+         * Colours based on PAL palette from @jcastro76’s tweet:
+         * https://x.com/jscastro76/status/1820876067441123706/
+        */
+
+        /*
+         * The body has the main background/border color.
+         * We use Flexbox to perfectly center the main content
+         * container.
+        */
+        body {
+            background-color: #BFCE72;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /*
+         * This is the central content container.
+         * - It has the main fill color.
+         * - It is sized to be 80% of the viewport width/height.
+         * - Flexbox is used again to center the grid inside it.
+        */
+        .content-container {
+            background-color: #55A049;
+            width: 80vw;
+            height: 80vh;
+            box-sizing: border-box;
+            overflow: hidden; 
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /*
+         * Style for the grid that will hold the images.
+         * line-height: 0 removes extra vertical space that can
+         * sometimes appear between grid rows.
+        */
+        #image-grid {
+            display: grid;
+            line-height: 0;
+        }
+
+        /*
+         * Style for the individual 32x32 pixel cells in the grid.
+        */
+        .grid-cell {
+            width: 32px;
+            height: 32px;
+        }
+    </style>
+</head>
+<body>
+    
+    <main class="content-container" id="main-content"></main>
+
+<script>
+(function () {
+  // ---- Config ----
+  const imageSize = 32;          // px per tile
+  const tickMs    = 50;          // animation interval
+  const maxStreak = 4;           // force a flip after N matches
+
+  // ---- Tiles ----
+  const images = [
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAC/znKAF+oyAAAAAXRSTlMAQObYZgAAABlJREFUCNdj+M8ABOjEB0yC/z8qQSOF6AQAF+Qr1SmBvVQAAAAASUVORK5CYII=',
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAC/znKAF+oyAAAAAXRSTlMAQObYZgAAABlJREFUCNdjAIL/mAQ/FuL/BzSCusqwOwQAROUr1VL7PfYAAAAASUVORK5CYII='
+  ];
+
+  // ---- State ----
+  let mainContent, gridContainer, cells = [];
+  let rows = 0, cols = 0;
+  let currentRow = 0, currentCol = 0;
+  let lastImageIndex = -1, streak = 0;
+  let timer = null;
+  let resizeObs = null;
+
+  // Utility: make a safe grid-template-columns string
+  function makeColumns(n, sizePx) {
+    // Avoid template-literal placeholders that Tumblr tooling might touch.
+    // e.g., "32px 32px 32px ..."
+    return Array(n).fill(String(sizePx) + 'px').join(' ');
+  }
+
+  // Build (or rebuild) the grid to fit the container
+  function buildGrid() {
+    stopAnimation();
+
+    // Clear any old grid
+    if (gridContainer && gridContainer.parentNode) {
+      gridContainer.parentNode.removeChild(gridContainer);
+    }
+    gridContainer = document.createElement('div');
+    gridContainer.id = 'image-grid';
+    gridContainer.style.display = 'grid';
+    gridContainer.style.lineHeight = '0';
+
+    const w = mainContent.clientWidth;
+    const h = mainContent.clientHeight;
+
+    cols = Math.max(1, Math.floor(w / imageSize));
+    rows = Math.max(1, Math.floor(h / imageSize));
+
+    gridContainer.style.gridTemplateColumns = makeColumns(cols, imageSize);
+
+    // Fill placeholder cells
+    cells = [];
+    const total = rows * cols;
+    for (let i = 0; i < total; i++) {
+      const cell = document.createElement('div');
+      cell.className = 'grid-cell';
+      cell.style.width = imageSize + 'px';
+      cell.style.height = imageSize + 'px';
+      gridContainer.appendChild(cell);
+      cells.push(cell);
+    }
+
+    mainContent.appendChild(gridContainer);
+
+    // Reset writer position/state
+    currentRow = 0;
+    currentCol = 0;
+    lastImageIndex = -1;
+    streak = 0;
+
+    startAnimation();
+  }
+
+  function startAnimation() {
+    if (timer) return;
+    timer = setInterval(tick, tickMs);
+  }
+
+  function stopAnimation() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function pickTile() {
+    let nextIndex;
+    if (streak >= maxStreak && lastImageIndex !== -1) {
+      nextIndex = 1 - lastImageIndex;
+    } else {
+      nextIndex = Math.floor(Math.random() * 2);
+    }
+    streak = (nextIndex === lastImageIndex) ? (streak + 1) : 1;
+    lastImageIndex = nextIndex;
+    return images[nextIndex];
+  }
+
+  function scrollUpOneRow() {
+    // Copy innerHTML up one row
+    for (let r = 0; r < rows - 1; r++) {
+      for (let c = 0; c < cols; c++) {
+        const cur = r * cols + c;
+        const below = (r + 1) * cols + c;
+        cells[cur].innerHTML = cells[below].innerHTML;
+      }
+    }
+    // Clear last row
+    for (let c = 0; c < cols; c++) {
+      cells[(rows - 1) * cols + c].innerHTML = '';
+    }
+  }
+
+  function tick() {
+    if (!cells.length) return;
+
+    if (currentRow >= rows) {
+      scrollUpOneRow();
+      currentRow = rows - 1;
+      currentCol = 0;
+    }
+
+    const idx = currentRow * cols + currentCol;
+    const cell = cells[idx];
+
+    // Write a tile
+    const img = document.createElement('img');
+    img.decoding = 'async';
+    img.loading = 'eager';
+    img.width = imageSize;
+    img.height = imageSize;
+    img.style.display = 'block'; // avoid inline-gap artifacts
+    img.src = pickTile();
+    // Replace instead of append to avoid stacking if re-ticking same cell
+    cell.innerHTML = '';
+    cell.appendChild(img);
+
+    // Advance
+    currentCol++;
+    if (currentCol >= cols) {
+      currentCol = 0;
+      currentRow++;
+    }
+  }
+
+  // Wait until the container actually has a size
+  function whenSized(el, cb) {
+    // Immediate if sized
+    if (el.clientWidth > 0 && el.clientHeight > 0) {
+      cb();
+      return;
+    }
+    // Poll briefly in case Tumblr reflows late
+    let tries = 0;
+    const maxTries = 120; // ~2s at 16ms frames
+    (function waitFrame() {
+      if (el.clientWidth > 0 && el.clientHeight > 0) {
+        cb();
+      } else if (tries++ < maxTries) {
+        requestAnimationFrame(waitFrame);
+      } else {
+        // Fallback: still build with whatever we have (at least 1x1)
+        cb();
+      }
+    })();
+  }
+
+  function onReady() {
+    mainContent = document.getElementById('main-content');
+    if (!mainContent) return;
+
+    whenSized(mainContent, buildGrid);
+
+    // Rebuild if Tumblr’s layout changes the container size
+    if ('ResizeObserver' in window) {
+      resizeObs = new ResizeObserver(() => {
+        // Only rebuild when size actually changes row/col counts
+        const newCols = Math.max(1, Math.floor(mainContent.clientWidth / imageSize));
+        const newRows = Math.max(1, Math.floor(mainContent.clientHeight / imageSize));
+        if (newCols !== cols || newRows !== rows) {
+          buildGrid();
+        }
+      });
+      resizeObs.observe(mainContent);
+    } else {
+      // Fallback: occasional check
+      let lastW = mainContent.clientWidth, lastH = mainContent.clientHeight;
+      setInterval(() => {
+        const w = mainContent.clientWidth, h = mainContent.clientHeight;
+        if (w !== lastW || h !== lastH) {
+          lastW = w; lastH = h;
+          buildGrid();
+        }
+      }, 500);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onReady, { once: true });
+  } else {
+    onReady();
+  }
+})();
+</script>
+
+
+</body>
+</html>
