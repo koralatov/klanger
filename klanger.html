@@ -184,7 +184,7 @@
   designed to eliminate as many possible privacy and security issues
   as possible while keeping a functioning multimedia site.
 -->
-   <meta http-equiv = "Content-Security-Policy"
+    <meta http-equiv = "Content-Security-Policy"
           content    = "default-src 'none';
                         base-uri    'self';
                         object-src  'none';
@@ -197,6 +197,8 @@
                                      https://fonts.gstatic.com;
                         frame-src   'self'
                                      https://*.tumblr.com
+                                     https://*.txmblr.com/
+                                     https://safe.txmblr.com/
                                      https://youtube.com
                                      https://*.youtube.com
                                      https://youtube-nocookie.com
@@ -363,6 +365,8 @@
  **********************************************************************/
 
     abbr,  ins    {  text-decoration: none;                 }
+
+        abbr      {  cursor: help;                          }
 
     b,    strong  {  font-weight: var(--font-weight-bold);  }
 
@@ -819,16 +823,16 @@ p + p {
     .text-nobreak  {  white-space: nowrap;  }
 
 
+/*  .read_more_container  {    }  */
+    .read_more::after  {  content: " →";  }
+
+
 hr {
     background: var(--colour-grey);
     border:     0;
     color:      var(--colour-grey);
     height:     1px;
 }
-
-
-/*  .read_more_container  {    }  */
-    .read_more::after  {  content: " →";  }
 
 
 /* Code for Tag Cloud on /tags/ page */
