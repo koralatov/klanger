@@ -526,13 +526,19 @@ body {
     article iframe,
     article video   {  width: 100%;  }
 
-    /*  Fix to stop video embeds from overflowing on mobile.  */
+    /*  Fix to stop video embeds from overflowing on mobile, and
+        to horizontally centre it on desktop on the index page.       */
         article iframe.embed_iframe,
         article figure.tmblr-embed iframe,
         figure tmblr-embed,
         figure tmblr-full,
         figure.tmblr-embed,
-        figure.tmblr-embed iframe {  max-width: 100%  !important;  }
+        figure.tmblr-embed iframe {
+            margin-left:  auto   !important;
+            margin-right: auto   !important;
+            max-width:    100%   !important;
+            text-align:   center !important;
+        }
 
 
 
