@@ -526,19 +526,17 @@ body {
     article iframe,
     article video   {  width: 100%;  }
 
-    /*  Fix to stop video embeds from overflowing on mobile, and
-        to horizontally centre it on desktop on the index page.       */
+    /*  Fix to stop video embeds from overflowing on mobile.  */
         article iframe.embed_iframe,
         article figure.tmblr-embed iframe,
         figure tmblr-embed,
         figure tmblr-full,
         figure.tmblr-embed,
-        figure.tmblr-embed iframe {
-            margin-left:  auto   !important;
-            margin-right: auto   !important;
-            max-width:    100%   !important;
-            text-align:   center !important;
-        }
+        figure.tmblr-embed iframe { margin-left: auto !important;
+    margin-right: auto !important;
+    
+    /* 2. Centers any content *inside* the figure element. */
+    text-align: center !important; max-width: 100%  !important;  }
 
 
 
@@ -549,9 +547,10 @@ body {
     .post-metadata-block {
         color:         var(--colour-grey);
         font-size:     var(--font-size-12pt);
-        text-align:    center;
+        line-height:   1.7;
         margin-top:    1.5rem;
         margin-bottom: 3rem;
+        text-align:    center;
     }
 
         .post-metadata-block ul {
@@ -845,6 +844,14 @@ hr {
     border:     0;
     color:      var(--colour-grey);
     height:     1px;
+}
+
+.infobox {
+    font-style:   italic; 
+    margin-left:  1em;
+    margin-right: 1em;
+    margin-top:   1em;
+    text-indent:  0;
 }
 
 
@@ -1333,8 +1340,8 @@ hr {
 
 <script>
 //  Script:   easter-eggs.js
-//  Version:  1.5
-//  Dated:    2026-03-07
+//  Version:  1.4.4
+//  Dated:    2025-08-18
 //  Function: Handles all dynamic style and content enhancements.
 //  This script performs three main functions:
 //
