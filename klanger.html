@@ -321,15 +321,18 @@
  */
 
     --colour-black:         #000000;
-    --colour-grey:          #7a7a7a;
+    --colour-dark-grey:     #7a7a7a;
+    --colour-light-grey:    #999999;
     --colour-lime:          #ccff00;
+    --colour-off-white:     #e0e0e0;
     --colour-white:         #ffffff;
 
-        --colour-active:     var(--colour-grey);
+        --colour-active:     var(--colour-dark-grey);
         --colour-background: var(--colour-white);
-        --colour-headings:   var(--colour-grey);
+        --colour-headings:   var(--colour-dark-grey);
         --colour-links:      var(--colour-lime);
-        --colour-quote:      var(--colour-grey);
+        --colour-muted:      var(--colour-dark-grey);
+        --colour-quote:      var(--colour-dark-grey);
         --colour-text:       var(--colour-black);
 
     --font-body:            "Merriweather",   "Georgia", serif;
@@ -352,9 +355,12 @@
          *  dark theme to reduce contrast a little.  It still
          *  passes Web ContentAccessibility Guidelines (WCAG) 2.2
          *  testing, but isn’t as stark when reading.                 */
-            --colour-black: #e0e0e0;    /* Off-white, for text        */
-            --colour-grey:  #999999;    /* Light Grey, for headings   */
-            --colour-white: #000000;    /* Black, for background      */
+            --colour-active:     var(--colour-light-grey);
+            --colour-background: var(--colour-black);
+            --colour-headings:   var(--colour-light-grey);
+            --colour-muted:      var(--colour-light-grey);
+            --colour-quote:      var(--colour-light-grey);
+            --colour-text:       var(--colour-off-white);
         }
     }
 
@@ -371,7 +377,7 @@
 
     b,    strong  {  font-weight: var(--font-weight-bold);  }
 
-    del           {  color: var(--colour-grey);             }
+    del           {  color: var(--colour-muted);            }
 
     code, pre     {  font-family: var(--font-monospaced);   }
 
@@ -400,8 +406,8 @@
     .align-left          {  text-align: left;    }
 
     .colour-black        {  color: var(--colour-black);  }
-    .colour-grey         {  color: var(--colour-grey);   }
     .colour-lime         {  color: var(--colour-lime);   }
+    .colour-muted        {  color: var(--colour-muted);  }
     .colour-white        {  color: var(--colour-white);  }
 
     .margin-bottom-1rem  {  margin-bottom: 1rem;  }
@@ -453,6 +459,7 @@ html {
     hanging-punctuation:    first;
     text-wrap:              pretty;
 }
+
 
 body {
 /*  The following two lines centre the main content area inside
@@ -545,7 +552,7 @@ body {
  **********************************************************************/
 
     .post-metadata-block {
-        color:         var(--colour-grey);
+        color:         var(--colour-muted);
         font-size:     var(--font-size-12pt);
         line-height:   1.7;
         margin-top:    1.5rem;
@@ -636,7 +643,7 @@ a {
 
     .link-post-title {
         background-color: transparent;
-        color:            var(--colour-heading);
+        color:            var(--colour-headings);
     }
 
     .link-shy  {
@@ -676,7 +683,7 @@ a {
             color:      var(--colour-background);
         }
     }
-        .link-saffy:hover  {  color: var(--near-black);  }
+        .link-saffy:hover  {  color: var(--colour-black);  }
 
 
 
@@ -688,23 +695,9 @@ p  {  margin-bottom: 0;  }          /* Needed to remove excess space. */
 
 p + p {
     margin:      0;           /* Zero all margins on new paragraph... */
-    margin-top:  0.25em;      /*  ...then re-add 0.5em to top margin. */
+    margin-top:  0.25em;     /*  ...then re-add 0.25em to top margin. */
     text-indent: 2em;         /* Relative the text block’s font size. */
 }
-
-/* Remove the first-line indent on a paragraph in these combinations: */
-    audio + p, blockquote + p,
-    code  + p, details    + p,
-    div   + p, figure     + p,
-    form  + p,
-    h1    + p, h2         + p,
-    h3    + p, h4         + p,
-    h5    + p, h6         + p,
-    hr    + p, img        + p,
-    li    + p, ol         + p,
-    ul    + p, table      + p,
-    pre   + p, video      + p   {  text-indent: 0;  }
-
 
 
 /***********************************************************************
@@ -714,7 +707,7 @@ p + p {
  **********************************************************************/
 
     .quote-post  {
-        color:        var(--colour-grey);
+        color:        var(--colour-quote);
         margin-left:  0;
         margin-right: 0;
     }
@@ -776,7 +769,7 @@ p + p {
 
         .answer_content  {  font-style: italic;  }
 
-        .avatar  {  border: 1px solid var(--colour-grey);  }
+        .avatar  {  border: 1px solid var(--colour-muted);  }
 
 /* Classes I'm not using...
 
@@ -840,9 +833,9 @@ p + p {
 
 
 hr {
-    background: var(--colour-grey);
+    background: var(--colour-muted);
     border:     0;
-    color:      var(--colour-grey);
+    color:      var(--colour-muted);
     height:     1px;
 }
 
@@ -857,25 +850,14 @@ hr {
 
 /* Code for Tag Cloud on /tags/ page */
 
-.tag_cloud {
-    text-align:  center;
-    line-height: 250%;
-    width: 95%;
+.tag-cloud {
+    display:         flex;
+    flex-wrap:       wrap;
+    gap:             0 1.5em;
+    justify-content: center;  /* Horizontally center the tags */
+    line-height:     3;
+    list-style:      none;
 }
-
-    .tag-cloud {
-        display:         flex;
-        flex-wrap:       wrap;
-        justify-content: center;  /* Horizontally center the tags */
-        line-height:     3;
-        list-style:      none;
-    }
-
-       .tag-cloud li {
-           display:      inline;    /* Arrange links horizontally. */
-           margin-right: 1.5em;    /* Add space between each link. */
-       }
-           .tag-cloud li:last-child  {  margin-right: 0;  }
 
     .tag-cloud a {
         font-family:    var(--font-monospaced);
@@ -1248,7 +1230,7 @@ hr {
         {/block:PreviousPage}
             </li>
 
-            <li class="colour-grey
+            <li class="colour-muted
                        size-16pt">
                 {CurrentPage}
             </li>
