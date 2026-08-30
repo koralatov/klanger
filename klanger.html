@@ -451,7 +451,7 @@ html {
     color:                  var(--colour-text);
 
     font-family:            var(--font-body);
-    line-height:            1.6;
+    line-height:            1.65;
 
     font-kerning:           normal;
     font-variant-ligatures: common-ligatures;
@@ -695,7 +695,7 @@ p  {  margin-bottom: 0;  }          /* Needed to remove excess space. */
 
 p + p {
     margin:      0;           /* Zero all margins on new paragraph... */
-    margin-top:  0.25em;     /*  ...then re-add 0.25em to top margin. */
+    margin-top:  0.35em;     /*  ...then re-add 0.25em to top margin. */
     text-indent: 2em;         /* Relative the text block’s font size. */
 }
 
@@ -847,6 +847,8 @@ hr {
     text-indent:  0;
 }
 
+kbd  {  font-family: inherit;  }    /* Uses base font for <kbd> tag. */
+
 
 /* Code for Tag Cloud on /tags/ page */
 
@@ -854,7 +856,7 @@ hr {
     display:         flex;
     flex-wrap:       wrap;
     gap:             0 1.5em;
-    justify-content: center;  /* Horizontally center the tags */
+    justify-content: center;         /* Horizontally center the tags */
     line-height:     3;
     list-style:      none;
 }
