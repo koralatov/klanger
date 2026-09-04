@@ -47,8 +47,8 @@ const specialDateConfig = {
         customCSS: `:root { --colour-lime: #e0218a; } a { color: var(--colour-background); } a:active { color: var(--colour-background); }
 @media (prefers-color-scheme: dark) { a { color: var(--colour-text); } } #site-title, #site-title a { background-color: transparent; padding: 0; } #site-title:hover g { fill: var(--colour-active); }`,
             titleHTML: `
-                <a href="https://koralatov.com/">
-                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    <svg aria-hidden="true" focusable="false"
+                         version="1.0" xmlns="http://www.w3.org/2000/svg"
                          width="198pt" viewBox="0 0 395 99"
                          preserveAspectRatio="xMidYMid meet">
                         <g transform="translate(0.000000,99.000000) scale(0.100000,-0.100000)"
@@ -60,7 +60,6 @@ const specialDateConfig = {
                             <path d="M3093 643 c-35 -7 -81 -60 -94 -106 -14 -52 -6 -129 18 -170 37 -65 132 -86 194 -44 47 31 69 79 69 152 0 68 -21 118 -61 148 -26 19 -87 29 -126 20z m160 -186 c-2 -75 -45 -127 -105 -127 -19 0 -20 4 -15 51 8 63 28 96 70 114 45 20 52 14 50 -38z"/>
                         </g>
                     </svg>
-                </a>
             `
     },
     '03-15': { quote: '<em title="“Even you, Brutus?”">“Et tu, Brute?”</em>' },
@@ -104,6 +103,7 @@ if (todaysConfig) {
         const siteTitleElement = document.getElementById('site-title');
         if (siteTitleElement) {
             siteTitleElement.innerHTML = todaysConfig.titleHTML;
+            siteTitleElement.setAttribute('aria-label', 'Koralatov');
         }
     }
 }
