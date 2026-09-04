@@ -71,6 +71,7 @@ const specialDateConfig = {
         fontLink: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400&display=swap',
         customCSS: `:root { --font-body: "IBM Plex Sans", "Georgia", serif; --font-monospaced: "IBM Plex Mono", "Courier", monospace; --font-weight-bold: 700; }`
     },
+    '10-10': { quote: '<a href="https://en.wikipedia.org/wiki/Fallout_(video_game)" class="link-shy">“War. War never changes.”</a>' },
     '10-31': { quote: 'Happy Halloween' },
     '11-20': {
         customCSS: `img { filter: grayscale(100%); } a { background-color: var(--colour-text); color: var(--colour-background); } a:active { background-color: transparent; color: var(--colour-text); } @media (prefers-color-scheme: dark) { a { background-color: var(--colour-text); color: var(--colour-background); } }`
@@ -129,3 +130,4 @@ if (quoteElement) {
     // Use the special quote if it's defined for today, otherwise get a random one.
     quoteElement.innerHTML = (todaysConfig && todaysConfig.quote) ? todaysConfig.quote : getRandomQuote();
 }
+
