@@ -96,7 +96,7 @@ if (todaysConfig) {
     }
     if (todaysConfig.customCSS) {
         const style = document.createElement('style');
-        style.innerHTML = todaysConfig.customCSS;
+        style.textContent = todaysConfig.customCSS;
         document.head.appendChild(style);
     }
     if (todaysConfig.titleHTML) {
@@ -113,12 +113,12 @@ const currentYear = today.getFullYear();
 // Logic for the element that ONLY shows the year
 const copyrightYearOnly = document.getElementById('copyright-year');
 if (copyrightYearOnly) {
-    copyrightYearOnly.innerHTML = currentYear;
+    copyrightYearOnly.textContent = String(currentYear);
 }
 // Logic for the element that shows the symbol AND the year
 const copyrightLink = document.getElementById('copyright-year-link');
 if (copyrightLink) {
-    copyrightLink.innerHTML = '© ' + currentYear;
+    copyrightLink.textContent = `© ${currentYear}`;
 }
 
 // --- Logic for Quote ---
