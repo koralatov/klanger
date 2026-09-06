@@ -531,12 +531,22 @@ body {
  *  ARTICLE: Styling for <article> and elements inside it
  **********************************************************************/
 
-    article img,
-    article iframe,
-    article video   {  width: 100%;  }
+    figure {
+        margin-left:  0;
+        margin-right: 0;
+    }
 
-    /*  Fix to stop video embeds from overflowing on mobile and to
-        centre the content *inside* the figure elemen.                */
+    article img,
+    article video {
+        display: block;
+        height:  auto;
+        width:   100%;
+    }
+
+    article iframe  {  max-width: 100%;  }
+
+    /*  Stop Tumblr embeds from overflowing on mobile and centre
+     *  their contents within the figure.                            */
         article iframe.embed_iframe,
         article figure.tmblr-embed iframe,
         figure.tmblr-embed,
@@ -544,7 +554,7 @@ body {
         figure.tmblr-embed iframe {
             margin-left:  auto   !important;
             margin-right: auto   !important;
-            max-width:    100%   !important;  
+            max-width:    100%   !important;
             text-align:   center !important;
         }
 
