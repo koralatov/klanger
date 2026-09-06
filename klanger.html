@@ -482,6 +482,7 @@ body {
         .site-title-text {
             font-size:     2.5rem;      /* This is the old ‘h1’ size. */
             font-weight:   var(--font-weight-headings);
+            line-height:   1.2;
         }
 
 
@@ -507,6 +508,7 @@ body {
             margin:        0;
             margin-bottom: 1em;
         }
+            .navigation-links-footer ul:last-child  {  margin-bottom: 0;  }
 
         .navigation-links-header  {  margin-top: 1rem;  }
 
@@ -708,8 +710,10 @@ p + p {
 
     .quote-post  {
         color:        var(--colour-quote);
-        margin-left:  0;
-        margin-right: 0;
+        margin-top:    1rem;
+        margin-bottom: 1rem;             
+        margin-left:   0;
+        margin-right:  0;
     }
 
         .quote-short {
@@ -738,9 +742,11 @@ p + p {
  **********************************************************************/
 
     .chat-post {
-        list-style:   none;
-        padding-left: 1.5em;
-        text-indent: -1.5em;
+        list-style:    none;
+        margin-top:    1rem;
+        margin-bottom: 1rem;
+        padding-left:  1.5em;
+        text-indent:  -1.5em;
     }
 
         .chat-post li  {  margin-bottom: 0.5em;  }
@@ -755,7 +761,10 @@ p + p {
  *   generates.  The ‘.notes’ class applies to an <ol> list.
  **********************************************************************/
 
-    .notes  {  margin-bottom: 3rem;  }
+    .notes {
+        margin-bottom: 3rem;
+        margin-top:    1rem;
+    }
 
         .notes blockquote a {
         /*  This is the styling for the quoted portion on a reblog.
@@ -954,7 +963,7 @@ kbd  {  font-family: inherit;  }    /* Uses base font for <kbd> tag. */
 
         <h1>All posts tagged “{Tag}”</h1>
 
-    </section class="page-title">
+    </section>
 {/block:TagPage}
 
 
