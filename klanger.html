@@ -730,8 +730,19 @@ p  {  margin-bottom: 0;  }          /* Needed to remove excess space. */
 
 p + p {
     margin:      0;           /* Zero all margins on new paragraph... */
-    margin-top:  0.35em;     /*  ...then re-add 0.25em to top margin. */
+    margin-top:  0.25em;     /*  ...then re-add 0.25em to top margin. */
     text-indent: 2em;         /* Relative the text block’s font size. */
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+blockquote + p,
+figure + p,
+ul + p,
+ol + p {
+    text-indent: 0;
 }
 
 
