@@ -923,10 +923,12 @@ kbd  {  font-family: inherit;  }    /* Uses base font for <kbd> tag. */
 .tag-cloud {
     display:         flex;
     flex-wrap:       wrap;
-    gap:             0 1.5em;
-    justify-content: center;         /* Horizontally center the tags */
+    gap:             0 1.5em;      /* No vertical gap, 1.5em between tags. */
+    justify-content: center;        /* Horizontally center the tags.       */
     line-height:     3;
     list-style:      none;
+    margin:          0;
+    padding:         0;
 }
 
     .tag-cloud a {
