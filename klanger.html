@@ -68,7 +68,7 @@
     <meta name    = "description"
           content = "{block:IndexPage}The personal blog of Koralatov, sporadically writing about computers, cats, games, design, TV, and ‘Fallout 3’ since 2007.{/block:IndexPage}{block:PermalinkPage}{PostSummary}{/block:PermalinkPage}">
 
-<!-- This is the most approriate content rating given that I don’t
+<!-- This is the most appropriate content rating given that I don’t
      post anything specifically explicit, but I do swear.            -->
     <meta name    = "rating"
           content = "mature">
@@ -144,7 +144,7 @@
 ========================================================================
   Tumblr creates its own JSON-LD based on the contents of the post,
   but doesn’t include the metadata below.  This block will feed the
-  extra informtion to search engines so they can properly structure
+  extra information to search engines so they can properly structure
   and display search results.
 -->
 
@@ -341,11 +341,11 @@
     --font-weight-bold:      800;
     --font-weight-headings:  400;
 
-    --font-size-9pt:         0.65rem;       /*  9pt equivalent */
-    --font-size-10pt:        0.71rem;       /* 10pt equivalent */
-    --font-size-12pt:        0.86rem;       /* 12pt equivalent */
-    --font-size-14pt:        1rem;          /* 14pt equivalent */
-    --font-size-16pt:        1.15rem;       /* 16pt equivalent */
+    --font-size-9pt:         0.65rem;              /*  9pt equivalent */
+    --font-size-10pt:        0.71rem;              /* 10pt equivalent */
+    --font-size-12pt:        0.86rem;              /* 12pt equivalent */
+    --font-size-14pt:        1rem;                 /* 14pt equivalent */
+    --font-size-16pt:        1.15rem;              /* 16pt equivalent */
 
 }
     @media (prefers-color-scheme: dark) {
@@ -353,7 +353,7 @@
         /*  The light theme uses a pure white background with pure
          *  black text, but I’ve used off-white for the text on the
          *  dark theme to reduce contrast a little.  It still
-         *  passes Web ContentAccessibility Guidelines (WCAG) 2.2
+         *  passes Web Content Accessibility Guidelines (WCAG) 2.2
          *  testing, but isn’t as stark when reading.                 */
             --colour-active:     var(--colour-light-grey);
             --colour-background: var(--colour-black);
@@ -394,7 +394,7 @@
  *  to a lot of duplicated CSS.  It makes maintaining it harder
  *  because I have to update multiple elements to stay consistent.
  *
- *  To avoid this in klaxon, I’m making classes modular: they do
+ *  To avoid this in klanger, I’m making classes modular: they do
  *  one thing, and they can be stacked to get the desired result.
  *
  *  CSS classes *can’t* start with a number, so I’ve given these
@@ -756,19 +756,19 @@ ol + p {
     .quote-post  {
         color:        var(--colour-quote);
         margin-top:    1rem;
-        margin-bottom: 1rem;             
+        margin-bottom: 1rem;
         margin-left:   0;
         margin-right:  0;
     }
 
         .quote-short {
-            font-size:   2.29rem;   /* 32pt text equivalent. */
+            font-size:   2.29rem;            /* 32pt text equivalent. */
             font-weight: var(--font-weight-headings);
             line-height: 1.1;
         }
 
         .quote-medium {
-            font-size:   1.72rem;   /* 24pt text equivalent. */
+            font-size:   1.72rem;            /* 24pt text equivalent. */
             font-weight: var(--font-weight-headings);
             line-height: 1.2;
         }
@@ -837,7 +837,7 @@ ol + p {
 
 
 /***********************************************************************
- *  HEADINGS: klaxon doesn’t use a standard size hierarchy.  Its
+ *  HEADINGS: klanger doesn’t use a standard size hierarchy.  Its
  *   type hierarchy was chosen ‘by eye’ based on how it looks when
  *   using Merriweather with a base font-size of ~14pt equivalent.
  *   All text sizes are defined in rem (Root EM) for simplicity and
@@ -856,10 +856,10 @@ ol + p {
     h1, h2  {  line-height: 1.3;  }
     h3, h4  {  line-height: 1.4;  }
 
-    h1  {  font-size: 2rem;     }       /* 28pt equivalent */
-    h2  {  font-size: 1.72rem;  }       /* 24pt equivalent */
-    h3  {  font-size: 1.43rem;  }       /* 20pt equivalent */
-    h4  {  font-size: 1.15rem;  }       /* 16pt equivalent */
+    h1  {  font-size: 2rem;     }                  /* 28pt equivalent */
+    h2  {  font-size: 1.72rem;  }                  /* 24pt equivalent */
+    h3  {  font-size: 1.43rem;  }                  /* 20pt equivalent */
+    h4  {  font-size: 1.15rem;  }                  /* 16pt equivalent */
 
 /*  Remove the top margin when a heading is the first element inside
  *  an article or section, since no separation is needed above it.   */
@@ -907,7 +907,7 @@ hr {
 }
 
 .infobox {
-    font-style:    italic; 
+    font-style:    italic;
     margin-top:    1rem;
     margin-bottom: 1rem;
     margin-left:   1rem;
@@ -915,16 +915,16 @@ hr {
     text-indent:   0;
 }
 
-kbd  {  font-family: inherit;  }    /* Uses base font for <kbd> tag. */
+kbd  {  font-family: inherit;  }     /* Uses base font for <kbd> tag. */
 
 
-/* Code for Tag Cloud on /tags/ page */
+/* Code for Tag Cloud on /tags/ page. */
 
 .tag-cloud {
     display:         flex;
     flex-wrap:       wrap;
     gap:             0 1.5em;      /* No vertical gap, 1.5em between tags. */
-    justify-content: center;        /* Horizontally center the tags.       */
+    justify-content: center;        /* Horizontally centre the tags.       */
     line-height:     3;
     list-style:      none;
     margin:          0;
@@ -1197,7 +1197,7 @@ kbd  {  font-family: inherit;  }    /* Uses base font for <kbd> tag. */
 
             <span class="text-nobreak">
             <!-- This <span> is needed to make sure that the
-                 flexbox class ‘with-icon’ see the text and
+                 flexbox class ‘with-icon’ sees the text and
                  link as a single ‘item’ to make it group
                  correctly with the SVG icon.                       -->
                 Reblogged from <a href="{ReblogRootURL}" class="link-reblog-source">{ReblogRootName}</a></span>
@@ -1400,7 +1400,7 @@ kbd  {  font-family: inherit;  }    /* Uses base font for <kbd> tag. */
 //  This script performs three main functions:
 //
 //  1. It checks the current date and, if it matches a special
-//     occasion, it can override the site’s logo, link color, inject
+//     occasion, it can override the site’s logo, link colour, inject
 //     custom CSS, or display a specific quote.
 //  2. It updates the copyright year in the footer to the current year.
 //  3. If no specific quote is set for the day, it displays a random one.
