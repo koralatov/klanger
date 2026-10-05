@@ -548,6 +548,12 @@ body {
         width:   100%;
     }
 
+    /*  Remove empty line boxes around linked images.  */
+    article a:has(> img) {
+        display: block;
+        padding: 0;
+    }
+
     article iframe  {  max-width: 100%;  }
 
     /*  Stop Tumblr embeds from overflowing on mobile and centre
