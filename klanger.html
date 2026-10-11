@@ -1533,7 +1533,44 @@ const specialDateConfig = {
     },
     '10-10': {
         quote: '<a href="https://en.wikipedia.org/wiki/Fallout_(video_game)" class="link-shy">War. War never changes.</a>',
-        customCSS: `#site-title { display: inline-block; line-height: 0; } #site-title svg { display: block; }`,
+        customCSS: `
+            #site-title {
+                background-color: transparent;
+                padding: 0;
+            }
+
+            #site-title svg {
+                background-color: var(--colour-links);
+                color: var(--colour-text);
+                display: block;
+
+                padding-top:    1px;
+                padding-bottom: 1px;
+                padding-left:   2px;
+                padding-right:  2px;
+            }
+
+            #site-title:hover svg {
+                background-color: transparent;
+                color: var(--colour-active);
+            }
+
+            #site-title:active svg {
+                background-color: var(--colour-text);
+                color: var(--colour-links);
+            }
+
+            @media (prefers-color-scheme: dark) {
+                #site-title svg {
+                    color: var(--colour-background);
+                }
+
+                #site-title:active svg {
+                    background-color: var(--colour-text);
+                    color: var(--colour-background);
+                }
+            }
+        `,
         titleHTML: falloutLogoHTML
     },
     '10-31': { quote: 'Happy Halloween' },
