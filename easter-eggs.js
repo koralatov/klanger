@@ -130,7 +130,6 @@ const specialDateConfig = {
     },
     '10-10': {
         quote: '<a href="https://en.wikipedia.org/wiki/Fallout_(video_game)" class="link-shy">War. War never changes.</a>',
-        customCSS: `#site-title, #site-title a { background-color: transparent; padding: 0; } #site-title { color: var(--colour-text); } #site-title:hover { color: var(--colour-active); }`,
         titleHTML: falloutLogoHTML
     },
     '10-31': { quote: 'Happy Halloween' },
